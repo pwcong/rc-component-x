@@ -1,0 +1,29 @@
+{
+  "name": "@rc-x/icon",
+  "version": "0.0.1",
+  "description": "Icon",
+  "main": "dist/bundle.min.js",
+  "module": "dist/bundle.es.js",
+  "keywords": [
+    "rc-x-icon"
+  ],
+  "author": "Pwcong <pwcong@foxmail.com>",
+  "scripts": {
+    "generate": "node ./scripts/generate.js"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@rc-x/style": "^0.0.1",
+    "@rc-x/utils": "^0.0.1"
+  },
+  "devDependencies": {
+    "@rc-x/test": "^0.0.1",
+    "@svgr/core": "^4.2.0",
+    "chalk": "^2.4.2",
+    "change-case": "^3.1.0",
+    "fs-extra": "^7.0.1",
+    "klaw-sync": "^6.0.0",
+    "prettier": "^1.17.0"
+  },
+  "gitHead": "56ef5fc17a78c9aaaf5dfde8b6ed6b5fb779bd51"
+}

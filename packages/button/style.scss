@@ -1,0 +1,89 @@
+@import '~@rc-x/style/common.scss';
+
+$button-prefix-cls: #{$prefix-cls}-button;
+
+.#{$button-prefix-cls} {
+  border: 1px solid $border-color;
+  background-color: $white;
+  border-radius: $border-radius;
+  box-sizing: border-box;
+  height: $button-height;
+  padding: $button-padding;
+  font-size: $font-size;
+  color: $text-color;
+  outline: none;
+  cursor: pointer;
+
+  transition: all 0.3s;
+
+  &:hover {
+    border-color: $primary-color;
+    color: $primary-color;
+  }
+
+  &-primary {
+    background-color: $primary-color;
+    border-color: $primary-color !important;
+    color: $white !important;
+  }
+
+  &-warning {
+    background-color: $warning-color;
+    border-color: $warning-color !important;
+    color: $white !important;
+  }
+
+  &-success {
+    background-color: $success-color;
+    border-color: $success-color !important;
+    color: $white !important;
+  }
+
+  &-danger {
+    background-color: $error-color;
+    border-color: $error-color !important;
+    color: $white !important;
+  }
+
+  &-loading {
+    cursor: wait;
+  }
+
+  &-disabled {
+    background-color: $disabled-color;
+    border-color: $disabled-color !important;
+    color: $text-color-light !important;
+    cursor: not-allowed;
+  }
+
+
+  &-large {
+    font-size: $font-size-lg;
+    height: $button-height-lg;
+    padding: $button-padding-lg;
+    border-radius: $border-radius-lg;
+  }
+  
+  &-small {
+    font-size: $font-size-sm;
+    height: $button-height-sm;
+    padding: $button-padding-sm;
+    border-radius: $border-radius-sm;
+  }
+
+  &-circle {
+    border-radius: $button-height / 2;
+  }
+  &-circle.#{$button-prefix-cls}-large {
+    border-radius: $button-height-lg / 2;
+  }
+  &-circle.#{$button-prefix-cls}-small {
+    border-radius: $button-height-sm / 2;
+  }
+
+  .#{$prefix-cls}-icon {
+    margin-right: 4px;
+    font-size: inherit;
+    color: inherit;
+  }
+}

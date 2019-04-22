@@ -1,0 +1,21 @@
+{
+  "name": "@rc-x/input",
+  "version": "0.0.1",
+  "description": "Input",
+  "author": "Pwcong <pwcong@foxmail.com>",
+  "main": "dist/bundle.min.js",
+  "module": "dist/bundle.es.js",
+  "keywords": [
+    "rc-x-input"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "@rc-x/icon": "^0.0.1",
+    "@rc-x/style": "^0.0.1",
+    "@rc-x/utils": "^0.0.1"
+  },
+  "devDependencies": {
+    "@rc-x/test": "^0.0.1"
+  },
+  "gitHead": "56ef5fc17a78c9aaaf5dfde8b6ed6b5fb779bd51"
+}

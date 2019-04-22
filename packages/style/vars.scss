@@ -1,0 +1,42 @@
+/**************** Global  ****************/
+$prefix-cls: rc-x;
+
+/**************** Color  ****************/
+$white: #ffffff;
+$black: #000000;
+$primary-color: #0077ff;
+$error-color: #ff1100;
+$warning-color: #ffbb00;
+$success-color: #11cc00;
+$disabled-color: #dddddd;
+
+/**************** Font  ****************/
+$font-size-sm: 12px;
+$font-size: 14px;
+$font-size-md: 16px;
+$font-size-lg: 18px;
+$font-size-xl: 24px;
+$font-size-xxl: 32px;
+
+$text-color: #333333;
+$text-color-secondary: #666666;
+$text-color-light: #999999;
+$text-color-danger: $error-color;
+$text-color-disabled: $disabled-color;
+
+/**************** Button  ****************/
+$button-height-sm: 24px;
+$button-height: 32px;
+$button-height-md: $button-height;
+$button-height-lg: 40px;
+$button-padding-sm: 0 4px;
+$button-padding: 0 8px;
+$button-padding-lg: 0 12px;
+
+/**************** Border  ****************/
+$border-color: #dddddd;
+$border-color-split: #eeeeee;
+$border-radius-sm: 2px;
+$border-radius: 4px;
+$border-radius-md: $border-radius;
+$border-radius-lg: 6px;
