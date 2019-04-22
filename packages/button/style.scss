@@ -22,27 +22,39 @@ $button-prefix-cls: #{$prefix-cls}-button;
   }
 
   &-primary {
-    background-color: $primary-color;
     border-color: $primary-color !important;
-    color: $white !important;
+    color: $primary-color;
+    &:hover {
+      background-color: $primary-color;
+      color: $white;
+    }
   }
 
   &-warning {
-    background-color: $warning-color;
     border-color: $warning-color !important;
-    color: $white !important;
+    color: $warning-color;
+    &:hover {
+      background-color: $warning-color;
+      color: $white;
+    }
   }
 
   &-success {
-    background-color: $success-color;
     border-color: $success-color !important;
-    color: $white !important;
+    color: $success-color;
+    &:hover {
+      background-color: $success-color;
+      color: $white;
+    }
   }
 
   &-danger {
-    background-color: $error-color;
     border-color: $error-color !important;
-    color: $white !important;
+    color: $error-color;
+    &:hover {
+      background-color: $error-color;
+      color: $white;
+    }
   }
 
   &-loading {
@@ -50,12 +62,11 @@ $button-prefix-cls: #{$prefix-cls}-button;
   }
 
   &-disabled {
-    background-color: $disabled-color;
+    background-color: $disabled-color !important;
     border-color: $disabled-color !important;
     color: $text-color-light !important;
     cursor: not-allowed;
   }
-
 
   &-large {
     font-size: $font-size-lg;
@@ -63,7 +74,7 @@ $button-prefix-cls: #{$prefix-cls}-button;
     padding: $button-padding-lg;
     border-radius: $border-radius-lg;
   }
-  
+
   &-small {
     font-size: $font-size-sm;
     height: $button-height-sm;
@@ -82,7 +93,7 @@ $button-prefix-cls: #{$prefix-cls}-button;
   }
 
   .#{$prefix-cls}-icon {
-    margin-right: 4px;
+    margin-right: 6px;
     font-size: inherit;
     color: inherit;
   }
