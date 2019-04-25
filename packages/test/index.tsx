@@ -11,7 +11,6 @@ export type IComponentPropType =
   | 'switch'
   | 'checkbox'
   | 'input'
-  | 'children'
   | 'inputNumber';
 
 export interface IComponentBaseProp {
@@ -58,6 +57,7 @@ export interface IProps {
   componentProps?: { [name: string]: any };
   componentTestProps: { [name: string]: IComponentProp };
   componentPackageJson: { [name: string]: any };
+  children?: React.ReactNode;
 }
 
 const Test = (props: IProps) => {
@@ -65,7 +65,8 @@ const Test = (props: IProps) => {
     component,
     componentProps,
     componentTestProps,
-    componentPackageJson
+    componentPackageJson,
+    children
   } = props;
 
   const controllers = Object.keys(componentTestProps).map(k => {
@@ -231,6 +232,9 @@ const Test = (props: IProps) => {
           ...(componentProps || {}),
           ..._componentTestProps
         })}
+        {children && (
+          <div className={getPrefixCls('children', baseCls)}>{children}</div>
+        )}
       </div>
     </div>
   );

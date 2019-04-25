@@ -3,4 +3,12 @@
 $input-prefix-cls: #{$prefix-cls}-input;
 
 .#{$input-prefix-cls} {
+  display: block;
+  height: $input-height;
+  border: 1px solid $border-color;
+  font-size: $font-size;
+
+  &-sm {
+    height: $input-height-sm;
+  }
 }

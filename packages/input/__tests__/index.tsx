@@ -12,6 +12,8 @@ export default function() {
       componentProps={{}}
       componentTestProps={{}}
       componentPackageJson={packageJson}
-    />
+    >
+      <Input />
+    </Test>
   );
 }
