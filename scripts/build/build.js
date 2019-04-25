@@ -10,7 +10,11 @@ module.exports = async (inputOptions, outputOptions) => {
   const esBundle = await rollup.rollup(
     Object.assign(
       {
-        external: ['react', 'react-dom'],
+        external: ['react', 'react-dom'].concat(
+          Object.keys((inputOptions.package || {})['dependencies'] || {})
+            .filter(k => /@rc-x/.test(k))
+            .map(k => k)
+        ),
         plugins: [
           typescript({
             tsconfig: path.resolve(__dirname, '../../tsconfig.json')
@@ -20,7 +24,7 @@ module.exports = async (inputOptions, outputOptions) => {
           postcss()
         ]
       },
-      inputOptions
+      inputOptions.rollup || {}
     )
   );
   await esBundle.write({
@@ -42,7 +46,7 @@ module.exports = async (inputOptions, outputOptions) => {
           uglify()
         ]
       },
-      inputOptions
+      inputOptions.rollup
     )
   );
   await umdBundle.write({

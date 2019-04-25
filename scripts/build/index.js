@@ -47,7 +47,10 @@ async function main() {
     try {
       await build(
         {
-          input: inputPath
+          rollup: {
+            input: inputPath
+          },
+          package: json
         },
         {
           path: distPath,
