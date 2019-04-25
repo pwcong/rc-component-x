@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Icon from '@rc-x/icon';
-import classNames, { getPrefixCls } from '@rc-x/utils/classnames';
+import { classNames, getPrefixCls } from '@rc-x/utils';
 
 import './style.scss';
 
@@ -17,18 +17,49 @@ export type IButtonShape = 'circle' | 'round';
 export type IButtonTarget = '_blank' | '_self';
 
 export interface IProps {
+  /** 类名 */
   className?: string;
+  /** 子内容 */
   children?: React.ReactNode;
+  /** 点击事件 */
   onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+  /**
+   * HTML类型
+   * @default button
+   */
   htmlType?: IButtonHtmlType;
+  /**
+   * 类型
+   * @default default
+   */
   type?: IButtonType;
+  /**
+   * 边框形状
+   * @default round
+   */
   shape?: IButtonShape;
+  /**
+   * 尺寸
+   * @default default
+   */
   size?: IButtonSize;
+  /** 图标 */
   icon?: string;
+  /** 禁用 */
   disabled?: boolean;
+  /** 链接地址 */
   href?: string;
+  /**
+   * 链接窗口模式
+   * @default _self
+   */
   target?: IButtonTarget;
+  /** 是否加载中 */
   loading?: boolean;
+  /** block模式 */
+  block?: boolean;
+  /** 自定义样式 */
+  style?: React.CSSProperties;
 }
 
 const baseCls = getPrefixCls('button');
@@ -46,7 +77,8 @@ const Button: React.FunctionComponent<IProps> = (props: IProps) => {
     disabled,
     href,
     target = '_self',
-    loading
+    loading,
+    block
   } = props;
 
   return (
@@ -59,7 +91,8 @@ const Button: React.FunctionComponent<IProps> = (props: IProps) => {
         getPrefixCls(type, baseCls),
         {
           [`${getPrefixCls('disabled', baseCls)}`]: disabled,
-          [`${getPrefixCls('loading', baseCls)}`]: loading
+          [`${getPrefixCls('loading', baseCls)}`]: loading,
+          [`${getPrefixCls('block', baseCls)}`]: block
         }
       )}
       onClick={

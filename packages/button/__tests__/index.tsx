@@ -93,6 +93,21 @@ export default function() {
             { label: '_self', value: '_self' },
             { label: '_blank', value: '_blank' }
           ]
+        },
+        htmlType: {
+          type: 'radio',
+          value: 'button',
+          label: 'HTML类型',
+          options: [
+            { label: 'button', value: 'button' },
+            { label: 'submit', value: 'submit' },
+            { label: 'reset', value: 'reset' }
+          ]
+        },
+        block: {
+          type: 'switch',
+          value: false,
+          label: '是否为Block'
         }
       }}
       componentPackageJson={packageJson}

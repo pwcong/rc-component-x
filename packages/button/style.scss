@@ -16,6 +16,11 @@ $button-prefix-cls: #{$prefix-cls}-button;
 
   transition: all 0.3s;
 
+  &-block {
+    display: block;
+    width: 100%;
+  }
+
   &:hover {
     border-color: $primary-color;
     color: $primary-color;

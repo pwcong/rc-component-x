@@ -7,10 +7,15 @@ import { classNames, getPrefixCls } from '@rc-x/utils';
 import './style.scss';
 
 export interface IProps {
+  /** 类名 */
   className?: string;
+  /** 类型 */
   type?: string;
+  /** 旋转度数 */
   rotate?: number;
+  /** 自定义样式 */
   style?: React.CSSProperties;
+  /** 是否旋转 */
   spin?: boolean;
 }
 
