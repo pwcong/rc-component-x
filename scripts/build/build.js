@@ -5,6 +5,7 @@ const resolve = require('rollup-plugin-node-resolve');
 const commonjs = require('rollup-plugin-commonjs');
 const postcss = require('rollup-plugin-postcss');
 const uglify = require('rollup-plugin-uglify').uglify;
+const filesize = require('rollup-plugin-filesize');
 
 module.exports = async (inputOptions, outputOptions) => {
   const esBundle = await rollup.rollup(
@@ -21,7 +22,8 @@ module.exports = async (inputOptions, outputOptions) => {
           }),
           resolve(),
           commonjs(),
-          postcss()
+          postcss(),
+          filesize()
         ]
       },
       inputOptions.rollup || {}
@@ -43,7 +45,8 @@ module.exports = async (inputOptions, outputOptions) => {
           resolve(),
           commonjs(),
           postcss(),
-          uglify()
+          uglify(),
+          filesize()
         ]
       },
       inputOptions.rollup
