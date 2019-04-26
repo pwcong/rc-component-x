@@ -67,6 +67,7 @@ export interface IProps {
   componentName?: string | Array<string>;
   componentProps?: Array<IComponentProps> | IComponentProps;
   componentTestProps: Array<IComponentTestProps> | IComponentTestProps;
+  defaultActiveComponentName?: string;
   children?: React.ReactNode;
 }
 
@@ -225,6 +226,7 @@ const Test = (props: IProps) => {
     componentProps,
     componentTestProps,
     componentPackageJson,
+    defaultActiveComponentName,
     children
   } = props;
 
@@ -243,7 +245,15 @@ const Test = (props: IProps) => {
 
   let testMain: React.ReactNode;
   if (Array.isArray(component)) {
-    const [tabIndex, setTabIndex] = useState(0);
+    let defaultIndex = 0;
+    if (defaultActiveComponentName) {
+      const activeIndex = (componentName as Array<string>).indexOf(
+        defaultActiveComponentName
+      );
+      activeIndex > -1 && (defaultIndex = activeIndex);
+    }
+
+    const [tabIndex, setTabIndex] = useState(defaultIndex);
 
     testMain = [
       <div className={getPrefixCls('items', baseCls)} key="items">
@@ -268,7 +278,6 @@ const Test = (props: IProps) => {
       <div className={getPrefixCls('tabs', baseCls)} key="tabs">
         {component.map((c, i) => {
           const tabCls = getPrefixCls('tab', baseCls);
-          console.log(Object.keys(c.prototype));
           return (
             <div
               key={`${tabCls}-${i}`}

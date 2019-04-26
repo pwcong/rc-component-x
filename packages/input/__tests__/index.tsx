@@ -8,9 +8,19 @@ import packageJson from '../package.json';
 export default function() {
   return (
     <Test
-      component={[Input, Input.Password]}
-      componentName={['Input', 'Password']}
-      componentProps={[{}, {}]}
+      component={[Input, Input.Password, Input.Search, Input.Textarea]}
+      componentName={['Input', 'Password', 'Search', 'Textarea']}
+      defaultActiveComponentName="Textarea"
+      componentProps={[
+        {},
+        {},
+        {
+          onSearch: value => {
+            alert('Search: ' + value);
+          }
+        },
+        {}
+      ]}
       componentTestProps={[
         {
           defaultValue: {
@@ -88,7 +98,9 @@ export default function() {
             value: true,
             label: '是否默认可见'
           }
-        }
+        },
+        {},
+        {}
       ]}
       componentPackageJson={packageJson}
     >

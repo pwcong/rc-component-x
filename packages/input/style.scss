@@ -4,6 +4,12 @@ $input-prefix-cls: #{$prefix-cls}-input;
 $input-wrapper-cls: #{$input-prefix-cls}-wrapper;
 $input-inner-cls: #{$input-prefix-cls}-inner;
 $input-addon-cls: #{$input-prefix-cls}-addon;
+$input-number-cls: #{$input-prefix-cls}-number;
+$input-search-cls: #{$input-prefix-cls}-search;
+
+$textarea-prefix-cls: #{$prefix-cls}-textarea;
+$textarea-wrapper-cls: #{$textarea-prefix-cls}-wrapper;
+$textarea-inner-cls: #{$textarea-prefix-cls}-inner;
 
 .#{$input-prefix-cls} {
   display: block;
@@ -152,4 +158,28 @@ $input-addon-cls: #{$input-prefix-cls}-addon;
       border-bottom-right-radius: $border-radius;
     }
   }
+}
+
+.#{$input-number-cls} {
+  &-toggle {
+    cursor: pointer;
+    &:hover {
+      color: $primary-color;
+    }
+  }
+}
+
+.#{$input-search-cls} {
+  &-enter {
+    cursor: pointer;
+    &:hover {
+      color: $primary-color;
+    }
+  }
+}
+
+.#{$textarea-prefix-cls} {
+  width: 100%;
+  resize: vertical;
+  display: block;
 }
