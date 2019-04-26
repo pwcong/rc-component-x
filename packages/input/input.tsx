@@ -3,6 +3,7 @@ import React, { PureComponent } from 'react';
 import { classNames, getPrefixCls } from '@rc-x/utils';
 import Icon from '@rc-x/icon';
 
+import { IProps as IPasswordProps } from './password';
 import './style.scss';
 
 const baseCls = getPrefixCls('input');
@@ -12,6 +13,8 @@ export type IInputSize = 'default' | 'large' | 'small';
 export interface IProps {
   /** ID */
   id?: string;
+  /** 字段 */
+  name?: string;
   /** 自定义样式 */
   className?: string;
   /** 默认值 */
@@ -26,11 +29,12 @@ export interface IProps {
    */
   size?: IInputSize;
   /** 前缀图标 */
-  prefix?: string;
+  prefix?: string | React.ReactNode;
   /** 后缀图标 */
-  suffix?: string;
+  suffix?: string | React.ReactNode;
   /** 允许清除 */
   allowClear?: boolean;
+  onClear?: (event: React.MouseEvent<HTMLElement, MouseEvent>) => void;
   /** 变更回调 */
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   /** 回车键回调 */
@@ -47,7 +51,9 @@ export interface IState {
   value: string;
 }
 
-export default class Input extends PureComponent<IProps> {
+export default class Input extends PureComponent<IProps, IState> {
+  static Password: React.FunctionComponent<IPasswordProps>;
+
   static defaultProps: IProps = {
     size: 'default',
     htmlType: 'text'
@@ -62,27 +68,41 @@ export default class Input extends PureComponent<IProps> {
   }
 
   static getDerivedStateFromProps(props: IProps, state) {
-    if (props.value !== state.value) {
+    if (props.value !== undefined && props.value !== state.value) {
       return Object.assign({}, state, {
         value: props.value
       });
     }
+
+    return state;
   }
 
   handleChange = e => {
     const { onChange } = this.props;
 
-    this.setState({ value: e.target.value });
     onChange && onChange(e);
+    this.setState({ value: e.target.value });
+  };
+
+  handleClear = e => {
+    const { onChange } = this.props;
+    onChange && onChange(e);
+    this.setState({ value: '' });
   };
 
   renderInput = () => {
-    const { className, htmlType, size } = this.props;
+    const { id, name, className, htmlType, size, disabled } = this.props;
+    const { value } = this.state;
 
     return (
       <input
-        className={classNames(baseCls, className, `${baseCls}-${size}`)}
+        id={id}
+        name={name}
+        className={classNames(baseCls, className, `${baseCls}-${size}`, {
+          [`${baseCls}-disabled`]: disabled
+        })}
         type={htmlType}
+        value={value}
         onChange={this.handleChange}
       />
     );
@@ -97,27 +117,64 @@ export default class Input extends PureComponent<IProps> {
   };
 
   render() {
-    const { prefix, suffix, addonBefore, addonAfter } = this.props;
+    const {
+      prefix,
+      suffix,
+      addonBefore,
+      addonAfter,
+      allowClear,
+      size
+    } = this.props;
 
-    if (prefix || suffix || addonBefore || addonAfter) {
+    if (prefix || suffix || addonBefore || addonAfter || allowClear) {
       const wrapperCls = getPrefixCls('wrapper', baseCls);
+      const innerCls = getPrefixCls('inner', baseCls);
 
       return (
         <div
-          className={classNames(wrapperCls, {
-            [`${getPrefixCls('has-prefix', wrapperCls)}`]: prefix,
-            [`${getPrefixCls('has-suffix', wrapperCls)}`]: suffix
+          className={classNames(wrapperCls, `${wrapperCls}-${size}`, {
+            [`${getPrefixCls('has-addon', wrapperCls)}`]:
+              addonBefore || addonAfter,
+            [`${getPrefixCls('has-addon-before', wrapperCls)}`]: addonBefore,
+            [`${getPrefixCls('has-addon-after', wrapperCls)}`]: addonAfter
           })}
         >
           {addonBefore && this.renderAddon(addonBefore, 'before')}
-          {this.renderInput()}
+          {prefix || suffix || allowClear ? (
+            <div
+              className={classNames(innerCls, {
+                [`${getPrefixCls('has-prefix', innerCls)}`]: prefix,
+                [`${getPrefixCls('has-suffix', innerCls)}`]: suffix,
+                [`${getPrefixCls('has-clear', innerCls)}`]: allowClear
+              })}
+            >
+              {this.renderInput()}
+              {prefix && (
+                <div className={getPrefixCls('prefix', baseCls)}>
+                  {typeof prefix === 'string' ? <Icon type={prefix} /> : prefix}
+                </div>
+              )}
+              {suffix || allowClear ? (
+                <div className={getPrefixCls('suffix', baseCls)}>
+                  {suffix && typeof suffix === 'string' ? (
+                    <Icon type={suffix} />
+                  ) : (
+                    suffix
+                  )}
+                  {allowClear && this.state.value && (
+                    <Icon
+                      onClick={this.handleClear}
+                      className={getPrefixCls('clear', baseCls)}
+                      type="x-circle"
+                    />
+                  )}
+                </div>
+              ) : null}
+            </div>
+          ) : (
+            this.renderInput()
+          )}
           {addonAfter && this.renderAddon(addonAfter, 'after')}
-          {prefix && (
-            <Icon type={prefix} className={getPrefixCls('prefix', baseCls)} />
-          )}
-          {suffix && (
-            <Icon type={suffix} className={getPrefixCls('suffix', baseCls)} />
-          )}
         </div>
       );
     }

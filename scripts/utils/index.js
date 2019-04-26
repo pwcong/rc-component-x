@@ -18,6 +18,7 @@ const getPackages = (exports.getPackages = () => {
       const json = fs.readJSONSync(path.join(package.path, 'package.json'));
       return Object.assign({}, json, {
         path: package.path,
+        distPath: path.join(package.path, 'dist'),
         componentName: changeCase.pascalCase(path.basename(package.path))
       });
     });

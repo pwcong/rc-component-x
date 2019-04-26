@@ -1,14 +1,155 @@
 @import '~@rc-x/style/common.scss';
 
 $input-prefix-cls: #{$prefix-cls}-input;
+$input-wrapper-cls: #{$input-prefix-cls}-wrapper;
+$input-inner-cls: #{$input-prefix-cls}-inner;
+$input-addon-cls: #{$input-prefix-cls}-addon;
 
 .#{$input-prefix-cls} {
   display: block;
   height: $input-height;
   border: 1px solid $border-color;
   font-size: $font-size;
+  padding-left: $input-padding-left;
+  padding-right: $input-padding-right;
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
+  color: $text-color;
+  border-radius: $border-radius;
+  z-index: 1;
 
-  &-sm {
+  @include easeInOutTransition;
+
+  &:hover,
+  &:focus {
+    border-color: $primary-color;
+  }
+
+  &-small {
     height: $input-height-sm;
+    font-size: $font-size-sm;
+    border-radius: $border-radius-sm;
+  }
+  &-large {
+    height: $input-height-lg;
+    font-size: $font-size-lg;
+    border-radius: $border-radius-lg;
+  }
+
+  &-disabled {
+    cursor: not-allowed;
+    background-color: $disabled-bg;
+    color: $disabled-color;
+    border-color: $border-color !important;
+  }
+
+  &-wrapper {
+    display: flex;
+
+    &-has-addon {
+    }
+
+    &-has-addon-before {
+      .#{$input-prefix-cls} {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+    }
+    &-has-addon-after {
+      .#{$input-prefix-cls} {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+    }
+
+    &-large {
+      .#{$input-addon-cls}-before {
+        border-top-left-radius: $border-radius-lg;
+        border-bottom-left-radius: $border-radius-lg;
+      }
+      .#{$input-addon-cls}-after {
+        border-top-right-radius: $border-radius-lg;
+        border-bottom-right-radius: $border-radius-lg;
+      }
+    }
+    &-small {
+      .#{$input-addon-cls}-before {
+        border-top-left-radius: $border-radius-sm;
+        border-bottom-left-radius: $border-radius-sm;
+      }
+      .#{$input-addon-cls}-after {
+        border-top-right-radius: $border-radius-sm;
+        border-bottom-right-radius: $border-radius-sm;
+      }
+    }
+  }
+  &-inner {
+    flex: 1;
+    position: relative;
+    &-has-prefix {
+      .#{$input-prefix-cls} {
+        padding-left: $input-padding-left * 2 + $font-size;
+      }
+    }
+    &-has-suffix,
+    &-has-cleer {
+      .#{$input-prefix-cls} {
+        padding-right: $input-padding-right * 2 + $font-size;
+      }
+    }
+
+    &-has-suffix.#{$input-inner-cls}-has-clear {
+      .#{$input-prefix-cls} {
+        padding-right: $input-padding-right * 2 + $font-size * 2;
+      }
+    }
+  }
+
+  &-suffix,
+  &-prefix {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+
+    .#{$prefix-cls}-icon {
+      &:not(:last-child) {
+        margin-right: 2px;
+      }
+    }
+  }
+  &-prefix {
+    left: $input-padding-left;
+  }
+  &-suffix {
+    right: $input-padding-right;
+  }
+  &-clear {
+    cursor: pointer;
+    &:hover {
+      color: $primary-color;
+    }
+  }
+
+  &-addon {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    padding: $input-addon-padding;
+    border: 1px solid $border-color;
+    &-before {
+      margin-right: -1px;
+      border-right: 0;
+      border-top-left-radius: $border-radius;
+      border-bottom-left-radius: $border-radius;
+    }
+    &-after {
+      margin-left: -1px;
+      border-left: 0;
+      border-top-right-radius: $border-radius;
+      border-bottom-right-radius: $border-radius;
+    }
   }
 }

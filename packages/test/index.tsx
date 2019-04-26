@@ -52,22 +52,26 @@ export type IComponentProp =
   | IComponentInputNumberProp
   | IComponentSwitchProp;
 
-export interface IProps {
+export type IComponentProps = { [name: string]: any };
+export type IComponentTestProps = { [name: string]: IComponentProp };
+
+export interface ITestChildProps {
   component: any;
-  componentProps?: { [name: string]: any };
-  componentTestProps: { [name: string]: IComponentProp };
+  componentProps?: IComponentProps;
+  componentTestProps: IComponentTestProps;
+}
+
+export interface IProps {
   componentPackageJson: { [name: string]: any };
+  component: any | Array<any>;
+  componentName?: string | Array<string>;
+  componentProps?: Array<IComponentProps> | IComponentProps;
+  componentTestProps: Array<IComponentTestProps> | IComponentTestProps;
   children?: React.ReactNode;
 }
 
-const Test = (props: IProps) => {
-  const {
-    component,
-    componentProps,
-    componentTestProps,
-    componentPackageJson,
-    children
-  } = props;
+const TestChild = (props: ITestChildProps) => {
+  const { component, componentProps, componentTestProps } = props;
 
   const controllers = Object.keys(componentTestProps).map(k => {
     const prop = componentTestProps[k];
@@ -83,26 +87,7 @@ const Test = (props: IProps) => {
   controllers.forEach(c => (_componentTestProps[c.name] = c.value));
 
   return (
-    <div className={classNames(baseCls)}>
-      <div className={getPrefixCls('package', baseCls)}>
-        <div className={getPrefixCls('title', baseCls)}>Package</div>
-        <table>
-          <tbody>
-            <tr>
-              <td>name:</td>
-              <td>{componentPackageJson.name}</td>
-            </tr>
-            <tr>
-              <td>description:</td>
-              <td>{componentPackageJson.description}</td>
-            </tr>
-            <tr>
-              <td>version:</td>
-              <td>{componentPackageJson.version}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+    <div className={getPrefixCls('child', baseCls)}>
       <div className={getPrefixCls('props', baseCls)}>
         <div className={getPrefixCls('title', baseCls)}>Props</div>
         {controllers.map((c, index) => {
@@ -159,23 +144,19 @@ const Test = (props: IProps) => {
               break;
             case 'switch':
               const switchGroupCls = getPrefixCls('switch-group', propCls);
-              const switchOptions = ['true', 'false'];
               controller = (
                 <div className={switchGroupCls}>
-                  {switchOptions.map((o, _index) => (
-                    <label key={`${switchGroupCls}-${_index}`}>
-                      <input
-                        name={c.name}
-                        value={o}
-                        type="radio"
-                        checked={c.value.toString() === o}
-                        onChange={e => {
-                          c.setValue(e.target.value === 'true');
-                        }}
-                      />
-                      {o}
-                    </label>
-                  ))}
+                  <label>
+                    <input
+                      name={c.name}
+                      type="checkbox"
+                      checked={c.value}
+                      onChange={e => {
+                        c.setValue(e.target.checked);
+                      }}
+                    />
+                    {c.value ? 'true' : 'false'}
+                  </label>
                 </div>
               );
               break;
@@ -232,10 +213,118 @@ const Test = (props: IProps) => {
           ...(componentProps || {}),
           ..._componentTestProps
         })}
-        {children && (
-          <div className={getPrefixCls('children', baseCls)}>{children}</div>
-        )}
       </div>
+    </div>
+  );
+};
+
+const Test = (props: IProps) => {
+  const {
+    component,
+    componentName,
+    componentProps,
+    componentTestProps,
+    componentPackageJson,
+    children
+  } = props;
+
+  if (Array.isArray(component)) {
+    if (
+      !Array.isArray(componentName) ||
+      !Array.isArray(componentProps) ||
+      !Array.isArray(componentTestProps) ||
+      componentName.length !== component.length ||
+      componentProps.length !== component.length ||
+      componentTestProps.length !== component.length
+    ) {
+      return <div>Invalid Test Props</div>;
+    }
+  }
+
+  let testMain: React.ReactNode;
+  if (Array.isArray(component)) {
+    const [tabIndex, setTabIndex] = useState(0);
+
+    testMain = [
+      <div className={getPrefixCls('items', baseCls)} key="items">
+        {component.map((c, i) => {
+          const childCls = getPrefixCls('item', baseCls);
+          return (
+            <div
+              className={classNames(childCls, {
+                [`${childCls}-active`]: i === tabIndex
+              })}
+              key={`${childCls}-${i}`}
+            >
+              <TestChild
+                component={c}
+                componentProps={componentProps ? componentProps[i] : undefined}
+                componentTestProps={componentTestProps[i]}
+              />
+            </div>
+          );
+        })}
+      </div>,
+      <div className={getPrefixCls('tabs', baseCls)} key="tabs">
+        {component.map((c, i) => {
+          const tabCls = getPrefixCls('tab', baseCls);
+          console.log(Object.keys(c.prototype));
+          return (
+            <div
+              key={`${tabCls}-${i}`}
+              onClick={() => {
+                setTabIndex(i);
+              }}
+              className={classNames(tabCls, {
+                [`${tabCls}-active`]: i === tabIndex
+              })}
+            >
+              {componentName ? componentName[i] : undefined}
+            </div>
+          );
+        })}
+      </div>
+    ];
+  } else {
+    testMain = (
+      <TestChild
+        component={component}
+        componentProps={componentProps}
+        componentTestProps={componentTestProps as IComponentTestProps}
+      />
+    );
+  }
+
+  return (
+    <div className={classNames(baseCls)}>
+      <div className={getPrefixCls('package', baseCls)}>
+        <div className={getPrefixCls('title', baseCls)}>Package</div>
+        <table>
+          <tbody>
+            <tr>
+              <td>name:</td>
+              <td>{componentPackageJson.name}</td>
+            </tr>
+            <tr>
+              <td>description:</td>
+              <td>{componentPackageJson.description}</td>
+            </tr>
+            <tr>
+              <td>version:</td>
+              <td>{componentPackageJson.version}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      {testMain}
+
+      {children && (
+        <div className={getPrefixCls('custom', baseCls)}>
+          <div className={getPrefixCls('title', baseCls)}>Custom</div>
+          {children}
+        </div>
+      )}
     </div>
   );
 };

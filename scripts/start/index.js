@@ -1,5 +1,4 @@
 const VirtualModulesPlugin = require('webpack-virtual-modules');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 const path = require('path');
 const fs = require('fs-extra');
@@ -39,6 +38,11 @@ inquirer
       return;
     }
 
+    // clean dist dirs
+    packages.forEach(p => {
+      fs.emptyDirSync(p.distPath);
+    });
+
     const packagePath = answers.package;
     const distPath = path.join(packagePath, 'dist');
     const testPath = path.join(packagePath, '__tests__');
@@ -58,7 +62,7 @@ inquirer
       output: {
         path: distPath
       },
-      plugins: [virtualModules, new CleanWebpackPlugin()]
+      plugins: [virtualModules]
     };
 
     start(config, webpackConfig);

@@ -17,6 +17,8 @@ export interface IProps {
   style?: React.CSSProperties;
   /** 是否旋转 */
   spin?: boolean;
+  /** 点击事件 */
+  onClick?: (event: React.MouseEvent<HTMLElement, MouseEvent>) => void;
 }
 
 const baseCls = getPrefixCls('icon');
@@ -27,7 +29,8 @@ const Icon: React.FunctionComponent<IProps> = props => {
     type = 'loader',
     rotate,
     style: customStyle,
-    spin
+    spin,
+    onClick
   } = props;
 
   const style: React.CSSProperties = customStyle || {};
@@ -41,6 +44,7 @@ const Icon: React.FunctionComponent<IProps> = props => {
         [`${baseCls}-spin`]: spin
       })}
       style={style}
+      onClick={onClick}
     >
       {icons[type] ? React.createElement(icons[type]) : null}
     </i>
