@@ -182,4 +182,11 @@ $textarea-inner-cls: #{$textarea-prefix-cls}-inner;
   width: 100%;
   resize: vertical;
   display: block;
+  box-sizing: border-box;
+  border: 1px solid $border-color;
+  border-radius: $border-radius;
+  font-size: $font-size;
+  color: $text-color;
+  outline: none;
+  padding: $textarea-padding;
 }
