@@ -46,7 +46,7 @@ export default function() {
         maxHeight: {
           type: 'inputNumber',
           label: '最大高度',
-          value: 999
+          value: 50
         }
       }}
       componentPackageJson={packageJson}

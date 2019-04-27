@@ -18,14 +18,6 @@ class Panel extends React.PureComponent<IForwardRefProps> {
     return (this.props.forwardedRef as React.RefObject<any>) || this.ref;
   };
 
-  componentWillReceiveProps(nextProps: IProps) {
-    const { expand } = nextProps;
-    if (expand !== undefined) {
-      const ref = this.getRef();
-      expand === false && ref && ref.current && (ref.current.scrollTop = 0);
-    }
-  }
-
   render() {
     const {
       children,
@@ -43,6 +35,9 @@ class Panel extends React.PureComponent<IForwardRefProps> {
     minHeight && (style['minHeight'] = getHeight(minHeight) + 'px');
 
     const ref = this.getRef();
+    if (ref && ref.current) {
+      expand === false && (ref.current.scrollTop = 0);
+    }
 
     return (
       <div

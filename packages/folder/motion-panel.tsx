@@ -13,6 +13,7 @@ export interface IForwardRefProps extends IProps {
 }
 
 export interface IState {
+  expand: boolean;
   status: 'expand' | 'collapse' | 'idle';
   panelHeight: 0;
 }
@@ -25,22 +26,22 @@ class MotionPanel extends React.PureComponent<IForwardRefProps, IState> {
 
     const { expand } = props;
     this.state = {
+      expand: expand === true,
       status: expand === undefined ? 'expand' : 'collapse',
       panelHeight: 0
     };
   }
 
-  componentWillReceiveProps(nextProps: IProps) {
-    const { expand } = nextProps;
-    if (expand !== undefined) {
-      const ref = this.getRef();
-      expand === false && ref && ref.current && (ref.current.scrollTop = 0);
-      if (this.props.expand !== nextProps.expand) {
-        this.setState({
-          status: 'idle'
-        });
-      }
+  static getDerivedStateFromProps(props: IForwardRefProps, state: IState) {
+    if (props.expand !== undefined && state.expand !== props.expand) {
+      console.log(props);
+      return Object.assign({}, state, {
+        expand: props.expand,
+        status: 'idle'
+      });
     }
+
+    return state;
   }
 
   getRef = () => {
@@ -75,8 +76,11 @@ class MotionPanel extends React.PureComponent<IForwardRefProps, IState> {
 
     const ref = this.getRef();
     let panelHeight = this.state.panelHeight;
-    if (ref && ref.current && ref.current.scrollHeight !== panelHeight) {
-      panelHeight = ref.current.scrollHeight;
+    if (ref && ref.current) {
+      const current = ref.current;
+      current.scrollHeight !== panelHeight &&
+        (panelHeight = current.scrollHeight);
+      expand === false && (current.scrollTop = 0);
     }
     const height = expand === false ? 0 : panelHeight;
 

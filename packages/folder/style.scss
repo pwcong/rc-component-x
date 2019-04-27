@@ -1,19 +1,19 @@
 @import '~@rc-x/style/common.scss';
 
 $folder-prefix-cls: #{$prefix-cls}-folder;
+$folder-panel-cls: #{$folder-prefix-cls}-panel;
+$folder-panel-cls: #{$folder-prefix-cls}-motion-panel;
+
 .#{$folder-prefix-cls} {
   &-panel,
   &-motion-panel {
     overflow: hidden;
-  }
 
-  &-expand.#{$folder-prefix-cls}-panel,
-  &-expand.#{$folder-prefix-cls}-motion-panel {
-    height: auto !important;
-    overflow: auto;
-  }
-
-  &-collapse.#{$folder-prefix-cls}-panel,
-  &-collapse.#{$folder-prefix-cls}-motion-panel {
+    &-expand {
+      height: auto !important;
+      overflow: auto;
+    }
+    &-collapse {
+    }
   }
 }
