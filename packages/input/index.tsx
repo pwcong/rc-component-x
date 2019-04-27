@@ -1,8 +1,5 @@
 import Input from './input';
-import Password from './password';
-import Search from './search';
-
-Input.Password = Password;
-Input.Search = Search;
-
+export { default as Password } from './password';
+export { default as Search } from './search';
+export { default as Textarea } from './textarea';
 export default Input;

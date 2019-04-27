@@ -12,14 +12,19 @@ export interface IProps extends IInputProps {
   defaultVisibled?: boolean;
 }
 
-const Password: React.FunctionComponent<IProps> = props => {
-  const { defaultVisibled = true, className } = props;
+export interface IForwardRefProps extends IProps {
+  forwardedRef?: React.Ref<any>;
+}
+
+const Password: React.FunctionComponent<IForwardRefProps> = props => {
+  const { defaultVisibled = true, className, forwardedRef } = props;
 
   const [visibled, setVisibled] = useState(defaultVisibled);
 
   return (
     <Input
       {...props}
+      ref={forwardedRef}
       className={classNames(baseCls, className)}
       htmlType={visibled ? 'text' : 'password'}
       suffix={
@@ -39,4 +44,6 @@ Password.defaultProps = {
   defaultVisibled: true
 };
 
-export default Password;
+export default React.forwardRef<any, IProps>((props, ref) => {
+  return <Password {...props} forwardedRef={ref} />;
+});

@@ -11,4 +11,6 @@ export interface IBaseProps {
   value?: string;
   /** 是否禁用 */
   disabled?: boolean;
+  /** 变更回调 */
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }

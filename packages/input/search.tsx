@@ -11,14 +11,18 @@ const baseCls = getPrefixCls('input-search');
 export interface IProps extends IInputProps {
   onSearch?: (value: string) => void;
 }
+export interface IForwardRefProps extends IProps {
+  forwardedRef?: React.Ref<any>;
+}
 
-const Search: React.FunctionComponent<IProps> = props => {
+const Search: React.FunctionComponent<IForwardRefProps> = props => {
   const {
     className,
     onChange,
     onSearch,
     onPressEnter,
     defaultValue,
+    forwardedRef,
     value: customValue
   } = props;
 
@@ -27,6 +31,7 @@ const Search: React.FunctionComponent<IProps> = props => {
   return (
     <Input
       {...props}
+      ref={forwardedRef}
       className={classNames(baseCls, className)}
       onChange={e => {
         setValue(e.target.value);
@@ -49,4 +54,6 @@ const Search: React.FunctionComponent<IProps> = props => {
   );
 };
 
-export default Search;
+export default React.forwardRef<any, IProps>((props, ref) => {
+  return <Search {...props} forwardedRef={ref} />;
+});

@@ -3,10 +3,6 @@ import React, { PureComponent } from 'react';
 import { classNames, getPrefixCls } from '@rc-x/utils';
 import Icon from '@rc-x/icon';
 
-import { IProps as IPasswordProps } from './password';
-import { IProps as ISearchProps } from './search';
-import Textarea from './textarea';
-
 import { IBaseProps } from './types';
 
 import './style.scss';
@@ -27,8 +23,6 @@ export interface IProps extends IBaseProps {
   suffix?: string | React.ReactNode;
   /** 允许清除 */
   allowClear?: boolean;
-  /** 变更回调 */
-  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   /** 回车键回调 */
   onPressEnter?: (event: React.KeyboardEvent<HTMLInputElement>) => void;
   /** 前置内容 */
@@ -39,21 +33,21 @@ export interface IProps extends IBaseProps {
   htmlType?: string;
 }
 
+export interface IForwardRefProps extends IProps {
+  forwardedRef?: React.Ref<any>;
+}
+
 export interface IState {
   value: string;
 }
 
-export default class Input extends PureComponent<IProps, IState> {
-  static Password: React.FunctionComponent<IPasswordProps>;
-  static Search: React.FunctionComponent<ISearchProps>;
-  static Textarea = Textarea;
-
-  static defaultProps: IProps = {
+class Input extends PureComponent<IForwardRefProps, IState> {
+  static defaultProps: IForwardRefProps = {
     size: 'default',
     htmlType: 'text'
   };
 
-  constructor(props: IProps) {
+  constructor(props: IForwardRefProps) {
     super(props);
 
     this.state = {
@@ -61,7 +55,7 @@ export default class Input extends PureComponent<IProps, IState> {
     };
   }
 
-  static getDerivedStateFromProps(props: IProps, state) {
+  static getDerivedStateFromProps(props: IForwardRefProps, state) {
     if (props.value !== undefined && props.value !== state.value) {
       return Object.assign({}, state, {
         value: props.value
@@ -92,6 +86,7 @@ export default class Input extends PureComponent<IProps, IState> {
       htmlType,
       size,
       disabled,
+      forwardedRef,
       onPressEnter
     } = this.props;
     const { value } = this.state;
@@ -100,6 +95,7 @@ export default class Input extends PureComponent<IProps, IState> {
       <input
         id={id}
         name={name}
+        ref={forwardedRef}
         className={classNames(baseCls, className, `${baseCls}-${size}`, {
           [`${baseCls}-disabled`]: disabled
         })}
@@ -187,3 +183,7 @@ export default class Input extends PureComponent<IProps, IState> {
     return this.renderInput();
   }
 }
+
+export default React.forwardRef<any, IProps>((props, ref) => {
+  return <Input {...props} forwardedRef={ref} />;
+});

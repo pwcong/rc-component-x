@@ -189,4 +189,9 @@ $textarea-inner-cls: #{$textarea-prefix-cls}-inner;
   color: $text-color;
   outline: none;
   padding: $textarea-padding;
+
+  &:hover,
+  &:focus {
+    border-color: $primary-color;
+  }
 }
