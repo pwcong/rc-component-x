@@ -9,8 +9,8 @@ export default class extends React.PureComponent {
   private inputRef: React.RefObject<any> = React.createRef();
 
   componentDidMount() {
-    if(this.inputRef.current) {
-      console.log(this.inputRef.current.value)
+    if (this.inputRef.current) {
+      console.log(this.inputRef.current.value);
     }
   }
 
@@ -28,7 +28,11 @@ export default class extends React.PureComponent {
               alert('Search: ' + value);
             }
           },
-          {}
+          {
+            style: {
+              paddingTop: 32
+            }
+          }
         ]}
         componentTestProps={[
           {
@@ -108,8 +112,20 @@ export default class extends React.PureComponent {
               label: '是否默认可见'
             }
           },
-          {},
-          {}
+          {
+            defaultValue: {
+              type: 'input',
+              value: 'Hello World!',
+              label: '默认值'
+            }
+          },
+          {
+            defaultValue: {
+              type: 'input',
+              value: 'Hello World!',
+              label: '默认值'
+            }
+          }
         ]}
         componentPackageJson={packageJson}
       >

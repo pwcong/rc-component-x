@@ -9,6 +9,7 @@ import './style.scss';
 const baseCls = getPrefixCls('input-search');
 
 export interface IProps extends IInputProps {
+  /** 搜索回调 */
   onSearch?: (value: string) => void;
 }
 export interface IForwardRefProps extends IProps {

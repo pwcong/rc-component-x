@@ -9,6 +9,7 @@ import './style.scss';
 const baseCls = getPrefixCls('input-number');
 
 export interface IProps extends IInputProps {
+  /** 默认可见 */
   defaultVisibled?: boolean;
 }
 

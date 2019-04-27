@@ -6,7 +6,14 @@ import { IBaseProps } from './types';
 
 import './style.scss';
 
-export interface IProps extends IBaseProps {}
+export type ITextareaCounter = (value: string) => React.ReactNode;
+
+export interface IProps extends IBaseProps {
+  /** 计数器 */
+  counter?: boolean | ITextareaCounter;
+  /** 限制长度 */
+  limit?: number;
+}
 
 export interface IForwardRefProps extends IProps {
   forwardedRef?: React.Ref<any>;
@@ -25,6 +32,20 @@ class Textarea extends PureComponent<IForwardRefProps, IState> {
     this.state = {
       value: props.defaultValue || ''
     };
+  }
+
+  getComputedStyle = () => {
+    const tmpTextarea = document.createElement('textarea');
+    tmpTextarea.className = baseCls;
+    tmpTextarea.style.display = 'none';
+    document.body.appendChild(tmpTextarea);
+    const style = Object.assign({}, window.getComputedStyle(tmpTextarea));
+    document.body.removeChild(tmpTextarea);
+    return style;
+  };
+
+  componentDidMount() {
+    // TODO 计算样式
   }
 
   handleChange = e => {
@@ -51,7 +72,7 @@ class Textarea extends PureComponent<IForwardRefProps, IState> {
   }
 
   renderTextarea = () => {
-    const { id, name, className, forwardedRef, disabled } = this.props;
+    const { id, name, className, disabled, forwardedRef } = this.props;
     const { value } = this.state;
     return (
       <textarea
