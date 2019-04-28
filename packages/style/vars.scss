@@ -56,3 +56,20 @@ $input-addon-padding: 0 6px;
 
 /**************** Textarea ****************/
 $textarea-padding: 6px;
+
+/**************** Grid ****************/
+$grid-gutter-width: 1rem;
+$grid-outer-margin: 2rem;
+$grid-gutter-compensation: $grid-gutter-width * 0.5 * -1;
+$grid-half-gutter-width: $grid-gutter-width * 0.5;
+$grid-xs-min: 30;
+$grid-sm-min: 48;
+$grid-md-min: 64;
+$grid-lg-min: 75;
+$grid-screen-xs-min: #{$grid-xs-min}em;
+$grid-screen-sm-min: #{$grid-sm-min}em;
+$grid-screen-md-min: #{$grid-md-min}em;
+$grid-screen-lg-min: #{$grid-lg-min}em;
+$grid-container-sm: $grid-sm-min + $grid-gutter-width;
+$grid-container-md: $grid-md-min + $grid-gutter-width;
+$grid-container-lg: $grid-lg-min + $grid-gutter-width;
