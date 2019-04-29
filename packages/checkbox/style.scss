@@ -1,0 +1,5 @@
+@import '~@rc-x/style/common.scss';
+
+$checkbox-prefix-cls: #{$prefix-cls}-checkbox;
+.#{$checkbox-prefix-cls} {
+}

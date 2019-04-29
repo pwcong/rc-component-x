@@ -119,6 +119,7 @@ $textarea-inner-cls: #{$textarea-prefix-cls}-inner;
     bottom: 0;
     display: flex;
     align-items: center;
+    color: $text-color-secondary;
 
     .#{$prefix-cls}-icon {
       &:not(:last-child) {
