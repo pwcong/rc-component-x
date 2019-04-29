@@ -7,6 +7,9 @@ import packageJson from '../package.json';
 
 export default class extends React.PureComponent {
   private inputRef: React.RefObject<any> = React.createRef();
+  private searchRef: React.RefObject<any> = React.createRef();
+  private passwordRef: React.RefObject<any> = React.createRef();
+  private textareaRef: React.RefObject<any> = React.createRef();
 
   componentDidMount() {
     if (this.inputRef.current) {
@@ -19,18 +22,24 @@ export default class extends React.PureComponent {
       <Test
         component={[Input, Password, Search, Textarea]}
         componentName={['Input', 'Password', 'Search', 'Textarea']}
-        defaultActiveComponentName="Textarea"
         componentProps={[
-          {},
-          {},
           {
+            ref: this.inputRef
+          },
+          {
+            ref: this.passwordRef
+          },
+          {
+            ref: this.searchRef,
             onSearch: value => {
               alert('Search: ' + value);
             }
           },
           {
-            style: {
-              paddingTop: 32
+            ref: this.textareaRef,
+            row: {
+              max: 12,
+              min: 1
             }
           }
         ]}
@@ -124,13 +133,27 @@ export default class extends React.PureComponent {
               type: 'input',
               value: 'Hello World!',
               label: '默认值'
+            },
+            counter: {
+              type: 'switch',
+              value: true,
+              label: '计数器'
+            },
+            limit: {
+              type: 'inputNumber',
+              value: 100,
+              label: '长度限制'
+            },
+            allowClear: {
+              type: 'switch',
+              value: true,
+              label: '允许清除'
             }
           }
         ]}
         componentPackageJson={packageJson}
       >
         <Input
-          ref={this.inputRef}
           defaultValue="Yeah!"
           addonBefore={<div>Before</div>}
           addonAfter={<div>After</div>}

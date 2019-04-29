@@ -34,7 +34,7 @@ class MotionPanel extends React.PureComponent<IForwardRefProps, IState> {
 
   static getDerivedStateFromProps(props: IForwardRefProps, state: IState) {
     if (props.expand !== undefined && state.expand !== props.expand) {
-      console.log(props);
+      props;
       return Object.assign({}, state, {
         expand: props.expand,
         status: 'idle'

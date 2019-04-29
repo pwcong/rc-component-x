@@ -4,8 +4,8 @@ $icon-prefix-cls: #{$prefix-cls}-icon;
 
 .#{$icon-prefix-cls} {
   display: inline-block;
-  font-size: $font-size;
-  color: $text-color;
+  font-size: inherit;
+  color: inherit;
   line-height: 0;
 
   &-spin {

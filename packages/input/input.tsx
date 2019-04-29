@@ -67,15 +67,16 @@ class Input extends PureComponent<IForwardRefProps, IState> {
 
   handleChange = e => {
     const { onChange } = this.props;
-
-    onChange && onChange(e);
-    this.setState({ value: e.target.value });
+    this.setState({ value: e.target.value }, () => {
+      onChange && onChange(e.target.value);
+    });
   };
 
   handleClear = e => {
     const { onChange } = this.props;
-    onChange && onChange(e);
-    this.setState({ value: '' });
+    this.setState({ value: '' }, () => {
+      onChange && onChange('');
+    });
   };
 
   renderInput = () => {

@@ -12,5 +12,5 @@ export interface IBaseProps {
   /** 是否禁用 */
   disabled?: boolean;
   /** 变更回调 */
-  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange?: (value: string) => void;
 }

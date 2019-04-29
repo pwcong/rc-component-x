@@ -34,9 +34,9 @@ const Search: React.FunctionComponent<IForwardRefProps> = props => {
       {...props}
       ref={forwardedRef}
       className={classNames(baseCls, className)}
-      onChange={e => {
-        setValue(e.target.value);
-        onChange && onChange(e);
+      onChange={value => {
+        setValue(value);
+        onChange && onChange(value);
       }}
       onPressEnter={e => {
         onPressEnter && onPressEnter(e);

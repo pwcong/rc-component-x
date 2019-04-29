@@ -134,6 +134,7 @@ $textarea-inner-cls: #{$textarea-prefix-cls}-inner;
   }
   &-clear {
     cursor: pointer;
+    color: $text-color-secondary;
     &:hover {
       color: $primary-color;
     }
@@ -188,10 +189,61 @@ $textarea-inner-cls: #{$textarea-prefix-cls}-inner;
   font-size: $font-size;
   color: $text-color;
   outline: none;
-  padding: $textarea-padding;
+  padding: $textarea-padding-vertical $textarea-padding-horizontal;
+
+  @include easeInOutTransition;
 
   &:hover,
   &:focus {
     border-color: $primary-color;
+  }
+
+  &-overflow {
+    border-color: $error-color !important;
+  }
+
+  &-wrapper {
+  }
+
+  &-inner {
+    position: relative;
+  }
+
+  &-clear {
+    z-index: 10;
+    position: absolute;
+    top: $textarea-padding-vertical;
+    right: $textarea-padding-horizontal;
+    cursor: pointer;
+    color: $text-color-secondary;
+    opacity: 0;
+
+    @include easeInOutTransition;
+
+    &:hover {
+      color: $primary-color;
+    }
+  }
+
+  &-inner:hover &-clear {
+    opacity: 1;
+  }
+
+  &-counter {
+    position: absolute;
+    bottom: $textarea-padding-vertical;
+    right: $textarea-padding-horizontal * 2;
+    font-size: $font-size-sm;
+    color: $text-color-light;
+
+    & > span:first-child {
+      color: $text-color-secondary;
+    }
+  }
+
+  &-overflow + &-counter {
+    & > span:first-child {
+      color: $error-color !important;
+    }
   }
 }
