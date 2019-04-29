@@ -5,7 +5,7 @@ const path = require('path');
 const fs = require('fs-extra');
 const inquirer = require('inquirer');
 const { getPackages } = require('../utils');
-const start = require('./start');
+const start = require('../utils/start');
 
 const packages = getPackages();
 

@@ -1,7 +1,8 @@
-const baseWebpackConfig = require('./webpack.config');
 const merge = require('webpack-merge');
 const webpack = require('webpack');
 const webpackDevServer = require('webpack-dev-server');
+
+const webpackDevConfig = require('../config/webpack.dev.conf');
 
 const baseConfig = {
   devServer: {
@@ -13,7 +14,7 @@ const baseConfig = {
 module.exports = (config, webpackConfig) => {
   config = Object.assign(baseConfig, config);
 
-  webpackConfig = merge(baseWebpackConfig, webpackConfig, {
+  webpackConfig = merge(webpackDevConfig, webpackConfig, {
     devServer: config.devServer || {}
   });
 

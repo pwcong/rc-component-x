@@ -105,7 +105,18 @@ class App extends React.PureComponent<IProps> {
 }
 
 const Home: React.FunctionComponent = props => {
-  return <div>Hello World</div>;
+  return (
+    <div
+      style={{
+        textAlign: 'center',
+        padding: '32px',
+        fontSize: 24,
+        color: '#333'
+      }}
+    >
+      RC-Component-X
+    </div>
+  );
 };
 
 export default withRouter(App);

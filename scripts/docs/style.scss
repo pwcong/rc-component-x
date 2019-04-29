@@ -24,6 +24,7 @@ body {
       padding: 12px 8px;
       font-weight: bold;
       cursor: pointer;
+      color: #666;
     }
 
     &-navs {
@@ -35,6 +36,8 @@ body {
       padding: 8px;
       cursor: pointer;
       user-select: none;
+
+      transition: all 0.2s;
 
       &-title {
         overflow: hidden;
