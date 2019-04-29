@@ -2,8 +2,10 @@ import React from 'react';
 
 import Test from '@rc-x/test';
 
-import Input, { Password, Search, Textarea } from '../index';
+import Input from '../index';
 import packageJson from '../package.json';
+
+const { Password, Search, Textarea } = Input;
 
 export default class extends React.PureComponent {
   private inputRef: React.RefObject<any> = React.createRef();
