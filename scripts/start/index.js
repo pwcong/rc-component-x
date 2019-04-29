@@ -1,4 +1,5 @@
 const VirtualModulesPlugin = require('webpack-virtual-modules');
+const HTMLWebpackPlugin = require('html-webpack-plugin');
 
 const path = require('path');
 const fs = require('fs-extra');
@@ -62,7 +63,12 @@ inquirer
       output: {
         path: distPath
       },
-      plugins: [virtualModules]
+      plugins: [
+        virtualModules,
+        new HTMLWebpackPlugin({
+          template: path.join(__dirname, 'index.ejs')
+        })
+      ]
     };
 
     start(config, webpackConfig);

@@ -16,10 +16,15 @@ const getPackages = (exports.getPackages = () => {
     })
     .map(package => {
       const json = fs.readJSONSync(path.join(package.path, 'package.json'));
+
+      const baseName = path.basename(package.path);
+
       return Object.assign({}, json, {
-        path: package.path,
-        distPath: path.join(package.path, 'dist'),
-        componentName: changeCase.pascalCase(path.basename(package.path))
+        path: package.path.replace(/\\/g, '/'),
+        distPath: path.join(package.path, 'dist').replace(/\\/g, '/'),
+        testPath: path.join(package.path, '__tests__').replace(/\\/g, '/'),
+        baseName,
+        componentName: changeCase.pascalCase(baseName)
       });
     });
 

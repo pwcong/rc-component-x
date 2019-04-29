@@ -2,7 +2,6 @@ const path = require('path');
 const webpack = require('webpack');
 const merge = require('webpack-merge');
 
-const HTMLWebpackPlugin = require('html-webpack-plugin');
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
 
 const baseWebpackConfig = {
@@ -101,10 +100,6 @@ module.exports = merge(baseWebpackConfig, {
   },
   plugins: [
     new FriendlyErrorsPlugin(),
-    new webpack.HotModuleReplacementPlugin(),
-    new HTMLWebpackPlugin({
-      title: 'Test',
-      template: path.join(__dirname, 'index.ejs')
-    })
+    new webpack.HotModuleReplacementPlugin()
   ]
 });

@@ -2,9 +2,10 @@
   "name": "rc-component-x",
   "private": true,
   "scripts": {
-    "new": "node ./scripts/new/index.js",
-    "build": "node ./scripts/build/index.js",
-    "dev": "node ./scripts/start/index.js",
+    "new": "node ./scripts/new",
+    "build": "node ./scripts/build",
+    "dev": "node ./scripts/start",
+    "doc": "node ./scripts/doc",
     "prepublish": "npm run build",
     "publish": "lerna publish"
   },
@@ -48,9 +49,13 @@
     "webpack-virtual-modules": "^0.1.10"
   },
   "dependencies": {
+    "@types/react-router": "^4.4.5",
+    "@types/react-router-dom": "^4.3.2",
     "cross-env": "^5.2.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-router": "^5.0.0",
+    "react-router-dom": "^5.0.0",
     "typescript": "^3.4.3"
   }
 }
