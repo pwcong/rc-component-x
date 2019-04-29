@@ -104,7 +104,7 @@ html, body {
 
 .rc-x-test-props {
   padding: 16px;
-  border-top: 1px solid #dddddd; }
+  border-top: 1px solid #cccccc; }
 
 .rc-x-test-prop {
   display: flex;
@@ -129,7 +129,7 @@ html, body {
 
 .rc-x-test-component, .rc-x-test-custom {
   padding: 16px;
-  border-top: 1px solid #dddddd; }
+  border-top: 1px solid #cccccc; }
 
 .rc-x-test-item {
   display: none; }
@@ -148,7 +148,7 @@ html, body {
   transition: all 0.2s ease-in-out;
   display: flex;
   flex-flow: row nowrap;
-  box-shadow: 0 1px 5px 1px #dddddd; }
+  box-shadow: 0 1px 5px 1px #cccccc; }
   .rc-x-test-tabs:hover {
     top: 0; }
 
@@ -167,4 +167,87 @@ html, body {
   .rc-x-test-tab-active {
     background-color: #0077ff;
     color: #ffffff; }
+
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+textarea,
+p,
+blockquote,
+th,
+td,
+hr,
+button,
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  margin: 0;
+  padding: 0; }
+
+ul,
+ol {
+  list-style: none; }
+
+html, body {
+  font-family: 'Microsoft YaHei', sans-serif; }
+
+/**************** Global ****************/
+/**************** Color ****************/
+/**************** Background ****************/
+/**************** Font ****************/
+/**************** Animation ****************/
+/**************** Button ****************/
+/**************** Border ****************/
+/**************** Input ****************/
+/**************** Textarea ****************/
+/**************** Grid ****************/
+/**************** Global ****************/
+/**************** Color ****************/
+/**************** Background ****************/
+/**************** Font ****************/
+/**************** Animation ****************/
+/**************** Button ****************/
+/**************** Border ****************/
+/**************** Input ****************/
+/**************** Textarea ****************/
+/**************** Grid ****************/
+@-webkit-keyframes anim-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg); } }
+@keyframes anim-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg); } }
 

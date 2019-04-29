@@ -104,7 +104,7 @@ html, body {
 
 .rc-x-test-props {
   padding: 16px;
-  border-top: 1px solid #dddddd; }
+  border-top: 1px solid #cccccc; }
 
 .rc-x-test-prop {
   display: flex;
@@ -129,7 +129,7 @@ html, body {
 
 .rc-x-test-component, .rc-x-test-custom {
   padding: 16px;
-  border-top: 1px solid #dddddd; }
+  border-top: 1px solid #cccccc; }
 
 .rc-x-test-item {
   display: none; }
@@ -148,7 +148,7 @@ html, body {
   transition: all 0.2s ease-in-out;
   display: flex;
   flex-flow: row nowrap;
-  box-shadow: 0 1px 5px 1px #dddddd; }
+  box-shadow: 0 1px 5px 1px #cccccc; }
   .rc-x-test-tabs:hover {
     top: 0; }
 
@@ -250,13 +250,4 @@ html, body {
   100% {
     -webkit-transform: rotate(360deg);
             transform: rotate(360deg); } }
-
-.rc-x-icon {
-  display: inline-block;
-  font-size: inherit;
-  color: inherit;
-  line-height: 0; }
-  .rc-x-icon-spin {
-    -webkit-animation: anim-spin 1.5s linear infinite;
-            animation: anim-spin 1.5s linear infinite; }
 

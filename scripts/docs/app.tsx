@@ -3,6 +3,10 @@ import React from 'react';
 import { withRouter, Route, Switch, RouteComponentProps } from 'react-router';
 import { HashRouter as Router } from 'react-router-dom';
 
+import { classNames, getPrefixCls } from '@rc-x/utils';
+
+import packageJSON from '../../package.json';
+
 import './style.scss';
 
 export type IComponent = {
@@ -14,16 +18,16 @@ export interface IProps extends RouteComponentProps {
   components: Array<IComponent>;
 }
 
-const baseCls = 'doc';
+const baseCls = getPrefixCls('docs');
 
 class App extends React.PureComponent<IProps> {
   renderAside = () => {
     const { components } = this.props;
 
-    const cls = `${baseCls}-aside`;
-    const topCls = `${cls}-top`;
-    const navsCls = `${cls}-navs`;
-    const navCls = `${cls}-nav`;
+    const cls = getPrefixCls('aside', baseCls);
+    const topCls = getPrefixCls('top', cls);
+    const navsCls = getPrefixCls('navs', cls);
+    const navCls = getPrefixCls('nav', cls);
 
     return (
       <div className={cls}>
@@ -41,12 +45,9 @@ class App extends React.PureComponent<IProps> {
             const pathname = this.props.history.location.pathname;
             return (
               <div
-                className={[
-                  navCls,
-                  pathname.substring(1) === pkg.baseName
-                    ? `${navCls}-active`
-                    : ''
-                ].join(' ')}
+                className={classNames(navCls, {
+                  [`${navCls}-active`]: pathname.substring(1) === pkg.baseName
+                })}
                 key={navCls + '-' + i}
                 onClick={() => {
                   this.props.history.push(pkg.baseName);
@@ -65,7 +66,7 @@ class App extends React.PureComponent<IProps> {
   renderMain = () => {
     const { components } = this.props;
 
-    const cls = `${baseCls}-main`;
+    const cls = getPrefixCls('main', baseCls);
 
     return (
       <div className={cls}>
@@ -109,12 +110,22 @@ const Home: React.FunctionComponent = props => {
     <div
       style={{
         textAlign: 'center',
-        padding: '32px',
+        paddingTop: '192px',
         fontSize: 24,
         color: '#333'
       }}
     >
       RC-Component-X
+      <p
+        style={{
+          textAlign: 'center',
+          color: '#999',
+          fontSize: 12,
+          marginTop: '16px'
+        }}
+      >
+        {packageJSON.description}
+      </p>
     </div>
   );
 };

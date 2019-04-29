@@ -1,34 +1,32 @@
-html,
-body {
-  margin: 0;
-  padding: 0;
-}
+@import '~@rc-x/style/common.scss';
 
-.doc {
+$docs-prefix-cls: #{$prefix-cls}-docs;
+
+.#{$docs-prefix-cls} {
   &-aside {
-    font-size: 14px;
+    font-size: $font-size;
     position: fixed;
     left: 0;
     width: 172px;
     top: 0;
     bottom: 0;
     overflow: hidden;
-    border-right: 1px solid #ccc;
-    color: #333;
+    border-right: 1px solid $border-color;
+    color: $text-color;
     &:hover {
       overflow: auto;
     }
 
     &-top {
-      font-size: 18px;
+      font-size: $font-size-lg;
       padding: 12px 8px;
       font-weight: bold;
       cursor: pointer;
-      color: #666;
+      color: $text-color-secondary;
     }
 
     &-navs {
-      border-top: 1px solid #ccc;
+      border-top: 1px solid $border-color;
       padding: 4px;
     }
 
@@ -37,7 +35,7 @@ body {
       cursor: pointer;
       user-select: none;
 
-      transition: all 0.2s;
+      @include easeInOutTransition;
 
       &-title {
         overflow: hidden;
@@ -46,19 +44,19 @@ body {
       }
 
       &-desc {
-        font-size: 12px;
+        font-size: $font-size-sm;
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
-        color: #999;
+        color: $text-color-light;
       }
 
       &:hover {
-        color: #0077ff;
+        color: $primary-color;
       }
 
       &-active {
-        border-left: 2px solid #0077ff;
+        border-left: 2px solid $primary-color;
       }
     }
   }
@@ -71,6 +69,6 @@ body {
     text-align: center;
     padding: 36px;
     font-size: 24px;
-    color: #999;
+    color: $text-color-light;
   }
 }

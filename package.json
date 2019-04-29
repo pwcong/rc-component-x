@@ -1,6 +1,7 @@
 {
   "name": "rc-component-x",
   "private": true,
+  "description": "React components foundation in TypeScript.",
   "scripts": {
     "new": "node ./scripts/new",
     "build": "node ./scripts/build",
