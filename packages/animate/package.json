@@ -1,0 +1,23 @@
+{
+  "name": "@rc-x/animate",
+  "version": "0.0.1",
+  "description": "Animation Utils",
+  "author": "Pwcong <pwcong@foxmail.com>",
+  "main": "dist/bundle.min.js",
+  "module": "dist/bundle.es.js",
+  "keywords": [
+    "rc-x-animate"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "@rc-x/style": "^0.0.1",
+    "@rc-x/utils": "^0.0.1",
+    "react-motion": "^0.5.2",
+    "react-transition-group": "^4.0.0"
+  },
+  "devDependencies": {
+    "@rc-x/test": "^0.0.1",
+    "@types/react-motion": "^0.0.28",
+    "@types/react-transition-group": "^2.9.0"
+  }
+}

@@ -190,7 +190,8 @@ $textarea-inner-cls: #{$textarea-prefix-cls}-inner;
   font-size: $font-size;
   color: $text-color;
   outline: none;
-  padding: $textarea-padding-vertical $textarea-padding-horizontal;
+  padding: $textarea-padding-vertical $textarea-padding-horizontal
+    $textarea-padding-vertical * 4 $textarea-padding-horizontal;
 
   @include easeInOutTransition;
 
@@ -214,7 +215,7 @@ $textarea-inner-cls: #{$textarea-prefix-cls}-inner;
     z-index: 10;
     position: absolute;
     top: $textarea-padding-vertical;
-    right: $textarea-padding-horizontal;
+    right: $textarea-padding-horizontal * 2;
     cursor: pointer;
     color: $text-color-secondary;
     opacity: 0;

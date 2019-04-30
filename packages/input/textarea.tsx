@@ -234,9 +234,9 @@ class Textarea extends PureComponent<IForwardRefProps, IState> {
     if (ref && ref.current) {
       const _height = ref.current.scrollHeight;
       if (_height > height) {
-        this.setState({
-          height: _height + 48
-        });
+        this.setState(({ rowHeight }) => ({
+          height: _height + rowHeight * 3
+        }));
       }
     }
   }

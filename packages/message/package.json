@@ -1,0 +1,12 @@
+{
+  "name": "@rc-x/message",
+  "version": "0.0.1",
+  "description": "Message",
+  "author": "Pwcong <pwcong@foxmail.com>",
+  "main": "dist/bundle.min.js",
+  "module": "dist/bundle.es.js",
+  "keywords": ["rc-x-message"],
+  "license": "MIT",
+  "dependencies": { "@rc-x/style": "^0.0.1", "@rc-x/utils": "^0.0.1" },
+  "devDependencies": { "@rc-x/test": "^0.0.1" }
+}

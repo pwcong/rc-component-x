@@ -57,7 +57,8 @@ module.exports = async (inputOptions, outputOptions) => {
     file: path.join(outputOptions.path, 'bundle.min.js'),
     name: outputOptions.name,
     globals: {
-      react: 'React'
+      react: 'React',
+      ['react-dom']: 'ReactDOM'
     }
   });
 };

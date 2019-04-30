@@ -1,0 +1,5 @@
+@import '~@rc-x/style/common.scss';
+
+$message-prefix-cls: #{$prefix-cls}-message;
+.#{$message-prefix-cls} {
+}

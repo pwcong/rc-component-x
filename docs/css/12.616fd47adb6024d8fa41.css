@@ -194,7 +194,7 @@ html, body {
   font-size: 14px;
   color: #333333;
   outline: none;
-  padding: 6px 6px;
+  padding: 6px 6px 24px 6px;
   transition: all 0.2s ease-in-out; }
   .rc-x-textarea:hover, .rc-x-textarea:focus {
     border-color: #0077ff; }
@@ -206,7 +206,7 @@ html, body {
     z-index: 10;
     position: absolute;
     top: 6px;
-    right: 6px;
+    right: 12px;
     cursor: pointer;
     color: #666666;
     opacity: 0;

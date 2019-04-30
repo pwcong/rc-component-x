@@ -1,0 +1,5 @@
+@import '~@rc-x/style/common.scss';
+
+$animate-prefix-cls: #{$prefix-cls}-animate;
+.#{$animate-prefix-cls} {
+}
