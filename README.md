@@ -21,6 +21,6 @@ React components foundation in TypeScript. [Docs Here](https://pwcong.github.io/
 ```
 > yarn
 
-hava fun!
+have fun!
 
 ```
