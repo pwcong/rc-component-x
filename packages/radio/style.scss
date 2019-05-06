@@ -1,5 +1,7 @@
 @import '~@rc-x/style/common.scss';
 
 $radio-prefix-cls: #{$prefix-cls}-radio;
+$radio-wrapper-cls: #{$radio-prefix-cls}-wrapper;
+
 .#{$radio-prefix-cls} {
 }

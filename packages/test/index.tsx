@@ -135,7 +135,7 @@ const TestChild = (props: ITestChildProps) => {
                         value={o.value}
                         type="radio"
                         checked={o.value === c.value}
-                        onChange={e => c.setValue(e.target.value)}
+                        onChange={e => c.setValue(o.value)}
                       />
                       {o.label}
                     </label>
@@ -174,9 +174,9 @@ const TestChild = (props: ITestChildProps) => {
                         checked={c.value.indexOf(o.value) > -1}
                         onChange={e => {
                           const newValue: Array<any> = [];
-                          const valueIndex = c.value.indexOf(e.target.value);
+                          const valueIndex = c.value.indexOf(o.value);
                           if (valueIndex < 0) {
-                            newValue.push(e.target.value);
+                            newValue.push(o.value);
                           }
                           c.value.forEach((v, __index) => {
                             if (valueIndex > -1 && __index === valueIndex) {
