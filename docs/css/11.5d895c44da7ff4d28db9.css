@@ -1,0 +1,155 @@
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+textarea,
+p,
+blockquote,
+th,
+td,
+hr,
+button,
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  margin: 0;
+  padding: 0; }
+
+ul,
+ol {
+  list-style: none; }
+
+html, body {
+  font-family: 'Microsoft YaHei', sans-serif; }
+
+/**************** Global ****************/
+/**************** Color ****************/
+/**************** Background ****************/
+/**************** Font ****************/
+/**************** Animation ****************/
+/**************** Button ****************/
+/**************** Border ****************/
+/**************** Input ****************/
+/**************** Textarea ****************/
+/**************** Grid ****************/
+/**************** Radio ****************/
+/**************** Global ****************/
+/**************** Color ****************/
+/**************** Background ****************/
+/**************** Font ****************/
+/**************** Animation ****************/
+/**************** Button ****************/
+/**************** Border ****************/
+/**************** Input ****************/
+/**************** Textarea ****************/
+/**************** Grid ****************/
+/**************** Radio ****************/
+@-webkit-keyframes anim-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg); } }
+@keyframes anim-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg); } }
+
+.rc-x-button {
+  border: 1px solid #cccccc;
+  background-color: #ffffff;
+  border-radius: 3px;
+  box-sizing: border-box;
+  height: 32px;
+  padding: 0 8px;
+  font-size: 14px;
+  color: #333333;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out; }
+  .rc-x-button-block {
+    display: block;
+    width: 100%; }
+  .rc-x-button:hover {
+    border-color: #0077ff;
+    color: #0077ff; }
+  .rc-x-button-primary {
+    border-color: #0077ff !important;
+    color: #0077ff; }
+    .rc-x-button-primary:hover {
+      background-color: #0077ff;
+      color: #ffffff; }
+  .rc-x-button-warning {
+    border-color: #ffbb00 !important;
+    color: #ffbb00; }
+    .rc-x-button-warning:hover {
+      background-color: #ffbb00;
+      color: #ffffff; }
+  .rc-x-button-success {
+    border-color: #11cc00 !important;
+    color: #11cc00; }
+    .rc-x-button-success:hover {
+      background-color: #11cc00;
+      color: #ffffff; }
+  .rc-x-button-danger {
+    border-color: #ff1100 !important;
+    color: #ff1100; }
+    .rc-x-button-danger:hover {
+      background-color: #ff1100;
+      color: #ffffff; }
+  .rc-x-button-loading {
+    cursor: wait; }
+  .rc-x-button-disabled {
+    background-color: #dddddd !important;
+    border-color: #dddddd !important;
+    color: #999999 !important;
+    cursor: not-allowed; }
+  .rc-x-button-large {
+    font-size: 18px;
+    height: 40px;
+    padding: 0 12px;
+    border-radius: 5px; }
+  .rc-x-button-small {
+    font-size: 12px;
+    height: 24px;
+    padding: 0 4px;
+    border-radius: 2px; }
+  .rc-x-button-circle {
+    border-radius: 16px; }
+  .rc-x-button-circle.rc-x-button-large {
+    border-radius: 20px; }
+  .rc-x-button-circle.rc-x-button-small {
+    border-radius: 12px; }
+  .rc-x-button .rc-x-icon {
+    margin-right: 6px;
+    font-size: inherit;
+    color: inherit; }
+
