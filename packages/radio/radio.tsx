@@ -6,8 +6,6 @@ import './style.scss';
 
 const baseCls = getPrefixCls('radio');
 
-export type IRadioChangeListener = (checked: boolean) => void;
-
 export interface IProps {
   /** 类名 */
   className?: string;
@@ -19,7 +17,12 @@ export interface IProps {
   name?: string;
   /** 选中值 */
   value?: any;
-  onChange?: IRadioChangeListener;
+  /** 选中回调 */
+  onCheck?: (checked: boolean) => void;
+  /** 是否禁用 */
+  disabled?: boolean;
+  /** 自定义样式 */
+  style?: React.CSSProperties;
 }
 
 export interface IState {
@@ -50,35 +53,50 @@ export default class Radio extends React.PureComponent<IProps, IState> {
   }
 
   handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const { onChange } = this.props;
+    const { onCheck, disabled } = this.props;
+
+    if (disabled) {
+      return;
+    }
+
     const checked = event.target.checked;
     this.setState(
       {
         checked
       },
       () => {
-        onChange && onChange(checked);
+        onCheck && onCheck(checked);
       }
     );
   };
 
   render() {
-    const { className, value, children, checked } = this.props;
+    const { className, value, children, checked, disabled, style } = this.props;
 
     return (
       <label
         className={classNames(getPrefixCls('wrapper', baseCls), className)}
+        style={style}
       >
-        <span className={baseCls}>
-          <input
-            type="radio"
-            name={name}
-            checked={checked !== undefined ? checked : this.state.checked}
-            value={value}
-            onChange={this.handleChange}
-          />
-        </span>
-        <span>{children}</span>
+        <div className={getPrefixCls('inner', baseCls)}>
+          <span
+            className={classNames(baseCls, {
+              [`${getPrefixCls('disabled', baseCls)}`]: disabled,
+              [`${getPrefixCls('active', baseCls)}`]:
+                checked !== undefined ? checked : this.state.checked
+            })}
+          >
+            <input
+              type="radio"
+              name={name}
+              disabled={disabled}
+              checked={checked !== undefined ? checked : this.state.checked}
+              value={value}
+              onChange={this.handleChange}
+            />
+          </span>
+          <span className={getPrefixCls('children', baseCls)}>{children}</span>
+        </div>
       </label>
     );
   }

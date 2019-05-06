@@ -2,6 +2,63 @@
 
 $radio-prefix-cls: #{$prefix-cls}-radio;
 $radio-wrapper-cls: #{$radio-prefix-cls}-wrapper;
+$radio-group-cls: #{$radio-prefix-cls}-group;
 
 .#{$radio-prefix-cls} {
+  display: inline-block;
+  font-size: 0;
+  width: $radio-width;
+  height: $radio-height;
+  box-sizing: border-box;
+  border: $border-width-sm solid $border-color;
+  border-radius: $radio-width / 2;
+  position: relative;
+  margin-right: 4px;
+  top: 2px;
+  cursor: pointer;
+
+  @include easeInOutTransition;
+
+  &-active {
+    border-color: $primary-color;
+    border-width: $border-width;
+    box-shadow: 0 0 4px 1px rgba($primary-color, 0.1);
+  }
+
+  & > input {
+    display: none;
+  }
+
+  &-wrapper {
+    display: inline-block;
+    font-size: $font-size;
+    color: $text-color;
+    &:hover {
+      .#{$radio-prefix-cls} {
+        border-color: $primary-color;
+      }
+    }
+  }
+
+  &-inner {
+  }
+
+  &-children {
+    @include easeInOutTransition;
+    cursor: pointer;
+  }
+
+  &-disabled,
+  &-disabled + &-children {
+    cursor: not-allowed;
+
+    color: $text-color-disabled !important;
+    border-color: $text-color-disabled !important;
+  }
+}
+
+.#{$radio-group-cls} {
+  .#{$radio-wrapper-cls}:not(:last-child) {
+    margin-right: 8px;
+  }
 }

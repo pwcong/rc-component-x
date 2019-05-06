@@ -40,6 +40,9 @@ $button-padding: 0 8px;
 $button-padding-lg: 0 12px;
 
 /**************** Border ****************/
+$border-width-sm: 1px;
+$border-width: 3px;
+$border-width-lg: 4px;
 $border-color: #cccccc;
 $border-color-split: #eeeeee;
 $border-radius-sm: 2px;
@@ -74,3 +77,7 @@ $grid-screen-lg-min: #{$grid-lg-min}em;
 $grid-container-sm: $grid-sm-min + $grid-gutter-width;
 $grid-container-md: $grid-md-min + $grid-gutter-width;
 $grid-container-lg: $grid-lg-min + $grid-gutter-width;
+
+/**************** Radio ****************/
+$radio-width: 16px;
+$radio-height: $radio-width;
