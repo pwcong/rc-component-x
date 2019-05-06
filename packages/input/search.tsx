@@ -32,6 +32,7 @@ const Search: React.FunctionComponent<IForwardRefProps> = props => {
   return (
     <Input
       {...props}
+      value={customValue || value}
       ref={forwardedRef}
       className={classNames(baseCls, className)}
       onChange={value => {
