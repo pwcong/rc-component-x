@@ -14,7 +14,7 @@ $radio-group-cls: #{$radio-prefix-cls}-group;
   border-radius: $radio-width / 2;
   position: relative;
   margin-right: 4px;
-  top: 2px;
+  top: 3px;
   cursor: pointer;
 
   @include easeInOutTransition;
@@ -22,6 +22,8 @@ $radio-group-cls: #{$radio-prefix-cls}-group;
   &-active {
     border-color: $primary-color;
     border-width: $border-width;
+  }
+  &:focus {
     box-shadow: 0 0 4px 1px rgba($primary-color, 0.1);
   }
 

@@ -3,3 +3,7 @@
 @mixin easeInOutTransition() {
   transition: all $transition-time ease-in-out;
 }
+
+@mixin linearTransition() {
+  transition: all $transition-time linear;
+}
