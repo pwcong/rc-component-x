@@ -1,5 +1,5 @@
 import Radio from './radio';
 
-export { default as RadioGroup } from './group';
+export { default as RadioGroup, IOptions as IRadioGroupOptions } from './group';
 
 export default Radio;

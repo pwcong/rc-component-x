@@ -17,14 +17,27 @@ $radio-group-cls: #{$radio-prefix-cls}-group;
   top: 3px;
   cursor: pointer;
 
+  &::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%) scale(0);
+    width: $radio-width / 2;
+    height: $radio-height / 2;
+    background-color: $primary-color;
+    border-radius: $radio-width / 4;
+    @include easeInOutTransition;
+  }
+
   @include easeInOutTransition;
 
   &-active {
     border-color: $primary-color;
-    border-width: $border-width;
-  }
-  &:focus {
-    box-shadow: 0 0 4px 1px rgba($primary-color, 0.1);
+
+    &::after {
+      transform: translateX(-50%) translateY(-50%) scale(1);
+    }
   }
 
   & > input {
@@ -35,9 +48,11 @@ $radio-group-cls: #{$radio-prefix-cls}-group;
     display: inline-block;
     font-size: $font-size;
     color: $text-color;
+    &:focus,
     &:hover {
       .#{$radio-prefix-cls} {
         border-color: $primary-color;
+        box-shadow: 0 0 4px 1px rgba($primary-color, 0.1);
       }
     }
   }
@@ -50,12 +65,13 @@ $radio-group-cls: #{$radio-prefix-cls}-group;
     cursor: pointer;
   }
 
-  &-disabled,
+  &-disabled {
+    cursor: not-allowed;
+    border-color: $text-color-disabled !important;
+  }
   &-disabled + &-children {
     cursor: not-allowed;
-
     color: $text-color-disabled !important;
-    border-color: $text-color-disabled !important;
   }
 }
 

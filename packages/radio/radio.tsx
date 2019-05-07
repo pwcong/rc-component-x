@@ -1,29 +1,13 @@
 import React from 'react';
 
 import { classNames, getPrefixCls } from '@rc-x/utils';
+import { IBaseProps } from './types';
 
 import './style.scss';
 
 const baseCls = getPrefixCls('radio');
 
-export interface IProps {
-  /** 类名 */
-  className?: string;
-  /** 选中状态 */
-  checked?: boolean;
-  /** 默认选中状态 */
-  defaultChecked?: boolean;
-  /** 字段名 */
-  name?: string;
-  /** 选中值 */
-  value?: any;
-  /** 选中回调 */
-  onCheck?: (checked: boolean) => void;
-  /** 是否禁用 */
-  disabled?: boolean;
-  /** 自定义样式 */
-  style?: React.CSSProperties;
-}
+export interface IProps extends IBaseProps {}
 
 export interface IState {
   checked: boolean;

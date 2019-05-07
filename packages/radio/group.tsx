@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { classNames, getPrefixCls } from '@rc-x/utils';
+import { IButtonSize } from '@rc-x/button';
 
 import Radio, { IProps as IRadioProps } from './radio';
 
@@ -31,6 +32,8 @@ export interface IProps {
   children?: Array<React.ReactElement<IRadioProps>>;
   /** 是否禁用 */
   disabled?: boolean;
+  /** 按钮尺寸 */
+  buttonSize?: IButtonSize;
 }
 
 export interface IState {
