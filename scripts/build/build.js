@@ -1,6 +1,6 @@
 const path = require('path');
 const rollup = require('rollup');
-const typescript = require('rollup-plugin-typescript');
+const typescript = require('rollup-plugin-typescript2');
 const resolve = require('rollup-plugin-node-resolve');
 const commonjs = require('rollup-plugin-commonjs');
 const postcss = require('rollup-plugin-postcss');
@@ -54,6 +54,7 @@ module.exports = async (inputOptions, outputOptions) => {
   );
   await umdBundle.write({
     format: 'umd',
+    exports: 'named',
     file: path.join(outputOptions.path, 'bundle.min.js'),
     name: outputOptions.name,
     globals: {
