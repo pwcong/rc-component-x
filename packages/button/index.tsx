@@ -60,6 +60,8 @@ export interface IProps {
   block?: boolean;
   /** 自定义样式 */
   style?: React.CSSProperties;
+  /** 选中状态 */
+  checked?: boolean;
 }
 
 const baseCls = getPrefixCls('button');
@@ -78,7 +80,8 @@ const Button: React.FunctionComponent<IProps> = (props: IProps) => {
     href,
     target = '_self',
     loading,
-    block
+    block,
+    checked
   } = props;
 
   return (
@@ -92,7 +95,8 @@ const Button: React.FunctionComponent<IProps> = (props: IProps) => {
         {
           [`${getPrefixCls('disabled', baseCls)}`]: disabled,
           [`${getPrefixCls('loading', baseCls)}`]: loading,
-          [`${getPrefixCls('block', baseCls)}`]: block
+          [`${getPrefixCls('block', baseCls)}`]: block,
+          [`${getPrefixCls('checked', baseCls)}`]: checked
         }
       )}
       onClick={

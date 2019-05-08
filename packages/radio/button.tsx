@@ -1,7 +1,9 @@
 import React from 'react';
 
-import Button, { IProps as IButtonProps } from '@rc-x/button';
+import RcxButton, { IProps as IButtonProps } from '@rc-x/button';
 import { classNames, getPrefixCls } from '@rc-x/utils';
+
+import Radio from './radio';
 
 import { IBaseProps } from './types';
 
@@ -17,34 +19,17 @@ export interface IState {
 export default class Button extends React.PureComponent<IProps, IState> {
   constructor(props: IProps) {
     super(props);
-
     const { defaultChecked = false } = props;
-
     this.state = {
       checked: defaultChecked
     };
   }
 
-  static getDerivedStateFromProps(nextProps: IProps, prevState: IState) {
-    const { checked } = nextProps;
-
-    if (checked !== undefined) {
-      return Object.assign({}, prevState, {
-        checked
-      });
-    }
-
-    return prevState;
-  }
-
-  handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  handleChange = (checked: boolean) => {
     const { onCheck, disabled } = this.props;
-
     if (disabled) {
       return;
     }
-
-    const checked = event.target.checked;
     this.setState(
       {
         checked
@@ -56,33 +41,16 @@ export default class Button extends React.PureComponent<IProps, IState> {
   };
 
   render() {
-    const { className, value, children, checked, disabled, style } = this.props;
+    const { className, children, disabled, style, ...rest } = this.props;
 
     return (
-      <label
-        className={classNames(getPrefixCls('wrapper', baseCls), className)}
-        style={style}
+      <Radio
+        className={classNames(baseCls, className)}
+        {...rest}
+        disabled={disabled}
       >
-        <div className={getPrefixCls('inner', baseCls)}>
-          <span
-            className={classNames(baseCls, {
-              [`${getPrefixCls('disabled', baseCls)}`]: disabled,
-              [`${getPrefixCls('active', baseCls)}`]:
-                checked !== undefined ? checked : this.state.checked
-            })}
-          >
-            <input
-              type="radio"
-              name={name}
-              disabled={disabled}
-              checked={checked !== undefined ? checked : this.state.checked}
-              value={value}
-              onChange={this.handleChange}
-            />
-          </span>
-          <Button {...this.props}>{children}</Button>
-        </div>
-      </label>
+        <RcxButton disabled={disabled}>{children}</RcxButton>
+      </Radio>
     );
   }
 }

@@ -2,6 +2,13 @@
 
 $button-prefix-cls: #{$prefix-cls}-button;
 
+$colors: (
+  primary: $primary-color,
+  warning: $warning-color,
+  success: $success-color,
+  danger: $error-color
+);
+
 .#{$button-prefix-cls} {
   border: $border-width-sm solid $border-color;
   background-color: $white;
@@ -26,41 +33,41 @@ $button-prefix-cls: #{$prefix-cls}-button;
     color: $primary-color;
   }
 
-  &-primary {
-    border-color: $primary-color !important;
-    color: $primary-color;
-    &:hover {
-      background-color: $primary-color;
-      color: $white;
-    }
-  }
+  // &-primary {
+  //   border-color: $primary-color !important;
+  //   color: $primary-color;
+  //   &:hover {
+  //     background-color: $primary-color;
+  //     color: $white;
+  //   }
+  // }
 
-  &-warning {
-    border-color: $warning-color !important;
-    color: $warning-color;
-    &:hover {
-      background-color: $warning-color;
-      color: $white;
-    }
-  }
+  // &-warning {
+  //   border-color: $warning-color !important;
+  //   color: $warning-color;
+  //   &:hover {
+  //     background-color: $warning-color;
+  //     color: $white;
+  //   }
+  // }
 
-  &-success {
-    border-color: $success-color !important;
-    color: $success-color;
-    &:hover {
-      background-color: $success-color;
-      color: $white;
-    }
-  }
+  // &-success {
+  //   border-color: $success-color !important;
+  //   color: $success-color;
+  //   &:hover {
+  //     background-color: $success-color;
+  //     color: $white;
+  //   }
+  // }
 
-  &-danger {
-    border-color: $error-color !important;
-    color: $error-color;
-    &:hover {
-      background-color: $error-color;
-      color: $white;
-    }
-  }
+  // &-danger {
+  //   border-color: $error-color !important;
+  //   color: $error-color;
+  //   &:hover {
+  //     background-color: $error-color;
+  //     color: $white;
+  //   }
+  // }
 
   &-loading {
     cursor: wait;
@@ -101,5 +108,21 @@ $button-prefix-cls: #{$prefix-cls}-button;
     margin-right: 6px;
     font-size: inherit;
     color: inherit;
+  }
+}
+
+@each $key, $value in $colors {
+  .#{$button-prefix-cls}.#{$button-prefix-cls}-#{$key} {
+    border-color: $value;
+    color: $value;
+    &:hover {
+      background-color: $value;
+      color: $white;
+    }
+  }
+
+  .#{$button-prefix-cls}.#{$button-prefix-cls}-#{$key}.#{$button-prefix-cls}-checked {
+    background-color: $value;
+    color: $white;
   }
 }

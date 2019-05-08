@@ -108,6 +108,11 @@ export default function() {
           type: 'switch',
           value: false,
           label: '是否为Block'
+        },
+        checked: {
+          type: 'switch',
+          value: false,
+          label: '是否为选中状态'
         }
       }}
       componentPackageJson={packageJson}
