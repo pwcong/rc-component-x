@@ -1,6 +1,6 @@
 import React from 'react';
 
-import RcxButton, { IProps as IButtonProps } from '@rc-x/button';
+import Button, { IProps as IButtonProps } from '@rc-x/button';
 import { classNames, getPrefixCls } from '@rc-x/utils';
 
 import Radio from './radio';
@@ -16,7 +16,7 @@ export interface IState {
   checked: boolean;
 }
 
-export default class Button extends React.PureComponent<IProps, IState> {
+export default class RadioButton extends React.PureComponent<IProps, IState> {
   constructor(props: IProps) {
     super(props);
     const { defaultChecked = false } = props;
@@ -25,31 +25,52 @@ export default class Button extends React.PureComponent<IProps, IState> {
     };
   }
 
-  handleChange = (checked: boolean) => {
+  handleChange = e => {
     const { onCheck, disabled } = this.props;
     if (disabled) {
       return;
     }
+
     this.setState(
       {
-        checked
+        checked: true
       },
       () => {
-        onCheck && onCheck(checked);
+        onCheck && onCheck(true);
       }
     );
   };
 
   render() {
-    const { className, children, disabled, style, ...rest } = this.props;
+    const {
+      className,
+      children,
+      disabled,
+      style,
+      checked: customChecked,
+      ...rest
+    } = this.props;
+
+    const { checked } = this.state;
 
     return (
       <Radio
-        className={classNames(baseCls, className)}
         {...rest}
+        className={classNames(baseCls)}
         disabled={disabled}
+        checked={customChecked !== undefined ? customChecked : checked}
       >
-        <RcxButton disabled={disabled}>{children}</RcxButton>
+        <Button
+          {...rest}
+          className={className}
+          style={style}
+          disabled={disabled}
+          onClick={this.handleChange}
+          type="primary"
+          checked={customChecked !== undefined ? customChecked : checked}
+        >
+          {children}
+        </Button>
       </Radio>
     );
   }

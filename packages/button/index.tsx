@@ -13,7 +13,7 @@ export type IButtonType =
   | 'danger'
   | 'success';
 export type IButtonSize = 'large' | 'default' | 'small';
-export type IButtonShape = 'circle' | 'round';
+export type IButtonShape = 'default' | 'round' | 'circle' | 'link';
 export type IButtonTarget = '_blank' | '_self';
 
 export interface IProps {
@@ -73,7 +73,7 @@ const Button: React.FunctionComponent<IProps> = (props: IProps) => {
     onClick,
     htmlType = 'button',
     type = 'default',
-    shape = 'round',
+    shape = 'default',
     size = 'default',
     icon,
     disabled,
@@ -121,7 +121,7 @@ const Button: React.FunctionComponent<IProps> = (props: IProps) => {
 Button.defaultProps = {
   htmlType: 'button',
   size: 'default',
-  shape: 'round',
+  shape: 'default',
   type: 'default',
   target: '_self'
 };

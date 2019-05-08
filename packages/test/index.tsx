@@ -131,7 +131,7 @@ const TestChild = (props: ITestChildProps) => {
                   {componentProp.options.map((o, _index) => (
                     <label key={`${radioGroupCls}-${_index}`}>
                       <input
-                        name={c.name}
+                        name={`${c.name}-${index}-${_index}`}
                         value={o.value}
                         type="radio"
                         checked={o.value === c.value}
@@ -149,7 +149,7 @@ const TestChild = (props: ITestChildProps) => {
                 <div className={switchGroupCls}>
                   <label>
                     <input
-                      name={c.name}
+                      name={`${c.name}-${index}`}
                       type="checkbox"
                       checked={c.value}
                       onChange={e => {
@@ -168,7 +168,7 @@ const TestChild = (props: ITestChildProps) => {
                   {componentProp.options.map((o, _index) => (
                     <label key={`${checkboxGroupCls}-${_index}`}>
                       <input
-                        name={c.name}
+                        name={`${c.name}-${index}-${_index}`}
                         value={o.value}
                         type="checkbox"
                         checked={c.value.indexOf(o.value) > -1}

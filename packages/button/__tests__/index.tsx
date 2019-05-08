@@ -40,13 +40,15 @@ export default function() {
         shape: {
           type: 'radio',
           label: '形状',
-          value: 'round',
+          value: 'default',
           options: [
+            { label: 'default', value: 'default' },
             { label: 'round', value: 'round' },
             {
               label: 'circle',
               value: 'circle'
-            }
+            },
+            { label: 'link', value: 'link' }
           ]
         },
         size: {

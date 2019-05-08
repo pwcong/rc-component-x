@@ -33,42 +33,6 @@ $colors: (
     color: $primary-color;
   }
 
-  // &-primary {
-  //   border-color: $primary-color !important;
-  //   color: $primary-color;
-  //   &:hover {
-  //     background-color: $primary-color;
-  //     color: $white;
-  //   }
-  // }
-
-  // &-warning {
-  //   border-color: $warning-color !important;
-  //   color: $warning-color;
-  //   &:hover {
-  //     background-color: $warning-color;
-  //     color: $white;
-  //   }
-  // }
-
-  // &-success {
-  //   border-color: $success-color !important;
-  //   color: $success-color;
-  //   &:hover {
-  //     background-color: $success-color;
-  //     color: $white;
-  //   }
-  // }
-
-  // &-danger {
-  //   border-color: $error-color !important;
-  //   color: $error-color;
-  //   &:hover {
-  //     background-color: $error-color;
-  //     color: $white;
-  //   }
-  // }
-
   &-loading {
     cursor: wait;
   }
@@ -94,13 +58,13 @@ $colors: (
     border-radius: $border-radius-sm;
   }
 
-  &-circle {
+  &-round {
     border-radius: $button-height / 2;
   }
-  &-circle.#{$button-prefix-cls}-large {
+  &-round.#{$button-prefix-cls}-large {
     border-radius: $button-height-lg / 2;
   }
-  &-circle.#{$button-prefix-cls}-small {
+  &-round.#{$button-prefix-cls}-small {
     border-radius: $button-height-sm / 2;
   }
 

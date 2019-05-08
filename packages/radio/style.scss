@@ -3,6 +3,7 @@
 $radio-prefix-cls: #{$prefix-cls}-radio;
 $radio-wrapper-cls: #{$radio-prefix-cls}-wrapper;
 $radio-group-cls: #{$radio-prefix-cls}-group;
+$radio-button-cls: #{$radio-prefix-cls}-button;
 
 .#{$radio-prefix-cls} {
   display: inline-block;
@@ -68,6 +69,10 @@ $radio-group-cls: #{$radio-prefix-cls}-group;
   &-disabled {
     cursor: not-allowed;
     border-color: $text-color-disabled !important;
+
+    &::after {
+      background-color: $disabled-color;
+    }
   }
   &-disabled + &-children {
     cursor: not-allowed;
@@ -78,5 +83,42 @@ $radio-group-cls: #{$radio-prefix-cls}-group;
 .#{$radio-group-cls} {
   .#{$radio-wrapper-cls}:not(:last-child) {
     margin-right: 8px;
+  }
+}
+
+.#{$radio-button-cls} {
+  margin-right: 0 !important;
+  .#{$radio-prefix-cls} {
+    display: none;
+  }
+}
+
+.#{$radio-group-cls} {
+  .#{$radio-button-cls} {
+    &:not(:first-child) {
+      .#{$prefix-cls}-button {
+        margin-left: -1px;
+      }
+    }
+  }
+
+  .#{$radio-button-cls}:first-child {
+    .#{$prefix-cls}-button {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
+
+  .#{$radio-button-cls}:last-child {
+    .#{$prefix-cls}-button {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+  }
+
+  .#{$radio-button-cls}:not(:first-child).#{$radio-button-cls}:not(:last-child) {
+    .#{$prefix-cls}-button {
+      border-radius: 0;
+    }
   }
 }

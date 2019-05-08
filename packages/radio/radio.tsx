@@ -55,7 +55,15 @@ export default class Radio extends React.PureComponent<IProps, IState> {
   };
 
   render() {
-    const { className, value, children, checked, disabled, style } = this.props;
+    const {
+      className,
+      value,
+      children,
+      checked: customChecked,
+      disabled,
+      style
+    } = this.props;
+    const { checked } = this.state;
 
     return (
       <label
@@ -67,14 +75,14 @@ export default class Radio extends React.PureComponent<IProps, IState> {
             className={classNames(baseCls, {
               [`${getPrefixCls('disabled', baseCls)}`]: disabled,
               [`${getPrefixCls('active', baseCls)}`]:
-                checked !== undefined ? checked : this.state.checked
+                customChecked !== undefined ? customChecked : checked
             })}
           >
             <input
               type="radio"
               name={name}
               disabled={disabled}
-              checked={checked !== undefined ? checked : this.state.checked}
+              checked={customChecked !== undefined ? customChecked : checked}
               value={value}
               onChange={this.handleChange}
             />

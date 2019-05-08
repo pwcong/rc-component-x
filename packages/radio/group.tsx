@@ -1,9 +1,10 @@
 import React from 'react';
 
 import { classNames, getPrefixCls } from '@rc-x/utils';
-import { IButtonSize } from '@rc-x/button';
+import { IButtonSize, IButtonShape } from '@rc-x/button';
 
 import Radio, { IProps as IRadioProps } from './radio';
+import Button, { IProps as IButtonProps } from './button';
 
 import './style.scss';
 
@@ -26,21 +27,31 @@ export interface IProps {
   name?: string;
   /** 可选项 */
   options?: Array<IOptions>;
+  optionType?: 'radio' | 'button';
   /** 变更回调 */
   onChange?: (value: any) => void;
   /** 子内容 */
-  children?: Array<React.ReactElement<IRadioProps>>;
+  children?:
+    | React.ReactElement<IRadioProps>
+    | Array<React.ReactElement<IRadioProps>>
+    | React.ReactElement<IButtonProps>
+    | Array<React.ReactElement<IButtonProps>>;
   /** 是否禁用 */
   disabled?: boolean;
   /** 按钮尺寸 */
   buttonSize?: IButtonSize;
+  buttonShape?: IButtonShape;
 }
 
 export interface IState {
   value: any;
 }
 
-export default class Group extends React.PureComponent<IProps, IState> {
+export default class RadioGroup extends React.PureComponent<IProps, IState> {
+  static defaultProps: IProps = {
+    optionType: 'radio'
+  };
+
   constructor(props: IProps) {
     super(props);
 
@@ -65,27 +76,42 @@ export default class Group extends React.PureComponent<IProps, IState> {
   };
 
   renderOptions = () => {
-    const { options, children, name, value, disabled } = this.props;
+    const {
+      options,
+      optionType,
+      children,
+      name,
+      value,
+      disabled,
+      buttonSize,
+      buttonShape
+    } = this.props;
 
     if (options !== undefined) {
-      return options.map((option, index) => (
-        <Radio
-          checked={
+      const Option = optionType === 'button' ? Button : Radio;
+
+      return options.map((option, index) => {
+        const optionProps = {
+          checked:
             value !== undefined
               ? value === option.value
-              : this.state.value === option.value
-          }
-          key={`${baseCls}-item-${index}`}
-          name={name}
-          value={option.value}
-          onCheck={checked => {
+              : this.state.value === option.value,
+          key: `${baseCls}-item-${index}`,
+          name: name,
+          value: option.value,
+          onCheck: checked => {
             checked && this.handleChange(option.value);
-          }}
-          disabled={disabled !== undefined ? disabled : option.disabled}
-        >
-          {option.label}
-        </Radio>
-      ));
+          },
+          disabled: disabled !== undefined ? disabled : option.disabled
+        };
+
+        if (optionType === 'button') {
+          optionProps['size'] = buttonSize;
+          optionProps['shape'] = buttonShape;
+        }
+
+        return <Option {...optionProps}>{option.label}</Option>;
+      });
     }
 
     return React.Children.map(
