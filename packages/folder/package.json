@@ -10,9 +10,9 @@
   ],
   "license": "MIT",
   "dependencies": {
+    "@rc-x/animate": "^0.0.1",
     "@rc-x/style": "^0.0.1",
-    "@rc-x/utils": "^0.0.1",
-    "react-motion": "^0.5.2"
+    "@rc-x/utils": "^0.0.1"
   },
   "devDependencies": {
     "@rc-x/test": "^0.0.1"

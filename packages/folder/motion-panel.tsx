@@ -1,10 +1,12 @@
 import React from 'react';
 
-import { Motion, spring } from 'react-motion';
+import animate from '@rc-x/animate';
 import { classNames, getPrefixCls } from '@rc-x/utils';
 
 import { IBaseProps } from './types';
 import { getHeight } from './utils';
+
+const { Motion, spring } = animate.motion;
 
 export interface IProps extends IBaseProps {}
 
