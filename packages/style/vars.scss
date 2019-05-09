@@ -83,6 +83,10 @@ $grid-container-lg: $grid-lg-min + $grid-gutter-width;
 $radio-width: 16px;
 $radio-height: $radio-width;
 
+/**************** Checkbox ****************/
+$checkbox-width: 16px;
+$checkbox-height: $radio-width;
+
 /**************** Switch ****************/
 $switch-width: 60px;
 $switch-height: 30px;

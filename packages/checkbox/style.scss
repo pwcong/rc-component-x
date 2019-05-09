@@ -1,5 +1,88 @@
 @import '~@rc-x/style/common.scss';
 
 $checkbox-prefix-cls: #{$prefix-cls}-checkbox;
+$checkbox-wrapper-cls: #{$checkbox-prefix-cls}-wrapper;
+$checkbox-group-cls: #{$checkbox-prefix-cls}-group;
+
 .#{$checkbox-prefix-cls} {
+  display: inline-block;
+  font-size: 0;
+  width: $checkbox-width;
+  height: $checkbox-height;
+  box-sizing: border-box;
+  border: $border-width-sm solid $border-color;
+  border-radius: $border-radius-sm;
+  background-color: $white;
+  position: relative;
+  margin-right: 4px;
+  top: 3px;
+  cursor: pointer;
+
+  &::after {
+    content: '✔';
+    font-size: $font-size-sm;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%) scale(0);
+    width: $checkbox-width / 2;
+    height: $checkbox-height / 2;
+    line-height: $checkbox-height / 2;
+    color: $white;
+    @include easeInOutTransition;
+  }
+
+  @include easeInOutTransition;
+
+  &-active {
+    border-color: $primary-color;
+    background-color: $primary-color;
+    &::after {
+      transform: translateX(-50%) translateY(-50%) scale(1);
+    }
+  }
+
+  & > input {
+    display: none;
+  }
+
+  &-wrapper {
+    display: inline-block;
+    font-size: $font-size;
+    color: $text-color;
+    &:focus,
+    &:hover {
+      .#{$checkbox-prefix-cls} {
+        border-color: $primary-color;
+        box-shadow: 0 0 4px 1px rgba($primary-color, 0.1);
+      }
+    }
+  }
+
+  &-inner {
+  }
+
+  &-children {
+    @include easeInOutTransition;
+    cursor: pointer;
+  }
+
+  &-disabled {
+    cursor: not-allowed;
+    border-color: $text-color-disabled !important;
+
+    &::after {
+      background-color: $disabled-color;
+    }
+  }
+  &-disabled + &-children {
+    cursor: not-allowed;
+    color: $text-color-disabled !important;
+  }
+}
+
+.#{$checkbox-group-cls} {
+  .#{$checkbox-wrapper-cls}:not(:last-child) {
+    margin-right: 8px;
+  }
 }

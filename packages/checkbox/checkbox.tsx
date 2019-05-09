@@ -5,7 +5,7 @@ import { IBaseProps } from './types';
 
 import './style.scss';
 
-const baseCls = getPrefixCls('radio');
+const baseCls = getPrefixCls('checkbox');
 
 export interface IProps extends IBaseProps {}
 
@@ -13,7 +13,7 @@ export interface IState {
   checked: boolean;
 }
 
-export default class Radio extends React.PureComponent<IProps, IState> {
+export default class Checkbox extends React.PureComponent<IProps, IState> {
   constructor(props: IProps) {
     super(props);
 
@@ -25,16 +25,21 @@ export default class Radio extends React.PureComponent<IProps, IState> {
   }
 
   handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const { onCheck, disabled } = this.props;
+    const { onCheck, disabled, checked: customChecked } = this.props;
+
     if (disabled) {
       return;
     }
+    const checked = !(customChecked !== undefined
+      ? customChecked
+      : this.state.checked);
+
     this.setState(
       {
-        checked: true
+        checked
       },
       () => {
-        onCheck && onCheck(true);
+        onCheck && onCheck(checked);
       }
     );
   };
@@ -64,7 +69,7 @@ export default class Radio extends React.PureComponent<IProps, IState> {
             })}
           >
             <input
-              type="radio"
+              type="checkbox"
               name={name}
               disabled={disabled}
               checked={customChecked !== undefined ? customChecked : checked}

@@ -1,14 +1,12 @@
 import React from 'react';
 
 import { classNames, getPrefixCls } from '@rc-x/utils';
-import { IButtonSize, IButtonShape } from '@rc-x/button';
 
-import Radio, { IProps as IRadioProps } from './radio';
-import Button, { IProps as IButtonProps } from './button';
+import Checkbox, { IProps as ICheckboxProps } from './checkbox';
 
 import './style.scss';
 
-const baseCls = getPrefixCls('radio-group');
+const baseCls = getPrefixCls('checkbox-group');
 
 export type IOptions = {
   label: React.ReactNode;
@@ -20,47 +18,35 @@ export interface IProps {
   /** 自定义类名 */
   className?: string;
   /** 默认选中值 */
-  defaultValue?: any;
+  defaultValue?: Array<any>;
   /** 当前选中值 */
-  value?: any;
+  value?: Array<any>;
   /** 统一字段名称 */
   name?: string;
   /** 可选项 */
   options?: Array<IOptions>;
-  /** 选项类型 */
-  optionType?: 'radio' | 'button';
   /** 变更回调 */
-  onChange?: (value: any) => void;
+  onChange?: (value: Array<any>) => void;
   /** 子内容 */
   children?:
-    | React.ReactElement<IRadioProps>
-    | Array<React.ReactElement<IRadioProps>>
-    | React.ReactElement<IButtonProps>
-    | Array<React.ReactElement<IButtonProps>>;
+    | React.ReactElement<ICheckboxProps>
+    | Array<React.ReactElement<ICheckboxProps>>;
   /** 是否禁用 */
   disabled?: boolean;
-  /** 按钮尺寸 */
-  buttonSize?: IButtonSize;
-  /** 按钮形状 */
-  buttonShape?: IButtonShape;
 }
 
 export interface IState {
-  value: any;
+  value: Array<any>;
 }
 
-export default class RadioGroup extends React.PureComponent<IProps, IState> {
-  static defaultProps: IProps = {
-    optionType: 'radio'
-  };
-
+export default class CheckboxGroup extends React.PureComponent<IProps, IState> {
   constructor(props: IProps) {
     super(props);
 
     const { defaultValue } = props;
 
     this.state = {
-      value: defaultValue
+      value: defaultValue || []
     };
   }
 
@@ -78,47 +64,31 @@ export default class RadioGroup extends React.PureComponent<IProps, IState> {
   };
 
   renderOptions = () => {
-    const {
-      options,
-      optionType,
-      children,
-      name,
-      value,
-      disabled,
-      buttonSize,
-      buttonShape
-    } = this.props;
+    const { options, children, name, value, disabled } = this.props;
 
     if (options !== undefined) {
-      const Option = optionType === 'button' ? Button : Radio;
-
       return options.map((option, index) => {
         const optionProps = {
           checked:
             value !== undefined
-              ? value === option.value
-              : this.state.value === option.value,
+              ? value.indexOf(option.value) > -1
+              : this.state.value.indexOf(option.value) > -1,
           key: `${baseCls}-item-${index}`,
           name: name,
           value: option.value,
           onCheck: checked => {
-            checked && this.handleChange(option.value);
+            // TODO
           },
           disabled: disabled !== undefined ? disabled : option.disabled
         };
 
-        if (optionType === 'button') {
-          optionProps['size'] = buttonSize;
-          optionProps['shape'] = buttonShape;
-        }
-
-        return <Option {...optionProps}>{option.label}</Option>;
+        return <Checkbox {...optionProps}>{option.label}</Checkbox>;
       });
     }
 
     return React.Children.map(
       children,
-      (child: React.ReactElement<IRadioProps>, index) => {
+      (child: React.ReactElement<ICheckboxProps>, index) => {
         const props = Object.assign({}, child.props, {
           key: `${baseCls}-item-${index}`,
           name,
@@ -128,11 +98,11 @@ export default class RadioGroup extends React.PureComponent<IProps, IState> {
               : this.state.value === child.props.value,
           disabled: disabled !== undefined ? disabled : child.props.disabled,
           onCheck: checked => {
-            checked && this.handleChange(child.props.value);
+            // TODO
           }
         });
 
-        return <Radio {...props} />;
+        return <Checkbox {...props} />;
       }
     );
   };
