@@ -57,6 +57,7 @@ html, body {
 /**************** Textarea ****************/
 /**************** Grid ****************/
 /**************** Radio ****************/
+/**************** Switch ****************/
 /**************** Global ****************/
 /**************** Color ****************/
 /**************** Background ****************/
@@ -68,6 +69,7 @@ html, body {
 /**************** Textarea ****************/
 /**************** Grid ****************/
 /**************** Radio ****************/
+/**************** Switch ****************/
 @-webkit-keyframes anim-spin {
   0% {
     -webkit-transform: rotate(0deg);
@@ -229,6 +231,7 @@ html, body {
 /**************** Textarea ****************/
 /**************** Grid ****************/
 /**************** Radio ****************/
+/**************** Switch ****************/
 /**************** Global ****************/
 /**************** Color ****************/
 /**************** Background ****************/
@@ -240,6 +243,7 @@ html, body {
 /**************** Textarea ****************/
 /**************** Grid ****************/
 /**************** Radio ****************/
+/**************** Switch ****************/
 @-webkit-keyframes anim-spin {
   0% {
     -webkit-transform: rotate(0deg);
@@ -254,4 +258,15 @@ html, body {
   100% {
     -webkit-transform: rotate(360deg);
             transform: rotate(360deg); } }
+
+.rc-x-icon {
+  display: inline-block;
+  font-size: inherit;
+  color: inherit;
+  line-height: 0;
+  position: relative;
+  top: 2px; }
+  .rc-x-icon-spin {
+    -webkit-animation: anim-spin 1.5s linear infinite;
+            animation: anim-spin 1.5s linear infinite; }
 

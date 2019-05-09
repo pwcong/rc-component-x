@@ -57,6 +57,7 @@ html, body {
 /**************** Textarea ****************/
 /**************** Grid ****************/
 /**************** Radio ****************/
+/**************** Switch ****************/
 /**************** Global ****************/
 /**************** Color ****************/
 /**************** Background ****************/
@@ -68,6 +69,7 @@ html, body {
 /**************** Textarea ****************/
 /**************** Grid ****************/
 /**************** Radio ****************/
+/**************** Switch ****************/
 @-webkit-keyframes anim-spin {
   0% {
     -webkit-transform: rotate(0deg);
@@ -109,7 +111,7 @@ html, body {
     border-radius: 5px; }
   .rc-x-input-disabled {
     cursor: not-allowed;
-    background-color: #f5f5f5;
+    background-color: #e5e5e5;
     color: #dddddd;
     border-color: #cccccc !important; }
   .rc-x-input-wrapper {
