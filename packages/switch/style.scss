@@ -1,5 +1,115 @@
 @import '~@rc-x/style/common.scss';
 
 $switch-prefix-cls: #{$prefix-cls}-switch;
+$switch-button-cls: #{$switch-prefix-cls}-button;
+$switch-dot-cls: #{$switch-prefix-cls}-dot;
+
+$sizes: (
+  large: (
+    width: $switch-width-lg,
+    height: $switch-height-lg,
+    fontSize: $font-size-md
+  ),
+  small: (
+    width: $switch-width-sm,
+    height: $switch-height-sm,
+    fontSize: $font-size-sm
+  )
+);
+
 .#{$switch-prefix-cls} {
+  font-size: $font-size;
+  cursor: pointer;
+  user-select: none;
+  @include easeInOutTransition;
+
+  &-input {
+    display: none;
+  }
+
+  &-button {
+    display: inline-block;
+    width: $switch-width;
+    height: $switch-height;
+    background-color: $switch-bg;
+    border-radius: $switch-height / 2;
+    position: relative;
+    @include easeInOutTransition;
+  }
+
+  &-checked &-button {
+    background-color: $switch-bg-checked;
+  }
+
+  &-loading {
+    cursor: wait;
+  }
+
+  &-disabled {
+    cursor: not-allowed;
+  }
+
+  &-checked.#{$switch-prefix-cls}-loading &-button {
+    background-color: rgba($switch-bg-checked, 0.4);
+  }
+  &-loading &-button {
+    background-color: rgba($switch-bg, 0.4);
+  }
+  &-disabled &-button {
+    background-color: $disabled-bg !important;
+  }
+
+  &-loading &-dot {
+    color: rgba($switch-bg, 0.4);
+  }
+  &-disabled &-dot {
+    color: $disabled-color !important;
+  }
+
+  &-dot {
+    position: absolute;
+    width: $switch-height - 4;
+    height: $switch-height - 4;
+    background-color: $white;
+    border-radius: ($switch-height - 4) / 2;
+    color: $primary-color;
+    line-height: $switch-height - 4;
+    left: 2px;
+    top: 2px;
+    text-align: center;
+
+    @include easeInOutTransition;
+  }
+
+  &-checked &-dot {
+    left: $switch-width / 2 + 2;
+  }
+}
+
+@each $key, $value in $sizes {
+  .#{$switch-prefix-cls}-#{$key} {
+    font-size: map-get($value, fontSize);
+
+    .#{$switch-prefix-cls}-button {
+      width: map-get($value, width);
+      height: map-get($value, height);
+      border-radius: map-get($value, height) / 2;
+      &-checked {
+        background-color: $switch-bg-checked;
+      }
+    }
+
+    .#{$switch-prefix-cls}-dot {
+      width: map-get($value, height) - 4;
+      height: map-get($value, height) - 4;
+      border-radius: (map-get($value, height) - 4) / 2;
+      line-height: map-get($value, height) - 4;
+    }
+  }
+
+  .#{$switch-prefix-cls}-#{$key}.#{$switch-prefix-cls}-checked {
+    .#{$switch-prefix-cls}-dot {
+      left: map-get($value, width) / 2 + 2;
+    }
+  }
 }

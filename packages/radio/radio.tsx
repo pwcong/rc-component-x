@@ -24,25 +24,11 @@ export default class Radio extends React.PureComponent<IProps, IState> {
     };
   }
 
-  static getDerivedStateFromProps(nextProps: IProps, prevState: IState) {
-    const { checked } = nextProps;
-
-    if (checked !== undefined) {
-      return Object.assign({}, prevState, {
-        checked
-      });
-    }
-
-    return prevState;
-  }
-
   handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { onCheck, disabled } = this.props;
-
     if (disabled) {
       return;
     }
-
     const checked = event.target.checked;
     this.setState(
       {

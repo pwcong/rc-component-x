@@ -11,7 +11,8 @@ $success-color: #11cc00;
 $disabled-color: #dddddd;
 
 /**************** Background ****************/
-$disabled-bg: #f5f5f5;
+$component-bg: #aaaaaa;
+$disabled-bg: #e5e5e5;
 $active-bg: rgba($primary-color, 0.2);
 
 /**************** Font ****************/
@@ -81,3 +82,13 @@ $grid-container-lg: $grid-lg-min + $grid-gutter-width;
 /**************** Radio ****************/
 $radio-width: 16px;
 $radio-height: $radio-width;
+
+/**************** Switch ****************/
+$switch-width: 60px;
+$switch-height: 30px;
+$switch-width-lg: 72px;
+$switch-height-lg: 36px;
+$switch-width-sm: 48px;
+$switch-height-sm: 24px;
+$switch-bg: $component-bg;
+$switch-bg-checked: $primary-color;
