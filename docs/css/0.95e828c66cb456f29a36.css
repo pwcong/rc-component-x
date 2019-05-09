@@ -265,7 +265,7 @@ html, body {
   color: inherit;
   line-height: 0;
   position: relative;
-  top: 2px; }
+  top: 1px; }
   .rc-x-icon-spin {
     -webkit-animation: anim-spin 1.5s linear infinite;
             animation: anim-spin 1.5s linear infinite; }

@@ -270,26 +270,50 @@ html, body {
     border-color: #dddddd !important;
     color: #999999 !important;
     cursor: not-allowed; }
-  .rc-x-button-large {
-    font-size: 18px;
-    height: 40px;
-    padding: 0 12px;
-    border-radius: 5px; }
-  .rc-x-button-small {
-    font-size: 12px;
-    height: 24px;
-    padding: 0 4px;
-    border-radius: 2px; }
   .rc-x-button-round {
     border-radius: 16px; }
-  .rc-x-button-round.rc-x-button-large {
-    border-radius: 20px; }
-  .rc-x-button-round.rc-x-button-small {
-    border-radius: 12px; }
-  .rc-x-button .rc-x-icon {
-    margin-right: 6px;
-    font-size: inherit;
-    color: inherit; }
+  .rc-x-button-circle {
+    width: 32px;
+    height: 32px;
+    border-radius: 16px; }
+    .rc-x-button-circle > * {
+      display: none; }
+  .rc-x-button-link {
+    padding: 0;
+    border: none !important;
+    background-color: transparent !important; }
+  .rc-x-button-icon {
+    display: inline !important; }
+  .rc-x-button > *:not(:last-child) {
+    margin-right: 6px; }
+
+.rc-x-button-large {
+  font-size: 16px;
+  height: 40px;
+  padding: 0 12px;
+  border-radius: 5px; }
+
+.rc-x-button-large.rc-x-button-round {
+  border-radius: 20px; }
+
+.rc-x-button-large.rc-x-button-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 20px; }
+
+.rc-x-button-small {
+  font-size: 12px;
+  height: 24px;
+  padding: 0 4px;
+  border-radius: 2px; }
+
+.rc-x-button-small.rc-x-button-round {
+  border-radius: 12px; }
+
+.rc-x-button-small.rc-x-button-circle {
+  width: 24px;
+  height: 24px;
+  border-radius: 12px; }
 
 .rc-x-button.rc-x-button-primary {
   border-color: #0077ff;
@@ -302,6 +326,11 @@ html, body {
   background-color: #0077ff;
   color: #ffffff; }
 
+.rc-x-button.rc-x-button-primary.rc-x-button-link {
+  color: #0077ff; }
+  .rc-x-button.rc-x-button-primary.rc-x-button-link:hover {
+    color: #0077ff; }
+
 .rc-x-button.rc-x-button-warning {
   border-color: #ffbb00;
   color: #ffbb00; }
@@ -312,6 +341,11 @@ html, body {
 .rc-x-button.rc-x-button-warning.rc-x-button-checked {
   background-color: #ffbb00;
   color: #ffffff; }
+
+.rc-x-button.rc-x-button-warning.rc-x-button-link {
+  color: #ffbb00; }
+  .rc-x-button.rc-x-button-warning.rc-x-button-link:hover {
+    color: #ffbb00; }
 
 .rc-x-button.rc-x-button-success {
   border-color: #11cc00;
@@ -324,6 +358,11 @@ html, body {
   background-color: #11cc00;
   color: #ffffff; }
 
+.rc-x-button.rc-x-button-success.rc-x-button-link {
+  color: #11cc00; }
+  .rc-x-button.rc-x-button-success.rc-x-button-link:hover {
+    color: #11cc00; }
+
 .rc-x-button.rc-x-button-danger {
   border-color: #ff1100;
   color: #ff1100; }
@@ -334,4 +373,9 @@ html, body {
 .rc-x-button.rc-x-button-danger.rc-x-button-checked {
   background-color: #ff1100;
   color: #ffffff; }
+
+.rc-x-button.rc-x-button-danger.rc-x-button-link {
+  color: #ff1100; }
+  .rc-x-button.rc-x-button-danger.rc-x-button-link:hover {
+    color: #ff1100; }
 

@@ -133,6 +133,27 @@ html, body {
     transition: all 0.2s ease-in-out; }
   .rc-x-switch-checked .rc-x-switch-dot {
     left: 32px; }
+  .rc-x-switch-children-checked, .rc-x-switch-children-unchecked {
+    display: block;
+    position: absolute;
+    color: white;
+    top: 50%; }
+  .rc-x-switch-children-unchecked {
+    right: 15px;
+    -webkit-transform: translateY(-50%) translateX(50%);
+            transform: translateY(-50%) translateX(50%); }
+  .rc-x-switch-children-checked {
+    left: 15px;
+    -webkit-transform: translateY(-50%) translateX(-50%);
+            transform: translateY(-50%) translateX(-50%); }
+  .rc-x-switch-children-checked {
+    display: none; }
+  .rc-x-switch-children-unchecked {
+    display: block; }
+  .rc-x-switch-checked .rc-x-switch-children-checked {
+    display: block; }
+  .rc-x-switch-checked .rc-x-switch-children-unchecked {
+    display: none; }
 
 .rc-x-switch-large {
   font-size: 16px; }
