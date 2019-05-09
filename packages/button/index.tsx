@@ -111,9 +111,11 @@ const Button: React.FunctionComponent<IProps> = (props: IProps) => {
       type={htmlType}
     >
       {(icon || loading) && (
-        <Icon type={icon || (loading ? 'loader' : '')} spin={loading} />
+        <span className={getPrefixCls('icon', baseCls)}>
+          <Icon type={icon || (loading ? 'loader' : '')} spin={loading} />
+        </span>
       )}
-      {children}
+      <span>{children}</span>
     </button>
   );
 };

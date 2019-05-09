@@ -9,6 +9,21 @@ $colors: (
   danger: $error-color
 );
 
+$sizes: (
+  large: (
+    height: $button-height-lg,
+    fontSize: $font-size-md,
+    padding: $button-padding-lg,
+    borderRadius: $border-radius-lg
+  ),
+  small: (
+    height: $button-height-sm,
+    fontSize: $font-size-sm,
+    padding: $button-padding-sm,
+    borderRadius: $border-radius-sm
+  )
+);
+
 .#{$button-prefix-cls} {
   border: $border-width-sm solid $border-color;
   background-color: $white;
@@ -44,34 +59,50 @@ $colors: (
     cursor: not-allowed;
   }
 
-  &-large {
-    font-size: $font-size-lg;
-    height: $button-height-lg;
-    padding: $button-padding-lg;
-    border-radius: $border-radius-lg;
-  }
-
-  &-small {
-    font-size: $font-size-sm;
-    height: $button-height-sm;
-    padding: $button-padding-sm;
-    border-radius: $border-radius-sm;
-  }
-
   &-round {
     border-radius: $button-height / 2;
   }
-  &-round.#{$button-prefix-cls}-large {
-    border-radius: $button-height-lg / 2;
-  }
-  &-round.#{$button-prefix-cls}-small {
-    border-radius: $button-height-sm / 2;
+
+  &-circle {
+    width: $button-height;
+    height: $button-height;
+    border-radius: $button-height / 2;
+
+    & > * {
+      display: none;
+    }
   }
 
-  .#{$prefix-cls}-icon {
+  &-link {
+    padding: 0;
+    border: none !important;
+    background-color: transparent !important;
+  }
+
+  &-icon {
+    display: inline !important;
+  }
+
+  & > *:not(:last-child) {
     margin-right: 6px;
-    font-size: inherit;
-    color: inherit;
+  }
+}
+
+@each $key, $value in $sizes {
+  .#{$button-prefix-cls}-#{$key} {
+    font-size: map-get($value, fontSize);
+    height: map-get($value, height);
+    padding: map-get($value, padding);
+    border-radius: map-get($value, borderRadius);
+  }
+
+  .#{$button-prefix-cls}-#{$key}.#{$button-prefix-cls}-round {
+    border-radius: map-get($value, height) / 2;
+  }
+  .#{$button-prefix-cls}-#{$key}.#{$button-prefix-cls}-circle {
+    width: map-get($value, height);
+    height: map-get($value, height);
+    border-radius: map-get($value, height) / 2;
   }
 }
 
@@ -88,5 +119,12 @@ $colors: (
   .#{$button-prefix-cls}.#{$button-prefix-cls}-#{$key}.#{$button-prefix-cls}-checked {
     background-color: $value;
     color: $white;
+  }
+
+  .#{$button-prefix-cls}.#{$button-prefix-cls}-#{$key}.#{$button-prefix-cls}-link {
+    color: $value;
+    &:hover {
+      color: $value;
+    }
   }
 }
