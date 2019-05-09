@@ -28,11 +28,11 @@ export interface IProps {
   style?: React.CSSProperties;
   /** 加载中 */
   loading?: boolean;
-  /** 加载中 */
+  /** 尺寸 */
   size?: ISwitchSize;
-  /** 加载中 */
+  /** 选中内容 */
   checkedChildren?: React.ReactNode;
-  /** 加载中 */
+  /** 未选中内容 */
   unCheckedChildren?: React.ReactNode;
 }
 
@@ -104,8 +104,12 @@ export default class Switch extends React.PureComponent<IProps, IState> {
           <span className={getPrefixCls('dot', baseCls)}>
             {loading && <Icon type="loader" spin={true} />}
           </span>
-          <span>{checkedChildren}</span>
-          <span>{unCheckedChildren}</span>
+          <span className={getPrefixCls('children-checked', baseCls)}>
+            {checkedChildren}
+          </span>
+          <span className={getPrefixCls('children-unchecked', baseCls)}>
+            {unCheckedChildren}
+          </span>
         </span>
       </label>
     );

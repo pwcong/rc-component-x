@@ -84,6 +84,37 @@ $sizes: (
   &-checked &-dot {
     left: $switch-width / 2 + 2;
   }
+
+  &-children {
+    &-checked,
+    &-unchecked {
+      display: block;
+      position: absolute;
+      color: white;
+      top: 50%;
+    }
+    &-unchecked {
+      right: $switch-height / 2;
+      transform: translateY(-50%) translateX(50%);
+    }
+    &-checked {
+      left: $switch-height / 2;
+      transform: translateY(-50%) translateX(-50%);
+    }
+  }
+
+  &-children-checked {
+    display: none;
+  }
+  &-children-unchecked {
+    display: block;
+  }
+  &-checked &-children-checked {
+    display: block;
+  }
+  &-checked &-children-unchecked {
+    display: none;
+  }
 }
 
 @each $key, $value in $sizes {
