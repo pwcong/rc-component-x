@@ -97,21 +97,21 @@ Hope this repository can help you. That's all.
 
 ## How To Develop
 
-### 0x00. init primary npm registry server (Optional)
+**1. Init primary npm registry server (Optional)**
 
 ```shell
 > docker pull verdaccio/verdaccio
 > docker run --name verdaccio_service -p 4873:4873 -d verdaccio/verdaccio
 ```
 
-### 0x01. set npm configuration (Optional)
+**2. Set npm configuration (Optional)**
 
 ```shell
 > npm set registry http://127.0.0.1:4873/
 > npm adduser
 ```
 
-### 0x02. ready (Just Do It!)
+**3. Ready (Just Do It!)**
 
 ```
 > yarn
