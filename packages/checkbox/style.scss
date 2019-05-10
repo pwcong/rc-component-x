@@ -20,7 +20,7 @@ $checkbox-group-cls: #{$checkbox-prefix-cls}-group;
 
   &::after {
     content: '✔';
-    font-size: $font-size-sm;
+    font-size: $font-size-xs;
     position: absolute;
     left: 50%;
     top: 50%;
@@ -69,11 +69,8 @@ $checkbox-group-cls: #{$checkbox-prefix-cls}-group;
 
   &-disabled {
     cursor: not-allowed;
+    background-color: $disabled-bg;
     border-color: $text-color-disabled !important;
-
-    &::after {
-      background-color: $disabled-color;
-    }
   }
   &-disabled + &-children {
     cursor: not-allowed;
@@ -82,6 +79,7 @@ $checkbox-group-cls: #{$checkbox-prefix-cls}-group;
 }
 
 .#{$checkbox-group-cls} {
+  display: inline-block;
   .#{$checkbox-wrapper-cls}:not(:last-child) {
     margin-right: 8px;
   }

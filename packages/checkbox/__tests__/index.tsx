@@ -78,9 +78,9 @@ export default function() {
             value: undefined,
             options: [
               { value: undefined, label: 'undefined' },
-              { value: 'a', label: 'AAA' },
-              { value: 'b', label: 'BBB' },
-              { value: 'c', label: 'CCC' }
+              { value: ['a'], label: '["a"]' },
+              { value: ['b'], label: '["b"]' },
+              { value: ['c'], label: '["c"]' }
             ]
           }
         }

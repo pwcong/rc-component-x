@@ -46,6 +46,7 @@ export default class Radio extends React.PureComponent<IProps, IState> {
       children,
       checked: customChecked,
       disabled,
+      name,
       style
     } = this.props;
     const { checked } = this.state;

@@ -102,7 +102,7 @@ export default function() {
           optionType: {
             type: 'radio',
             label: '选项类型',
-            value: 'button',
+            value: 'radio',
             options: [
               { value: 'radio', label: 'radio' },
               { value: 'button', label: 'button' }
@@ -152,6 +152,15 @@ export default function() {
       ]}
       componentName={['Radio', 'RadioButton', 'RadioGroup']}
       componentPackageJson={packageJson}
-    />
+    >
+      <RadioGroup buttonShape="round" name="gender">
+        <RadioButton value="boy">男</RadioButton>
+        <RadioButton value="girl">女</RadioButton>
+      </RadioGroup>
+      <RadioGroup name="sex" style={{ marginLeft: 8 }}>
+        <Radio value="male">男</Radio>
+        <Radio value="female">女</Radio>
+      </RadioGroup>
+    </Test>
   );
 }

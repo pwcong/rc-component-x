@@ -81,6 +81,7 @@ $radio-button-cls: #{$radio-prefix-cls}-button;
 }
 
 .#{$radio-group-cls} {
+  display: inline-block;
   .#{$radio-wrapper-cls}:not(:last-child) {
     margin-right: 8px;
   }

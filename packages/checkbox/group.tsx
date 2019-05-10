@@ -8,11 +8,13 @@ import './style.scss';
 
 const baseCls = getPrefixCls('checkbox-group');
 
-export type IOptions = {
+export type IOption = {
   label: React.ReactNode;
   value: any;
   disabled?: boolean;
 };
+
+export type IOptions = Array<IOption>;
 
 export interface IProps {
   /** 自定义类名 */
@@ -24,7 +26,7 @@ export interface IProps {
   /** 统一字段名称 */
   name?: string;
   /** 可选项 */
-  options?: Array<IOptions>;
+  options?: IOptions;
   /** 变更回调 */
   onChange?: (value: Array<any>) => void;
   /** 子内容 */
@@ -50,15 +52,23 @@ export default class CheckboxGroup extends React.PureComponent<IProps, IState> {
     };
   }
 
-  handleChange = value => {
-    const { onChange } = this.props;
+  handleChange = (value, checked: boolean) => {
+    const { value: customValue, onChange } = this.props;
+
+    const newValue = (customValue !== undefined
+      ? customValue
+      : this.state.value
+    )
+      .map(v => v)
+      .filter(v => v !== value)
+      .concat(checked ? [value] : []);
 
     this.setState(
       {
-        value
+        value: newValue
       },
       () => {
-        onChange && onChange(value);
+        onChange && onChange(newValue);
       }
     );
   };
@@ -77,7 +87,7 @@ export default class CheckboxGroup extends React.PureComponent<IProps, IState> {
           name: name,
           value: option.value,
           onCheck: checked => {
-            // TODO
+            this.handleChange(option.value, checked);
           },
           disabled: disabled !== undefined ? disabled : option.disabled
         };
@@ -94,11 +104,11 @@ export default class CheckboxGroup extends React.PureComponent<IProps, IState> {
           name,
           checked:
             value !== undefined
-              ? value === child.props.value
-              : this.state.value === child.props.value,
+              ? value.indexOf(child.props.value) > -1
+              : this.state.value.indexOf(child.props.value) > -1,
           disabled: disabled !== undefined ? disabled : child.props.disabled,
           onCheck: checked => {
-            // TODO
+            this.handleChange(child.props.value, checked);
           }
         });
 
