@@ -10,7 +10,6 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "@rc-x/button": "^0.0.1",
     "@rc-x/style": "^0.0.1",
     "@rc-x/utils": "^0.0.1"
   },
