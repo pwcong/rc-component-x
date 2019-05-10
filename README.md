@@ -4,9 +4,12 @@ React components foundation in TypeScript. [Docs Here](https://pwcong.github.io/
 
 ## Feature
 
-I have no idea now. But it is real amazing!
+I have no idea now. But it is real amazing! Just like:
 
-Just like supporting new component added and secondary development for existed component and beautiful coding and so on.
+* supporting new component added *
+* supporting secondary development for existed component
+* beautiful coding
+* and so on.
 
 Hope this repository can help you. That's all.
 
