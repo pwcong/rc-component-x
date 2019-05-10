@@ -6,7 +6,7 @@ React components foundation in TypeScript. [Docs Here](https://pwcong.github.io/
 
 I have no idea now. But it is real amazing! Just like:
 
-* supporting new component added *
+* supporting new component added
 * supporting secondary development for existed component
 * beautiful coding
 * and so on.
