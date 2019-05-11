@@ -61,5 +61,6 @@
     "react-router": "^5.0.0",
     "react-router-dom": "^5.0.0",
     "typescript": "^3.4.5"
-  }
+  },
+  "version": "0.0.0"
 }
