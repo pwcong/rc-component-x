@@ -6,7 +6,7 @@ import { IScreenSize } from './types';
 
 import './style.scss';
 
-export interface IProps {
+export interface IRowProps {
   /** 自定义类名 */
   className?: string;
   /** 自定义样式 */
@@ -31,7 +31,7 @@ export interface IProps {
 
 const baseCls = getPrefixCls('row');
 
-const Row: React.FunctionComponent<IProps> = props => {
+const Row: React.FunctionComponent<IRowProps> = props => {
   const {
     className,
     style,

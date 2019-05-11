@@ -42,6 +42,7 @@
     "rollup-plugin-filesize": "^6.0.1",
     "rollup-plugin-node-resolve": "^4.2.3",
     "rollup-plugin-postcss": "^2.0.3",
+    "rollup-plugin-typescript": "^1.0.1",
     "rollup-plugin-typescript2": "^0.21.0",
     "rollup-plugin-uglify": "^6.0.2",
     "sass-loader": "^7.1.0",

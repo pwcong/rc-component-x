@@ -20,7 +20,7 @@ export type ITextareaRowLimit = {
   max?: number;
 };
 
-export interface IProps extends IBaseProps {
+export interface ITextareaProps extends IBaseProps {
   /** 计数器 */
   counter?: boolean | ITextareaCounter;
   /** 限制长度 */
@@ -31,11 +31,11 @@ export interface IProps extends IBaseProps {
   allowClear?: boolean;
 }
 
-export interface IForwardRefProps extends IProps {
+interface IForwardRefProps extends ITextareaProps {
   forwardedRef?: React.Ref<any>;
 }
 
-export interface IState {
+interface IState {
   value: string;
   row: number;
   minRow: number;
@@ -268,6 +268,6 @@ class Textarea extends PureComponent<IForwardRefProps, IState> {
   }
 }
 
-export default React.forwardRef<any, IProps>((props, ref) => {
+export default React.forwardRef<any, ITextareaProps>((props, ref) => {
   return <Textarea {...props} forwardedRef={ref} />;
 });

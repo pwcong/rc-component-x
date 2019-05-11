@@ -61,7 +61,7 @@ export interface ITestChildProps {
   componentTestProps: IComponentTestProps;
 }
 
-export interface IProps {
+export interface ITestProps {
   componentPackageJson: { [name: string]: any };
   component: any | Array<any>;
   componentName?: string | Array<string>;
@@ -219,7 +219,7 @@ const TestChild = (props: ITestChildProps) => {
   );
 };
 
-const Test = (props: IProps) => {
+const Test = (props: ITestProps) => {
   const {
     component,
     componentName,

@@ -7,14 +7,14 @@ import './style.scss';
 
 const baseCls = getPrefixCls('radio');
 
-export interface IProps extends IBaseProps {}
+export interface IRadioProps extends IBaseProps {}
 
-export interface IState {
+interface IState {
   checked: boolean;
 }
 
-export default class Radio extends React.PureComponent<IProps, IState> {
-  constructor(props: IProps) {
+export default class Radio extends React.PureComponent<IRadioProps, IState> {
+  constructor(props: IRadioProps) {
     super(props);
 
     const { defaultChecked = false } = props;

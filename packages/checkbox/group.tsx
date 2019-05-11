@@ -2,21 +2,21 @@ import React from 'react';
 
 import { classNames, getPrefixCls } from '@rc-x/utils';
 
-import Checkbox, { IProps as ICheckboxProps } from './checkbox';
+import Checkbox, { ICheckboxProps } from './checkbox';
 
 import './style.scss';
 
 const baseCls = getPrefixCls('checkbox-group');
 
-export type IOption = {
+export type ICheckboxGroupOption = {
   label: React.ReactNode;
   value: any;
   disabled?: boolean;
 };
 
-export type IOptions = Array<IOption>;
+export type ICheckboxGroupOptions = Array<ICheckboxGroupOption>;
 
-export interface IProps {
+export interface ICheckboxGroupProps {
   /** 自定义类名 */
   className?: string;
   /** 默认选中值 */
@@ -26,7 +26,7 @@ export interface IProps {
   /** 统一字段名称 */
   name?: string;
   /** 可选项 */
-  options?: IOptions;
+  options?: ICheckboxGroupOptions;
   /** 变更回调 */
   onChange?: (value: Array<any>) => void;
   /** 子内容 */
@@ -37,12 +37,15 @@ export interface IProps {
   disabled?: boolean;
 }
 
-export interface IState {
+interface IState {
   value: Array<any>;
 }
 
-export default class CheckboxGroup extends React.PureComponent<IProps, IState> {
-  constructor(props: IProps) {
+export default class CheckboxGroup extends React.PureComponent<
+  ICheckboxGroupProps,
+  IState
+> {
+  constructor(props: ICheckboxGroupProps) {
     super(props);
 
     const { defaultValue } = props;

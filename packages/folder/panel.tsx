@@ -5,9 +5,9 @@ import { classNames, getPrefixCls } from '@rc-x/utils';
 import { IBaseProps } from './types';
 import { getHeight } from './utils';
 
-export interface IProps extends IBaseProps {}
+export interface IPanelProps extends IBaseProps {}
 
-export interface IForwardRefProps extends IProps {
+interface IForwardRefProps extends IPanelProps {
   forwardedRef: React.Ref<any>;
 }
 
@@ -54,6 +54,6 @@ class Panel extends React.PureComponent<IForwardRefProps> {
   }
 }
 
-export default React.forwardRef<any, IProps>((props, ref) => {
+export default React.forwardRef<any, IPanelProps>((props, ref) => {
   return <Panel {...props} forwardedRef={ref} />;
 });

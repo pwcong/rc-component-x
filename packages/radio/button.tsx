@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Button, { IProps as IButtonProps } from '@rc-x/button';
+import Button, { IButtonProps } from '@rc-x/button';
 import { classNames, getPrefixCls } from '@rc-x/utils';
 
 import Radio from './radio';
@@ -11,13 +11,16 @@ import './style.scss';
 
 const baseCls = getPrefixCls('radio-button');
 
-export type IProps = IBaseProps & IButtonProps & {};
-export interface IState {
+export type IRadioButtonProps = IBaseProps & IButtonProps & {};
+interface IState {
   checked: boolean;
 }
 
-export default class RadioButton extends React.PureComponent<IProps, IState> {
-  constructor(props: IProps) {
+export default class RadioButton extends React.PureComponent<
+  IRadioButtonProps,
+  IState
+> {
+  constructor(props: IRadioButtonProps) {
     super(props);
     const { defaultChecked = false } = props;
     this.state = {

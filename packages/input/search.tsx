@@ -2,17 +2,17 @@ import React, { useState } from 'react';
 
 import Icon from '@rc-x/icon';
 import { classNames, getPrefixCls } from '@rc-x/utils';
-import Input, { IProps as IInputProps } from './input';
+import Input, { IInputProps } from './input';
 
 import './style.scss';
 
 const baseCls = getPrefixCls('input-search');
 
-export interface IProps extends IInputProps {
+export interface ISearchProps extends IInputProps {
   /** 搜索回调 */
   onSearch?: (value: string) => void;
 }
-export interface IForwardRefProps extends IProps {
+interface IForwardRefProps extends ISearchProps {
   forwardedRef?: React.Ref<any>;
 }
 
@@ -56,6 +56,6 @@ const Search: React.FunctionComponent<IForwardRefProps> = props => {
   );
 };
 
-export default React.forwardRef<any, IProps>((props, ref) => {
+export default React.forwardRef<any, ISearchProps>((props, ref) => {
   return <Search {...props} forwardedRef={ref} />;
 });

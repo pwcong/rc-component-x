@@ -32,7 +32,7 @@ export interface IColGrid {
   offset?: IColGridOffset;
 }
 
-export interface IProps {
+export interface IColProps {
   /** 自定义类名 */
   className?: string;
   /** 自定义样式 */
@@ -48,7 +48,7 @@ export interface IProps {
 
 const baseCls = getPrefixCls('col');
 
-const Row: React.FunctionComponent<IProps> = props => {
+const Row: React.FunctionComponent<IColProps> = props => {
   const { className, style, children, grid = {}, reordering = {} } = props;
 
   const { size = {}, offset = {} } = grid;

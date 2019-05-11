@@ -13,13 +13,15 @@ import { RadioButton } from '.';
 
 const baseCls = getPrefixCls('radio-group');
 
-export type IOptions = {
+export type IRadioGroupOption = {
   label: React.ReactNode;
   value: any;
   disabled?: boolean;
 };
 
-export interface IProps {
+export type IRadioGroupOptions = Array<IRadioGroupOption>;
+
+export interface IRadioGroupProps {
   /** 自定义样式 */
   style?: React.CSSProperties;
   /** 自定义类名 */
@@ -31,7 +33,7 @@ export interface IProps {
   /** 统一字段名称 */
   name?: string;
   /** 可选项 */
-  options?: Array<IOptions>;
+  options?: IRadioGroupOptions;
   /** 选项类型 */
   optionType?: 'radio' | 'button';
   /** 变更回调 */
@@ -48,16 +50,19 @@ export interface IProps {
   buttonShape?: IButtonShape;
 }
 
-export interface IState {
+interface IState {
   value: any;
 }
 
-export default class RadioGroup extends React.PureComponent<IProps, IState> {
-  static defaultProps: IProps = {
+export default class RadioGroup extends React.PureComponent<
+  IRadioGroupProps,
+  IState
+> {
+  static defaultProps: IRadioGroupProps = {
     optionType: 'radio'
   };
 
-  constructor(props: IProps) {
+  constructor(props: IRadioGroupProps) {
     super(props);
 
     const { defaultValue } = props;

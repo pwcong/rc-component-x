@@ -16,7 +16,7 @@ export type IButtonSize = 'large' | 'default' | 'small';
 export type IButtonShape = 'default' | 'round' | 'circle' | 'link';
 export type IButtonTarget = '_blank' | '_self';
 
-export interface IProps {
+export interface IButtonProps {
   /** 类名 */
   className?: string;
   /** 子内容 */
@@ -66,7 +66,7 @@ export interface IProps {
 
 const baseCls = getPrefixCls('button');
 
-const Button: React.FunctionComponent<IProps> = (props: IProps) => {
+const Button: React.FunctionComponent<IButtonProps> = (props: IButtonProps) => {
   const {
     className,
     children,

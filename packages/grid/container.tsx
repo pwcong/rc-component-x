@@ -4,7 +4,7 @@ import { classNames, getPrefixCls } from '@rc-x/utils';
 
 import './style.scss';
 
-export interface IProps {
+export interface IContainerProps {
   /** 自定义类名 */
   className?: string;
   /** 自定义样式 */
@@ -15,7 +15,7 @@ export interface IProps {
 
 const baseCls = getPrefixCls('container');
 
-const Container: React.FunctionComponent<IProps> = props => {
+const Container: React.FunctionComponent<IContainerProps> = props => {
   const { className, style, fluid, children } = props;
 
   return (

@@ -11,7 +11,7 @@ const baseCls = getPrefixCls('input');
 
 export type IInputSize = 'default' | 'large' | 'small';
 
-export interface IProps extends IBaseProps {
+export interface IInputProps extends IBaseProps {
   /**
    * 大小
    * @default default
@@ -33,11 +33,11 @@ export interface IProps extends IBaseProps {
   htmlType?: string;
 }
 
-export interface IForwardRefProps extends IProps {
+interface IForwardRefProps extends IInputProps {
   forwardedRef?: React.Ref<any>;
 }
 
-export interface IState {
+interface IState {
   value: string;
 }
 
@@ -186,6 +186,6 @@ class Input extends PureComponent<IForwardRefProps, IState> {
   }
 }
 
-export default React.forwardRef<any, IProps>((props, ref) => {
+export default React.forwardRef<any, IInputProps>((props, ref) => {
   return <Input {...props} forwardedRef={ref} />;
 });

@@ -9,7 +9,7 @@ const baseCls = getPrefixCls('switch');
 
 export type ISwitchSize = 'default' | 'large' | 'small';
 
-export interface IProps {
+export interface ISwitchProps {
   /** 类名 */
   className?: string;
   /** 选中状态 */
@@ -36,12 +36,12 @@ export interface IProps {
   unCheckedChildren?: React.ReactNode;
 }
 
-export interface IState {
+interface IState {
   checked: boolean;
 }
 
-export default class Switch extends React.PureComponent<IProps, IState> {
-  constructor(props: IProps) {
+export default class Switch extends React.PureComponent<ISwitchProps, IState> {
+  constructor(props: ISwitchProps) {
     super(props);
     const { defaultChecked } = props;
     this.state = {

@@ -2,18 +2,18 @@ import React, { useState } from 'react';
 
 import Icon from '@rc-x/icon';
 import { classNames, getPrefixCls } from '@rc-x/utils';
-import Input, { IProps as IInputProps } from './input';
+import Input, { IInputProps } from './input';
 
 import './style.scss';
 
 const baseCls = getPrefixCls('input-number');
 
-export interface IProps extends IInputProps {
+export interface IPasswordProps extends IInputProps {
   /** 默认可见 */
   defaultVisibled?: boolean;
 }
 
-export interface IForwardRefProps extends IProps {
+interface IForwardRefProps extends IPasswordProps {
   forwardedRef?: React.Ref<any>;
 }
 
@@ -45,6 +45,6 @@ Password.defaultProps = {
   defaultVisibled: true
 };
 
-export default React.forwardRef<any, IProps>((props, ref) => {
+export default React.forwardRef<any, IPasswordProps>((props, ref) => {
   return <Password {...props} forwardedRef={ref} />;
 });

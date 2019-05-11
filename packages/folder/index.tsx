@@ -8,7 +8,10 @@ import MotionPanel from './motion-panel';
 
 import './style.scss';
 
-export interface IProps extends IBaseProps {
+export * from './panel';
+export * from './motion-panel';
+
+export interface IFolderProps extends IBaseProps {
   /** 类名 */
   className?: string;
   /**
@@ -18,7 +21,7 @@ export interface IProps extends IBaseProps {
   useMotion?: boolean;
 }
 
-export default React.forwardRef<any, IProps>((props, ref) => {
+export default React.forwardRef<any, IFolderProps>((props, ref) => {
   const { className, useMotion } = props;
 
   return (

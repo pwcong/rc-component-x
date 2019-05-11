@@ -6,7 +6,7 @@ import { classNames, getPrefixCls } from '@rc-x/utils';
 
 import './style.scss';
 
-export interface IProps {
+export interface IIconProps {
   /** 类名 */
   className?: string;
   /** 类型 */
@@ -23,7 +23,7 @@ export interface IProps {
 
 const baseCls = getPrefixCls('icon');
 
-const Icon: React.FunctionComponent<IProps> = props => {
+const Icon: React.FunctionComponent<IIconProps> = props => {
   const {
     className,
     type = 'loader',

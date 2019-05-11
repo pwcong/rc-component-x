@@ -8,13 +8,13 @@ import { getHeight } from './utils';
 
 const { Motion, spring } = animate.motion;
 
-export interface IProps extends IBaseProps {}
+export interface IMotionPanelProps extends IBaseProps {}
 
-export interface IForwardRefProps extends IProps {
+interface IForwardRefProps extends IMotionPanelProps {
   forwardedRef: React.Ref<any>;
 }
 
-export interface IState {
+interface IState {
   expand: boolean;
   status: 'expand' | 'collapse' | 'idle';
   panelHeight: 0;
@@ -117,6 +117,6 @@ class MotionPanel extends React.PureComponent<IForwardRefProps, IState> {
   }
 }
 
-export default React.forwardRef<any, IProps>((props, ref) => {
+export default React.forwardRef<any, IMotionPanelProps>((props, ref) => {
   return <MotionPanel {...props} forwardedRef={ref} />;
 });

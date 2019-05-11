@@ -1,2 +1,7 @@
-export { default as classNames, getPrefixCls } from './classnames';
-export { default as warning } from './warning';
+import classNames from './classnames';
+import warning from './warning';
+
+export * from './classnames';
+export * from './warning';
+
+export { classNames, warning };

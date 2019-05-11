@@ -7,14 +7,17 @@ import './style.scss';
 
 const baseCls = getPrefixCls('checkbox');
 
-export interface IProps extends IBaseProps {}
+export interface ICheckboxProps extends IBaseProps {}
 
-export interface IState {
+interface IState {
   checked: boolean;
 }
 
-export default class Checkbox extends React.PureComponent<IProps, IState> {
-  constructor(props: IProps) {
+export default class Checkbox extends React.PureComponent<
+  ICheckboxProps,
+  IState
+> {
+  constructor(props: ICheckboxProps) {
     super(props);
 
     const { defaultChecked = false } = props;
