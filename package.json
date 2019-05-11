@@ -3,6 +3,7 @@
   "private": true,
   "description": "React components foundation in TypeScript.",
   "scripts": {
+    "clean": "node ./scripts/clean",
     "new": "node ./scripts/new",
     "build": "node ./scripts/build",
     "dev": "node ./scripts/start",
@@ -43,7 +44,6 @@
     "rollup-plugin-node-resolve": "^4.2.3",
     "rollup-plugin-postcss": "^2.0.3",
     "rollup-plugin-typescript": "^1.0.1",
-    "rollup-plugin-typescript2": "^0.21.0",
     "rollup-plugin-uglify": "^6.0.2",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",

@@ -1,11 +1,13 @@
 const path = require('path');
-const { getPackages, rootPath } = require('../utils');
-const build = require('../utils/build');
-const { getEntryCode } = require('./utils');
 
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const VirtualModulesPlugin = require('webpack-virtual-modules');
+
+const { getEntryCode } = require('./utils');
+const { getPackages, rootPath } = require('../utils');
+const build = require('../utils/build');
+const clean = require('../clean');
 
 const packages = getPackages();
 const distPath = path.join(rootPath, 'docs');
@@ -35,4 +37,5 @@ const webpackConfig = {
   ]
 };
 
+clean();
 build(config, webpackConfig);

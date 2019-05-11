@@ -1,6 +1,6 @@
 const path = require('path');
 const rollup = require('rollup');
-const typescript = require('rollup-plugin-typescript2');
+const typescript = require('rollup-plugin-typescript');
 const resolve = require('rollup-plugin-node-resolve');
 const commonjs = require('rollup-plugin-commonjs');
 const postcss = require('rollup-plugin-postcss');

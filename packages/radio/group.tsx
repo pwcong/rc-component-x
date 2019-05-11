@@ -4,12 +4,11 @@ import { classNames, getPrefixCls } from '@rc-x/utils';
 import { IButtonSize, IButtonShape } from '@rc-x/button';
 
 import Radio from './radio';
-import Button from './button';
+import RadioButton from './button';
 
 import { IBaseProps } from './types';
 
 import './style.scss';
-import { RadioButton } from '.';
 
 const baseCls = getPrefixCls('radio-group');
 
@@ -98,7 +97,7 @@ export default class RadioGroup extends React.PureComponent<
     } = this.props;
 
     if (options !== undefined) {
-      const Option = optionType === 'button' ? Button : Radio;
+      const Option = optionType === 'button' ? RadioButton : Radio;
 
       return options.map((option, index) => {
         const optionProps = {

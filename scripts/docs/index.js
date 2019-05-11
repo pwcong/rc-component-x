@@ -2,9 +2,12 @@ const VirtualModulesPlugin = require('webpack-virtual-modules');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 
 const path = require('path');
+
+const { getEntryCode } = require('./utils');
+
 const { getPackages } = require('../utils');
 const start = require('../utils/start');
-const { getEntryCode } = require('./utils');
+const clean = require('../clean');
 
 const packages = getPackages();
 const distPath = path.join(__dirname, 'dist');
@@ -38,4 +41,5 @@ const webpackConfig = {
   ]
 };
 
+clean();
 start(config, webpackConfig);
