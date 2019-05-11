@@ -11,13 +11,9 @@
   "license": "MIT",
   "dependencies": {
     "@rc-x/style": "^0.0.1",
-    "@rc-x/utils": "^0.0.1",
-    "react-motion": "^0.5.2",
-    "react-transition-group": "^4.0.0"
+    "@rc-x/utils": "^0.0.1"
   },
   "devDependencies": {
-    "@rc-x/test": "^0.0.1",
-    "@types/react-motion": "^0.0.28",
-    "@types/react-transition-group": "^2.9.0"
+    "@rc-x/test": "^0.0.1"
   }
 }

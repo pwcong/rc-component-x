@@ -1,7 +1,7 @@
 import './style.scss';
 
 import * as motion from './motion';
-import * as transition from 'react-transition-group';
+import * as transition from './transition';
 
 export default {
   motion,

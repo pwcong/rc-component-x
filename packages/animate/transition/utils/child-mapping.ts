@@ -131,7 +131,7 @@ export function getNextChildMapping(nextProps, prevChildMapping, onExited) {
       // console.log('unchanged', key)
       children[key] = cloneElement(child, {
         onExited: onExited.bind(null, child),
-        in: prevChild.props.in,
+        in: (prevChild.props as any).in,
         exit: getProp(child, 'exit', nextProps),
         enter: getProp(child, 'enter', nextProps)
       } as any);
