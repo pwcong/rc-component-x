@@ -10,6 +10,13 @@ $warning-color: #ffbb00;
 $success-color: #11cc00;
 $disabled-color: #dddddd;
 
+/**************** Z-Index ****************/
+$z-index: 0;
+$z-index-up: 1;
+$z-index-upper: 10;
+$z-index-upperer: 100;
+$z-index-upperest: 99999;
+
 /**************** Background ****************/
 $component-bg: #aaaaaa;
 $disabled-bg: #e5e5e5;
@@ -97,3 +104,7 @@ $switch-width-sm: 48px;
 $switch-height-sm: 24px;
 $switch-bg: $component-bg;
 $switch-bg-checked: $primary-color;
+
+/**************** Message ****************/
+$message-padding: 6px 8px;
+$message-box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.1);

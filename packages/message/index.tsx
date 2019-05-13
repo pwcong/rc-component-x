@@ -1,15 +1,23 @@
-import React from 'react';
+// import React from 'react';
+// import ReactDOM from 'react-dom';
 
-import { classNames, getPrefixCls } from '@rc-x/utils';
+import { getPrefixCls, classNames } from '@rc-x/utils';
+import { IMessageProps } from './message';
 
-import './style.scss';
+const baseCls = getPrefixCls('messages');
 
-const baseCls = getPrefixCls('message');
+let messages = window['RC_X_MESSAGES'];
+if (!messages) {
+  messages = window['RC_X_MESSAGES'] = document.createElement('div');
+  messages.className = classNames(baseCls);
+}
 
-export interface IProps {}
+export type IMessageOption = IMessageProps & {};
 
-const Message = (props: IProps) => {
-  return <div className={classNames(baseCls)}>Hello World!</div>;
+export default {
+  info: (option: IMessageOption) => {},
+  loading: (option: IMessageOption) => {},
+  success: (option: IMessageOption) => {},
+  warning: (option: IMessageOption) => {},
+  error: (option: IMessageOption) => {}
 };
-
-export default Message;
