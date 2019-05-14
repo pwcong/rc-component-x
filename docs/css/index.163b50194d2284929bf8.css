@@ -61,6 +61,7 @@ html, body {
 /**************** Checkbox ****************/
 /**************** Switch ****************/
 /**************** Message ****************/
+/**************** Spin ****************/
 /**************** Global ****************/
 /**************** Color ****************/
 /**************** Z-Index ****************/
@@ -76,6 +77,7 @@ html, body {
 /**************** Checkbox ****************/
 /**************** Switch ****************/
 /**************** Message ****************/
+/**************** Spin ****************/
 @-webkit-keyframes anim-spin {
   0% {
     -webkit-transform: rotate(0deg);
@@ -91,42 +93,56 @@ html, body {
     -webkit-transform: rotate(360deg);
             transform: rotate(360deg); } }
 
-.rc-x-message {
-  background-color: #ffffff;
-  display: flex;
-  flex-flow: row nowrap;
-  align-items: center;
-  padding: 8px 12px;
-  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.1);
+.rc-x-docs-aside {
   font-size: 14px;
-  color: #333333; }
-  .rc-x-message-icon {
-    margin-right: 6px; }
-
-.rc-x-message-info .rc-x-message-icon {
-  color: #0077ff; }
-
-.rc-x-message-loading .rc-x-message-icon {
-  color: #0077ff; }
-
-.rc-x-message-success .rc-x-message-icon {
-  color: #11cc00; }
-
-.rc-x-message-warning .rc-x-message-icon {
-  color: #ffbb00; }
-
-.rc-x-message-error .rc-x-message-icon {
-  color: #ff1100; }
-
-.rc-x-messages {
   position: fixed;
-  z-index: 99999;
   left: 0;
+  width: 172px;
   top: 0;
-  right: 0; }
+  bottom: 0;
+  overflow: hidden;
+  border-right: 1px solid #cccccc;
+  color: #333333; }
+  .rc-x-docs-aside:hover {
+    overflow: auto; }
+  .rc-x-docs-aside-top {
+    font-size: 18px;
+    padding: 12px 8px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #666666; }
+  .rc-x-docs-aside-navs {
+    border-top: 1px solid #cccccc;
+    padding: 4px; }
+  .rc-x-docs-aside-nav {
+    padding: 8px;
+    cursor: pointer;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+    transition: all 0.2s ease-in-out; }
+    .rc-x-docs-aside-nav-title {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis; }
+    .rc-x-docs-aside-nav-desc {
+      font-size: 12px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      color: #999999; }
+    .rc-x-docs-aside-nav:hover {
+      color: #0077ff; }
+    .rc-x-docs-aside-nav-active {
+      border-left: 2px solid #0077ff; }
 
-.rc-x-message-item {
-  display: flex;
-  justify-content: center;
-  padding: 8px; }
+.rc-x-docs-main {
+  padding-left: 172px; }
+
+.rc-x-docs-loading {
+  text-align: center;
+  padding: 36px;
+  font-size: 24px;
+  color: #999999; }
 

@@ -61,6 +61,7 @@ html, body {
 /**************** Checkbox ****************/
 /**************** Switch ****************/
 /**************** Message ****************/
+/**************** Spin ****************/
 /**************** Global ****************/
 /**************** Color ****************/
 /**************** Z-Index ****************/
@@ -76,6 +77,7 @@ html, body {
 /**************** Checkbox ****************/
 /**************** Switch ****************/
 /**************** Message ****************/
+/**************** Spin ****************/
 @-webkit-keyframes anim-spin {
   0% {
     -webkit-transform: rotate(0deg);
@@ -241,6 +243,7 @@ html, body {
 /**************** Checkbox ****************/
 /**************** Switch ****************/
 /**************** Message ****************/
+/**************** Spin ****************/
 /**************** Global ****************/
 /**************** Color ****************/
 /**************** Z-Index ****************/
@@ -256,6 +259,7 @@ html, body {
 /**************** Checkbox ****************/
 /**************** Switch ****************/
 /**************** Message ****************/
+/**************** Spin ****************/
 @-webkit-keyframes anim-spin {
   0% {
     -webkit-transform: rotate(0deg);
@@ -270,15 +274,4 @@ html, body {
   100% {
     -webkit-transform: rotate(360deg);
             transform: rotate(360deg); } }
-
-.rc-x-icon {
-  display: inline-block;
-  font-size: inherit;
-  color: inherit;
-  line-height: 0;
-  position: relative;
-  top: 1px; }
-  .rc-x-icon-spin {
-    -webkit-animation: anim-spin 1.5s linear infinite;
-            animation: anim-spin 1.5s linear infinite; }
 
