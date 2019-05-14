@@ -48,6 +48,7 @@ html, body {
 
 /**************** Global ****************/
 /**************** Color ****************/
+/**************** Z-Index ****************/
 /**************** Background ****************/
 /**************** Font ****************/
 /**************** Animation ****************/
@@ -59,8 +60,10 @@ html, body {
 /**************** Radio ****************/
 /**************** Checkbox ****************/
 /**************** Switch ****************/
+/**************** Message ****************/
 /**************** Global ****************/
 /**************** Color ****************/
+/**************** Z-Index ****************/
 /**************** Background ****************/
 /**************** Font ****************/
 /**************** Animation ****************/
@@ -72,6 +75,7 @@ html, body {
 /**************** Radio ****************/
 /**************** Checkbox ****************/
 /**************** Switch ****************/
+/**************** Message ****************/
 @-webkit-keyframes anim-spin {
   0% {
     -webkit-transform: rotate(0deg);
@@ -174,7 +178,6 @@ html, body {
     background-color: #0077ff;
     color: #ffffff; }
 
-@charset "UTF-8";
 body,
 div,
 dl,
@@ -225,6 +228,7 @@ html, body {
 
 /**************** Global ****************/
 /**************** Color ****************/
+/**************** Z-Index ****************/
 /**************** Background ****************/
 /**************** Font ****************/
 /**************** Animation ****************/
@@ -236,8 +240,10 @@ html, body {
 /**************** Radio ****************/
 /**************** Checkbox ****************/
 /**************** Switch ****************/
+/**************** Message ****************/
 /**************** Global ****************/
 /**************** Color ****************/
+/**************** Z-Index ****************/
 /**************** Background ****************/
 /**************** Font ****************/
 /**************** Animation ****************/
@@ -249,6 +255,7 @@ html, body {
 /**************** Radio ****************/
 /**************** Checkbox ****************/
 /**************** Switch ****************/
+/**************** Message ****************/
 @-webkit-keyframes anim-spin {
   0% {
     -webkit-transform: rotate(0deg);
@@ -264,61 +271,14 @@ html, body {
     -webkit-transform: rotate(360deg);
             transform: rotate(360deg); } }
 
-.rc-x-checkbox {
+.rc-x-icon {
   display: inline-block;
-  font-size: 0;
-  width: 16px;
-  height: 16px;
-  box-sizing: border-box;
-  border: 1px solid #cccccc;
-  border-radius: 2px;
-  background-color: #ffffff;
+  font-size: inherit;
+  color: inherit;
+  line-height: 0;
   position: relative;
-  margin-right: 4px;
-  top: 3px;
-  cursor: pointer;
-  transition: all 0.2s ease-in-out; }
-  .rc-x-checkbox::after {
-    content: '✔';
-    font-size: 10px;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    -webkit-transform: translateX(-50%) translateY(-50%) scale(0);
-            transform: translateX(-50%) translateY(-50%) scale(0);
-    width: 8px;
-    height: 8px;
-    line-height: 8px;
-    color: #ffffff;
-    transition: all 0.2s ease-in-out; }
-  .rc-x-checkbox-active {
-    border-color: #0077ff;
-    background-color: #0077ff; }
-    .rc-x-checkbox-active::after {
-      -webkit-transform: translateX(-50%) translateY(-50%) scale(1);
-              transform: translateX(-50%) translateY(-50%) scale(1); }
-  .rc-x-checkbox > input {
-    display: none; }
-  .rc-x-checkbox-wrapper {
-    display: inline-block;
-    font-size: 14px;
-    color: #333333; }
-    .rc-x-checkbox-wrapper:focus .rc-x-checkbox, .rc-x-checkbox-wrapper:hover .rc-x-checkbox {
-      border-color: #0077ff;
-      box-shadow: 0 0 4px 1px rgba(0, 119, 255, 0.1); }
-  .rc-x-checkbox-children {
-    transition: all 0.2s ease-in-out;
-    cursor: pointer; }
-  .rc-x-checkbox-disabled {
-    cursor: not-allowed;
-    background-color: #e5e5e5;
-    border-color: #dddddd !important; }
-  .rc-x-checkbox-disabled + .rc-x-checkbox-children {
-    cursor: not-allowed;
-    color: #dddddd !important; }
-
-.rc-x-checkbox-group {
-  display: inline-block; }
-  .rc-x-checkbox-group .rc-x-checkbox-wrapper:not(:last-child) {
-    margin-right: 8px; }
+  top: 1px; }
+  .rc-x-icon-spin {
+    -webkit-animation: anim-spin 1.5s linear infinite;
+            animation: anim-spin 1.5s linear infinite; }
 
