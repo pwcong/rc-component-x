@@ -1,0 +1,5 @@
+@import '~@rc-x/style/common.scss';
+
+$badge-prefix-cls: #{$prefix-cls}-badge;
+.#{$badge-prefix-cls} {
+}

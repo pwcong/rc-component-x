@@ -1,0 +1,5 @@
+@import '~@rc-x/style/common.scss';
+
+$input-number-prefix-cls: #{$prefix-cls}-input-number;
+.#{$input-number-prefix-cls} {
+}
