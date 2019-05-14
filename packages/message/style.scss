@@ -1,6 +1,8 @@
 @import '~@rc-x/style/common.scss';
 
 $message-prefix-cls: #{$prefix-cls}-message;
+$messages-prefix-cls: #{$prefix-cls}-messages;
+$message-item-cls: #{$message-prefix-cls}-item;
 $message-icon-cls: #{$message-prefix-cls}-icon;
 
 $types: (
@@ -12,6 +14,7 @@ $types: (
 );
 
 .#{$message-prefix-cls} {
+  background-color: $white;
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
@@ -31,4 +34,18 @@ $types: (
       color: $value;
     }
   }
+}
+
+.#{$messages-prefix-cls} {
+  position: fixed;
+  z-index: $z-index-upperest;
+  left: 0;
+  top: 0;
+  right: 0;
+}
+
+.#{$message-item-cls} {
+  display: flex;
+  justify-content: center;
+  padding: $message-item-padding;
 }

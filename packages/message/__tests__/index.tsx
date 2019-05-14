@@ -1,10 +1,8 @@
 import React from 'react';
 import Test from '@rc-x/test';
 
-import Messages from '../index';
+import message from '../index';
 import Message from '../message';
-
-console.log(Messages);
 
 import packageJson from '../package.json';
 
@@ -30,6 +28,72 @@ export default function() {
         }
       }}
       componentPackageJson={packageJson}
-    />
+    >
+      <button
+        style={{ marginRight: '8px' }}
+        onClick={() => {
+          message.info({
+            content: 'Hello World!',
+            onClose: () => {
+              console.log('info');
+            }
+          });
+        }}
+      >
+        info
+      </button>
+      <button
+        style={{ marginRight: '8px' }}
+        onClick={() => {
+          message.loading({
+            content: 'Hello World!',
+            onClose: () => {
+              console.log('loading');
+            }
+          });
+        }}
+      >
+        loading
+      </button>
+      <button
+        style={{ marginRight: '8px' }}
+        onClick={() => {
+          message.success({
+            content: 'Hello World!',
+            onClose: () => {
+              console.log('success');
+            }
+          });
+        }}
+      >
+        success
+      </button>
+      <button
+        style={{ marginRight: '8px' }}
+        onClick={() => {
+          message.warning({
+            content: 'Hello World!',
+            onClose: () => {
+              console.log('warning');
+            }
+          });
+        }}
+      >
+        warning
+      </button>
+      <button
+        style={{ marginRight: '8px' }}
+        onClick={() => {
+          message.error({
+            content: 'Hello World!',
+            onClose: () => {
+              console.log('error');
+            }
+          });
+        }}
+      >
+        error
+      </button>
+    </Test>
   );
 }
