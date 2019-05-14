@@ -18,7 +18,7 @@ export default function() {
         size: {
           type: 'radio',
           value: 'default',
-          label: '图片',
+          label: '图片尺寸',
           options: [
             { label: 'default', value: 'default' },
             { label: 'large', value: 'large' },

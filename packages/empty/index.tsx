@@ -19,7 +19,7 @@ export interface IEmptyProps {
   description?: React.ReactNode;
   /** 自定义样式 */
   style?: React.CSSProperties;
-  /** 尺寸 */
+  /** 图片尺寸 */
   size: IEmptySize;
 }
 
