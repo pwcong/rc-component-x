@@ -11,7 +11,7 @@ export type IMessageOption = IMessageProps & {
   onClose?: () => void;
 };
 
-export class MessageItem {
+class MessageItem {
   private container: HTMLDivElement;
   private item: HTMLDivElement;
   private option: IMessageOption;
@@ -50,7 +50,7 @@ export class MessageItem {
   }
 }
 
-export class Messages {
+class Messages {
   private container: HTMLDivElement;
 
   constructor() {
