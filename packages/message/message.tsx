@@ -12,7 +12,9 @@ export type IMessageType = 'info' | 'loading' | 'success' | 'warning' | 'error';
 export interface IMessageProps {
   /** 类名 */
   className?: string;
+  /** 类型 */
   type?: IMessageType;
+  /** 内容 */
   content: React.ReactNode;
 }
 

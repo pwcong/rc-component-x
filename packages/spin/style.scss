@@ -1,0 +1,11 @@
+@import '~@rc-x/style/common.scss';
+
+$spin-prefix-cls: #{$prefix-cls}-spin;
+.#{$spin-prefix-cls} {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+
+  &-dot {
+  }
+}

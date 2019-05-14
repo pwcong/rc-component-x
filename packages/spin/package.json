@@ -1,0 +1,20 @@
+{
+  "name": "@rc-x/spin",
+  "version": "0.0.1",
+  "description": "Spin",
+  "author": "Pwcong <pwcong@foxmail.com>",
+  "main": "dist/bundle.min.js",
+  "module": "dist/bundle.es.js",
+  "keywords": [
+    "rc-x-spin"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "@rc-x/icon": "^0.0.1",
+    "@rc-x/style": "^0.0.1",
+    "@rc-x/utils": "^0.0.1"
+  },
+  "devDependencies": {
+    "@rc-x/test": "^0.0.1"
+  }
+}
