@@ -45,10 +45,10 @@ const Spin = (props: ISpinProps) => {
   const spin =
     type === undefined ? (
       <span className={clss}>
-        <span className={getPrefixCls('dot', baseCls)} />
-        <span className={getPrefixCls('dot', baseCls)} />
-        <span className={getPrefixCls('dot', baseCls)} />
-        <span className={getPrefixCls('dot', baseCls)} />
+        <span className={getPrefixCls('indicator', baseCls)} />
+        <span className={getPrefixCls('indicator', baseCls)} />
+        <span className={getPrefixCls('indicator', baseCls)} />
+        <span className={getPrefixCls('indicator', baseCls)} />
       </span>
     ) : (
       <Icon className={clss} type={type} spin={spinning} />

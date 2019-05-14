@@ -1,11 +1,94 @@
 @import '~@rc-x/style/common.scss';
 
+@keyframes anim-spining {
+  0% {
+  }
+  25% {
+  }
+  50% {
+  }
+  75% {
+  }
+  100% {
+  }
+}
+
 $spin-prefix-cls: #{$prefix-cls}-spin;
+$spin-indicator-cls: #{$spin-prefix-cls}-indicator;
+
+$size: (
+  large: (
+    size: $spin-size-lg,
+    indicator: 6px
+  ),
+  small: (
+    size: $spin-size-sm,
+    indicator: 2px
+  )
+);
+
 .#{$spin-prefix-cls} {
   display: inline-block;
-  width: 30px;
-  height: 30px;
+  width: $spin-size;
+  height: $spin-size;
+  position: relative;
 
-  &-dot {
+  &-indicator {
+    position: absolute;
+    display: inline-block;
+    width: $spin-size / 2;
+    height: $spin-size / 2;
+
+    &::after {
+      width: $spin-size / 2 - 4px;
+      height: $spin-size / 2 - 4px;
+      border-radius: $border-radius;
+      font-size: 0;
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translateX(-50%) translateY(-50%);
+      background-color: $primary-color;
+      @include linearTransition;
+    }
+
+    &:nth-child(1) {
+      left: 0;
+      top: 0;
+    }
+    &:nth-child(2) {
+      right: 0;
+      top: 0;
+    }
+    &:nth-child(3) {
+      right: 0;
+      bottom: 0;
+    }
+    &:nth-child(4) {
+      left: 0;
+      bottom: 0;
+    }
+  }
+
+  &-spinning {
+    animation: anim-spining 2s linear infinite;
+  }
+}
+
+@each $key, $value in $size {
+  .#{$spin-prefix-cls}-#{$key} {
+    width: map-get($value, size);
+    height: map-get($value, size);
+
+    .#{$spin-indicator-cls} {
+      width: map-get($value, size) / 2;
+      height: map-get($value, size) / 2;
+
+      &::after {
+        width: map-get($value, size) / 2 - map-get($value, indicator);
+        height: map-get($value, size) / 2 - map-get($value, indicator);
+      }
+    }
   }
 }
