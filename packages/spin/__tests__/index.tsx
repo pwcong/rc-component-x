@@ -8,7 +8,20 @@ export default function() {
   return (
     <Test
       component={Spin}
-      componentProps={{}}
+      componentProps={{
+        children: (
+          <div
+            style={{
+              textAlign: 'center',
+              height: 200,
+              lineHeight: '200px',
+              border: '1px solid #cccccc'
+            }}
+          >
+            Hello World!
+          </div>
+        )
+      }}
       componentTestProps={{
         size: {
           type: 'radio',
@@ -31,7 +44,7 @@ export default function() {
         },
         spinning: {
           type: 'switch',
-          value: false,
+          value: true,
           label: '加载中'
         },
         tip: {

@@ -1,29 +1,23 @@
 @import '~@rc-x/style/common.scss';
 
-@keyframes anim-spining {
-  0% {
-  }
-  25% {
-  }
-  50% {
-  }
-  75% {
-  }
-  100% {
-  }
-}
-
 $spin-prefix-cls: #{$prefix-cls}-spin;
 $spin-indicator-cls: #{$spin-prefix-cls}-indicator;
+$spin-wrapper-cls: #{$spin-prefix-cls}-wrapper;
+$spin-inner-cls: #{$spin-prefix-cls}-inner;
+$spin-tip-cls: #{$spin-prefix-cls}-tip;
+$spin-icon-cls: #{$spin-prefix-cls}-icon;
+$spin-spining-duration: 1.6s;
 
 $size: (
   large: (
     size: $spin-size-lg,
-    indicator: 6px
+    indicator: 6px,
+    fontSize: $font-size-md
   ),
   small: (
     size: $spin-size-sm,
-    indicator: 2px
+    indicator: 2px,
+    fontSize: $font-size-sm
   )
 );
 
@@ -32,6 +26,35 @@ $size: (
   width: $spin-size;
   height: $spin-size;
   position: relative;
+
+  &-wrapper {
+    position: relative;
+  }
+
+  &-inner {
+    font-size: $font-size;
+    color: $text-color-secondary;
+    background-color: rgba($white, 0.9);
+    position: absolute;
+    z-index: $z-index-upper;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &-icon {
+    color: $primary-color;
+    font-size: $spin-size;
+  }
+
+  &-tip {
+    margin-top: 8px;
+  }
 
   &-indicator {
     position: absolute;
@@ -72,7 +95,34 @@ $size: (
   }
 
   &-spinning {
-    animation: anim-spining 2s linear infinite;
+    animation: anim-spining-rotate $spin-spining-duration linear infinite;
+
+    .#{$spin-indicator-cls} {
+      &::after {
+        animation: anim-spining-indicator $spin-spining-duration linear infinite;
+      }
+
+      &:nth-child(1) {
+        &::after {
+          animation-delay: 0;
+        }
+      }
+      &:nth-child(2) {
+        &::after {
+          animation-delay: 0.2s;
+        }
+      }
+      &:nth-child(3) {
+        &::after {
+          animation-delay: 0.4s;
+        }
+      }
+      &:nth-child(4) {
+        &::after {
+          animation-delay: 0.6s;
+        }
+      }
+    }
   }
 }
 
@@ -90,5 +140,35 @@ $size: (
         height: map-get($value, size) / 2 - map-get($value, indicator);
       }
     }
+  }
+
+  .#{$spin-prefix-cls}-#{$key} + .#{$spin-tip-cls},
+  .#{$spin-icon-cls}-#{$key} + .#{$spin-tip-cls} {
+    font-size: map-get($value, fontSize);
+  }
+
+  .#{$spin-icon-cls}-#{$key} {
+    font-size: map-get($value, size);
+  }
+}
+
+@keyframes anim-spining-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes anim-spining-indicator {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  0% {
+    opacity: 1;
   }
 }

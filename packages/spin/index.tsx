@@ -37,21 +37,27 @@ const Spin = (props: ISpinProps) => {
     children
   } = props;
 
-  const clss = classNames(baseCls, className, {
-    [`${getPrefixCls(size, baseCls)}`]: size,
-    [`${getPrefixCls('spinning', baseCls)}`]: spinning
-  });
-
   const spin =
     type === undefined ? (
-      <span className={clss}>
+      <span
+        className={classNames(baseCls, className, {
+          [`${getPrefixCls(size, baseCls)}`]: size,
+          [`${getPrefixCls('spinning', baseCls)}`]: spinning
+        })}
+      >
         <span className={getPrefixCls('indicator', baseCls)} />
         <span className={getPrefixCls('indicator', baseCls)} />
         <span className={getPrefixCls('indicator', baseCls)} />
         <span className={getPrefixCls('indicator', baseCls)} />
       </span>
     ) : (
-      <Icon className={clss} type={type} spin={spinning} />
+      <Icon
+        className={classNames(getPrefixCls('icon', baseCls), {
+          [`${getPrefixCls(size, getPrefixCls('icon', baseCls))}`]: size
+        })}
+        type={type}
+        spin={spinning}
+      />
     );
 
   if (children !== undefined) {
@@ -62,10 +68,13 @@ const Spin = (props: ISpinProps) => {
           wrapperClassName
         )}
       >
-        <div className={getPrefixCls('inner', baseCls)}>
-          {spin}
-          <div className={getPrefixCls('tip', baseCls)}>{tip}</div>
-        </div>
+        {spinning && (
+          <div className={getPrefixCls('inner', baseCls)}>
+            {spin}
+            {tip && <div className={getPrefixCls('tip', baseCls)}>{tip}</div>}
+          </div>
+        )}
+
         {children}
       </div>
     );
