@@ -1,5 +1,97 @@
 @import '~@rc-x/style/common.scss';
 
 $badge-prefix-cls: #{$prefix-cls}-badge;
+
+$size: (
+  default: (
+    fontSize: $font-size,
+    size: $badge-size
+  ),
+  large: (
+    fontSize: $font-size-md,
+    size: $badge-size-lg
+  ),
+  small: (
+    fontSize: $font-size-sm,
+    size: $badge-size-sm
+  )
+);
+
+$type: (
+  default: (
+    backgroundColor: $component-bg
+  ),
+  primary: (
+    backgroundColor: $primary-color
+  ),
+  success: (
+    backgroundColor: $success-color
+  ),
+  warning: (
+    backgroundColor: $warning-color
+  ),
+  error: (
+    backgroundColor: $error-color
+  )
+);
+
 .#{$badge-prefix-cls} {
+  display: inline-block;
+  text-align: center;
+  color: $white;
+  box-sizing: border-box;
+  padding: $badge-padding;
+  position: relative;
+
+  &-square {
+    border-radius: 0 !important;
+  }
+
+  &-dot {
+    padding: 0;
+    & * {
+      display: none;
+    }
+  }
+
+  &-wrapper {
+    display: inline-block;
+    position: relative;
+  }
+
+  &-inner {
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: translateX(50%) translateY(-50%);
+  }
+}
+
+@each $key, $value in $size {
+  .#{$badge-prefix-cls}-#{$key} {
+    font-size: map-get($value, fontSize);
+    height: map-get($value, size);
+    line-height: map-get($value, size);
+    min-width: map-get($value, size);
+  }
+
+  .#{$badge-prefix-cls}-#{$key}.#{$badge-prefix-cls}-round {
+    border-radius: map-get($value, size) / 2;
+  }
+
+  .#{$badge-prefix-cls}-#{$key}.#{$badge-prefix-cls}-dot {
+    min-width: unset;
+    width: map-get($value, size) / 2;
+    height: map-get($value, size) / 2;
+  }
+
+  .#{$badge-prefix-cls}-#{$key}.#{$badge-prefix-cls}-dot.#{$badge-prefix-cls}-round {
+    border-radius: map-get($value, size) / 2 / 2;
+  }
+}
+
+@each $key, $value in $type {
+  .#{$badge-prefix-cls}-#{$key} {
+    background-color: map-get($value, backgroundColor);
+  }
 }
