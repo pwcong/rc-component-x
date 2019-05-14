@@ -1,5 +1,6 @@
 import React from 'react';
 
+import Icon from '@rc-x/icon';
 import { classNames, getPrefixCls } from '@rc-x/utils';
 
 import './style.scss';
@@ -22,10 +23,29 @@ export interface IAvatarProps {
   src?: string;
   /** 替代文本 */
   alt?: string;
+  /** 自定义样式 */
+  style?: React.CSSProperties;
 }
 
 const Avatar = (props: IAvatarProps) => {
-  return <div className={classNames(baseCls)}>Hello World!</div>;
+  const { className, icon, shape, size, src, alt, style } = props;
+
+  return (
+    <div
+      className={classNames(baseCls, className, {
+        [`${getPrefixCls(size, baseCls)}`]: size,
+        [`${getPrefixCls(shape, baseCls)}`]: shape
+      })}
+      title={alt}
+      style={style}
+    >
+      {src ? (
+        <img className={getPrefixCls('image', baseCls)} src={src} alt={alt} />
+      ) : (
+        <Icon className={getPrefixCls('icon', baseCls)} type={icon || 'user'} />
+      )}
+    </div>
+  );
 };
 
 export default Avatar;

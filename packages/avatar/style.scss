@@ -1,5 +1,65 @@
 @import '~@rc-x/style/common.scss';
 
 $avatar-prefix-cls: #{$prefix-cls}-avatar;
+$avatar-image-cls: #{$avatar-prefix-cls}-image;
+$avatar-icon-cls: #{$avatar-prefix-cls}-icon;
+
+$size: (
+  large: (
+    size: $avatar-size-lg,
+    fontSize: $font-size-md,
+    borderRadius: $border-radius-lg
+  ),
+  small: (
+    size: $avatar-size-sm,
+    fontSize: $font-size-sm,
+    borderRadius: $border-radius-sm
+  )
+);
+
 .#{$avatar-prefix-cls} {
+  display: inline-block;
+  width: $avatar-size;
+  height: $avatar-size;
+  border-radius: $border-radius;
+  background-color: $primary-color;
+
+  text-align: center;
+  line-height: $avatar-size;
+  overflow: hidden;
+
+  &-image {
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+  &-circle {
+    border-radius: $avatar-size / 2;
+  }
+
+  &-square {
+    border-radius: 0 !important;
+  }
+
+  &-icon {
+    color: $white;
+    font-size: $font-size;
+  }
+}
+
+@each $key, $value in $size {
+  .#{$avatar-prefix-cls}-#{$key} {
+    width: map-get($value, size);
+    height: map-get($value, size);
+    border-radius: map-get($value, borderRadius);
+    line-height: map-get($value, size);
+
+    .#{$avatar-icon-cls} {
+      font-size: map-get($value, fontSize);
+    }
+  }
+
+  .#{$avatar-prefix-cls}-#{$key}.#{$avatar-prefix-cls}-circle {
+    border-radius: map-get($value, size) / 2;
+  }
 }
