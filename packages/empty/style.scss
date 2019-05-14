@@ -1,0 +1,48 @@
+@import '~@rc-x/style/common.scss';
+
+$empty-prefix-cls: #{$prefix-cls}-empty;
+$empty-image-cls: #{$empty-prefix-cls}-image;
+$empty-description-cls: #{$empty-prefix-cls}-description;
+
+$size: (
+  large: (
+    size: $empty-size-lg,
+    fontSize: $font-size-md
+  ),
+  small: (
+    size: $empty-size-sm,
+    fontSize: $font-size-sm
+  )
+);
+
+.#{$empty-prefix-cls} {
+  padding: $empty-padding;
+  text-align: center;
+
+  &-image {
+    img {
+      height: 100%;
+      max-height: $empty-size;
+    }
+  }
+
+  &-description {
+    font-size: $font-size;
+    color: $text-color-secondary;
+    margin-top: 8px;
+  }
+}
+
+@each $key, $value in $size {
+  .#{$empty-prefix-cls}-#{$key} {
+    .#{$empty-image-cls} {
+      img {
+        max-height: map-get($value, size);
+      }
+    }
+
+    .#{$empty-description-cls} {
+      font-size: map-get($value, fontSize);
+    }
+  }
+}

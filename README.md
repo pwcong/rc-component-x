@@ -6,10 +6,10 @@ React components foundation in TypeScript. [Docs Here](https://pwcong.github.io/
 
 I have no idea now. But it is real amazing! Just like:
 
-* supporting new component added
-* supporting secondary development for existed component
-* beautiful coding
-* and so on.
+- supporting new component added
+- supporting secondary development for existed component
+- beautiful coding
+- and so on.
 
 Hope this repository can help you. That's all.
 
@@ -64,7 +64,7 @@ Hope this repository can help you. That's all.
 - [x] Folder
 - [ ] Card
 - [ ] Calendar
-- [ ] Empty
+- [x] Empty
 - [ ] List
 - [ ] Popover
 - [ ] Statistic
@@ -80,11 +80,11 @@ Hope this repository can help you. That's all.
 - [ ] Alert
 - [ ] Drawer
 - [ ] Model
-- [ ] Message
+- [x] Message
 - [ ] Notification
 - [ ] Progress
 - [ ] Popconfirm
-- [ ] Spin
+- [x] Spin
 - [ ] Skeleton
 
 **Feedback**
