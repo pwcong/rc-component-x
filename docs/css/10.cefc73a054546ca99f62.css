@@ -62,6 +62,8 @@ html, body {
 /**************** Switch ****************/
 /**************** Message ****************/
 /**************** Spin ****************/
+/**************** Empty ****************/
+/**************** Avatar ****************/
 /**************** Global ****************/
 /**************** Color ****************/
 /**************** Z-Index ****************/
@@ -78,6 +80,8 @@ html, body {
 /**************** Switch ****************/
 /**************** Message ****************/
 /**************** Spin ****************/
+/**************** Empty ****************/
+/**************** Avatar ****************/
 @-webkit-keyframes anim-spin {
   0% {
     -webkit-transform: rotate(0deg);
@@ -93,42 +97,45 @@ html, body {
     -webkit-transform: rotate(360deg);
             transform: rotate(360deg); } }
 
-.rc-x-message {
-  background-color: #ffffff;
-  display: flex;
-  flex-flow: row nowrap;
-  align-items: center;
-  padding: 8px 12px;
-  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.1);
-  font-size: 14px;
-  color: #333333; }
-  .rc-x-message-icon {
-    margin-right: 6px; }
+.rc-x-avatar {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border-radius: 3px;
+  background-color: #0077ff;
+  text-align: center;
+  line-height: 30px;
+  overflow: hidden; }
+  .rc-x-avatar-image {
+    max-width: 100%;
+    max-height: 100%; }
+  .rc-x-avatar-circle {
+    border-radius: 15px; }
+  .rc-x-avatar-square {
+    border-radius: 0 !important; }
+  .rc-x-avatar-icon {
+    color: #ffffff;
+    font-size: 14px; }
 
-.rc-x-message-info .rc-x-message-icon {
-  color: #0077ff; }
+.rc-x-avatar-large {
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+  line-height: 40px; }
+  .rc-x-avatar-large .rc-x-avatar-icon {
+    font-size: 16px; }
 
-.rc-x-message-loading .rc-x-message-icon {
-  color: #0077ff; }
+.rc-x-avatar-large.rc-x-avatar-circle {
+  border-radius: 20px; }
 
-.rc-x-message-success .rc-x-message-icon {
-  color: #11cc00; }
+.rc-x-avatar-small {
+  width: 20px;
+  height: 20px;
+  border-radius: 2px;
+  line-height: 20px; }
+  .rc-x-avatar-small .rc-x-avatar-icon {
+    font-size: 12px; }
 
-.rc-x-message-warning .rc-x-message-icon {
-  color: #ffbb00; }
-
-.rc-x-message-error .rc-x-message-icon {
-  color: #ff1100; }
-
-.rc-x-messages {
-  position: fixed;
-  z-index: 99999;
-  left: 0;
-  top: 0;
-  right: 0; }
-
-.rc-x-message-item {
-  display: flex;
-  justify-content: center;
-  padding: 8px; }
+.rc-x-avatar-small.rc-x-avatar-circle {
+  border-radius: 10px; }
 

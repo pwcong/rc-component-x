@@ -62,6 +62,8 @@ html, body {
 /**************** Switch ****************/
 /**************** Message ****************/
 /**************** Spin ****************/
+/**************** Empty ****************/
+/**************** Avatar ****************/
 /**************** Global ****************/
 /**************** Color ****************/
 /**************** Z-Index ****************/
@@ -78,6 +80,8 @@ html, body {
 /**************** Switch ****************/
 /**************** Message ****************/
 /**************** Spin ****************/
+/**************** Empty ****************/
+/**************** Avatar ****************/
 @-webkit-keyframes anim-spin {
   0% {
     -webkit-transform: rotate(0deg);
@@ -244,6 +248,8 @@ html, body {
 /**************** Switch ****************/
 /**************** Message ****************/
 /**************** Spin ****************/
+/**************** Empty ****************/
+/**************** Avatar ****************/
 /**************** Global ****************/
 /**************** Color ****************/
 /**************** Z-Index ****************/
@@ -260,6 +266,8 @@ html, body {
 /**************** Switch ****************/
 /**************** Message ****************/
 /**************** Spin ****************/
+/**************** Empty ****************/
+/**************** Avatar ****************/
 @-webkit-keyframes anim-spin {
   0% {
     -webkit-transform: rotate(0deg);
@@ -275,14 +283,26 @@ html, body {
     -webkit-transform: rotate(360deg);
             transform: rotate(360deg); } }
 
-.rc-x-icon {
-  display: inline-block;
-  font-size: inherit;
-  color: inherit;
-  line-height: 0;
-  position: relative;
-  top: 1px; }
-  .rc-x-icon-spin {
-    -webkit-animation: anim-spin 1.5s linear infinite;
-            animation: anim-spin 1.5s linear infinite; }
+.rc-x-empty {
+  padding: 16px;
+  text-align: center; }
+  .rc-x-empty-image img {
+    height: 100%;
+    max-height: 100px; }
+  .rc-x-empty-description {
+    font-size: 14px;
+    color: #666666;
+    margin-top: 8px; }
+
+.rc-x-empty-large .rc-x-empty-image img {
+  max-height: 140px; }
+
+.rc-x-empty-large .rc-x-empty-description {
+  font-size: 16px; }
+
+.rc-x-empty-small .rc-x-empty-image img {
+  max-height: 60px; }
+
+.rc-x-empty-small .rc-x-empty-description {
+  font-size: 12px; }
 
