@@ -2,7 +2,7 @@ import React from 'react';
 
 import { classNames, getPrefixCls } from '@rc-x/utils';
 
-import emptyImg from './empty.svg';
+import EmptySVG from './empty';
 
 import './style.scss';
 
@@ -35,7 +35,7 @@ const Empty = (props: IEmptyProps) => {
     >
       <div className={getPrefixCls('image', baseCls)}>
         {image === undefined ? (
-          <img src={emptyImg} />
+          <EmptySVG />
         ) : typeof image === 'string' ? (
           <img src={image} />
         ) : (
