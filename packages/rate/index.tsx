@@ -8,15 +8,25 @@ import './style.scss';
 const baseCls = getPrefixCls('rate');
 
 export interface IRateProps {
+  /** 类名 */
   className?: string;
+  /** 允许清除 */
   allowClear?: boolean;
+  /** 允许一半 */
   allowHalf?: boolean;
+  /** 自定义字符 */
   character?: string | React.ReactElement<IIconProps>;
+  /** 数值范围 */
   count?: number;
+  /** 自定义数值 */
   value?: number;
+  /** 默认数值 */
   defaultValue?: number;
+  /** 是否禁用 */
   disabled?: boolean;
+  /** 自定义样式 */
   style?: React.CSSProperties;
+  /** 变更回调 */
   onChange?: (value: number) => void;
 }
 

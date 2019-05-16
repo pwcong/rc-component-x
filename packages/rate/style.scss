@@ -9,18 +9,18 @@ $rate-star-cls: #{$rate-prefix-cls}-star;
   &-star {
     position: relative;
     display: inline-block;
-    font-size: $font-size-lg;
-    color: $text-color-light;
+    font-size: $rate-star-font-size;
+    color: $rate-star-color;
     cursor: pointer;
 
     &-active {
-      color: $warning-color;
+      color: $rate-star-color-active;
     }
 
     &-first,
     &-second {
       &:hover {
-        color: $warning-color;
+        color: $rate-star-color-active;
       }
     }
 
@@ -44,7 +44,7 @@ $rate-star-cls: #{$rate-prefix-cls}-star;
     }
 
     &-active {
-      color: $text-color-light !important;
+      color: $rate-start-color !important;
     }
   }
 }

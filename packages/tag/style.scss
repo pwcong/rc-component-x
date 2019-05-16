@@ -1,0 +1,51 @@
+@import '~@rc-x/style/common.scss';
+
+$tag-prefix-cls: #{$prefix-cls}-tag;
+
+$type: (
+  primary: $primary-color,
+  success: $success-color,
+  warning: $warning-color,
+  error: $error-color
+);
+
+.#{$tag-prefix-cls} {
+  display: inline-block;
+  font-size: $font-size;
+  color: $text-color-secondary;
+  border: 1px solid $border-color;
+  background-color: $tag-bg;
+  padding: $tag-padding;
+  height: $tag-height;
+  line-height: $tag-height;
+  border-radius: $border-radius;
+
+  &-square {
+    border-radius: 0;
+  }
+  &-round {
+    border-radius: $tag-height / 2;
+  }
+
+  & > span {
+    &:not(:last-child) {
+      margin-right: 4px;
+    }
+  }
+
+  &-close {
+    cursor: pointer;
+  }
+
+  &-hidden {
+    display: none;
+  }
+}
+
+@each $key, $value in $type {
+  .#{$tag-prefix-cls}-#{$key} {
+    border-color: $value;
+    background-color: $value;
+    color: $white;
+  }
+}

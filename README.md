@@ -45,7 +45,7 @@ Hope this repository can help you. That's all.
 - [ ] InputNumber
 - [x] Input
 - [ ] Mention
-- [ ] Rate
+- [x] Rate
 - [x] Radio
 - [x] Switch
 - [ ] Slider
@@ -57,8 +57,8 @@ Hope this repository can help you. That's all.
 
 **Date Display**
 
-- [ ] Avatar
-- [ ] Badge
+- [x] Avatar
+- [x] Badge
 - [ ] Collapse
 - [ ] Carousel
 - [x] Folder
