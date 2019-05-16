@@ -1,0 +1,146 @@
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+textarea,
+p,
+blockquote,
+th,
+td,
+hr,
+button,
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  margin: 0;
+  padding: 0; }
+
+ul,
+ol {
+  list-style: none; }
+
+html, body {
+  font-family: 'Microsoft YaHei', sans-serif; }
+
+/**************** Global ****************/
+/**************** Color ****************/
+/**************** Z-Index ****************/
+/**************** Background ****************/
+/**************** Font ****************/
+/**************** Animation ****************/
+/**************** Button ****************/
+/**************** Border ****************/
+/**************** Input ****************/
+/**************** Textarea ****************/
+/**************** Grid ****************/
+/**************** Radio ****************/
+/**************** Checkbox ****************/
+/**************** Switch ****************/
+/**************** Message ****************/
+/**************** Spin ****************/
+/**************** Empty ****************/
+/**************** Avatar ****************/
+/**************** Badge ****************/
+/**************** Rate ****************/
+/**************** Tag ****************/
+/**************** Global ****************/
+/**************** Color ****************/
+/**************** Z-Index ****************/
+/**************** Background ****************/
+/**************** Font ****************/
+/**************** Animation ****************/
+/**************** Button ****************/
+/**************** Border ****************/
+/**************** Input ****************/
+/**************** Textarea ****************/
+/**************** Grid ****************/
+/**************** Radio ****************/
+/**************** Checkbox ****************/
+/**************** Switch ****************/
+/**************** Message ****************/
+/**************** Spin ****************/
+/**************** Empty ****************/
+/**************** Avatar ****************/
+/**************** Badge ****************/
+/**************** Rate ****************/
+/**************** Tag ****************/
+@-webkit-keyframes anim-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg); } }
+@keyframes anim-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg); } }
+
+.rc-x-tag {
+  display: inline-block;
+  font-size: 14px;
+  color: #666666;
+  border: 1px solid #cccccc;
+  background-color: #dddddd;
+  padding: 0 6px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 3px; }
+  .rc-x-tag-square {
+    border-radius: 0; }
+  .rc-x-tag-round {
+    border-radius: 10px; }
+  .rc-x-tag > span:not(:last-child) {
+    margin-right: 4px; }
+  .rc-x-tag-close {
+    cursor: pointer; }
+  .rc-x-tag-hidden {
+    display: none; }
+
+.rc-x-tag-primary {
+  border-color: #0077ff;
+  background-color: #0077ff;
+  color: #ffffff; }
+
+.rc-x-tag-success {
+  border-color: #11cc00;
+  background-color: #11cc00;
+  color: #ffffff; }
+
+.rc-x-tag-warning {
+  border-color: #ffbb00;
+  background-color: #ffbb00;
+  color: #ffffff; }
+
+.rc-x-tag-error {
+  border-color: #ff1100;
+  background-color: #ff1100;
+  color: #ffffff; }
+
