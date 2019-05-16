@@ -1,5 +1,50 @@
 @import '~@rc-x/style/common.scss';
 
 $rate-prefix-cls: #{$prefix-cls}-rate;
+$rate-star-cls: #{$rate-prefix-cls}-star;
+
 .#{$rate-prefix-cls} {
+  display: inline-block;
+
+  &-star {
+    position: relative;
+    display: inline-block;
+    font-size: $font-size-lg;
+    color: $text-color-light;
+    cursor: pointer;
+
+    &-active {
+      color: $warning-color;
+    }
+
+    &-first,
+    &-second {
+      &:hover {
+        color: $warning-color;
+      }
+    }
+
+    &-first {
+      z-index: $z-index-up;
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 50%;
+      bottom: 0;
+      overflow: hidden;
+    }
+  }
+
+  &-disabled &-star {
+    cursor: not-allowed;
+
+    &-first,
+    &-second {
+      color: $disabled-color !important;
+    }
+
+    &-active {
+      color: $text-color-light !important;
+    }
+  }
 }
