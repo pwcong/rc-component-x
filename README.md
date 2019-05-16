@@ -71,7 +71,7 @@ Hope this repository can help you. That's all.
 - [ ] Tree
 - [ ] Tooltip
 - [ ] Timeline
-- [ ] Tag
+- [x] Tag
 - [ ] Tabs
 - [ ] Table
 
