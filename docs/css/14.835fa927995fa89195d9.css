@@ -221,7 +221,7 @@ html, body {
   .rc-x-textarea-inner {
     position: relative; }
   .rc-x-textarea-clear {
-    z-index: 10;
+    z-index: 100;
     position: absolute;
     top: 6px;
     right: 12px;
