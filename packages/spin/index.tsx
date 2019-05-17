@@ -1,7 +1,12 @@
 import React from 'react';
 
 import Icon from '@rc-x/icon';
-import { classNames, getPrefixCls } from '@rc-x/utils';
+import {
+  classNames,
+  getPrefixCls,
+  getRestProps,
+  IRestProps
+} from '@rc-x/utils';
 
 import './style.scss';
 
@@ -9,7 +14,7 @@ const baseCls = getPrefixCls('spin');
 
 export type ISpinSize = 'default' | 'small' | 'large';
 
-export interface ISpinProps {
+export interface ISpinProps extends IRestProps {
   /** 容器类名 */
   wrapperClassName?: string;
   /** 类名 */
@@ -37,6 +42,8 @@ const Spin = (props: ISpinProps) => {
     children
   } = props;
 
+  const restProps = getRestProps(props);
+
   const spin =
     type === undefined ? (
       <span
@@ -63,6 +70,7 @@ const Spin = (props: ISpinProps) => {
   if (children !== undefined) {
     return (
       <div
+        {...restProps}
         className={classNames(
           getPrefixCls('wrapper', baseCls),
           wrapperClassName
@@ -80,7 +88,9 @@ const Spin = (props: ISpinProps) => {
     );
   }
 
-  return spin;
+  return React.cloneElement(spin, {
+    ...restProps
+  });
 };
 
 export default Spin;

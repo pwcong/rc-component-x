@@ -1,6 +1,11 @@
 import React from 'react';
 
-import { classNames, getPrefixCls } from '@rc-x/utils';
+import {
+  classNames,
+  getPrefixCls,
+  getRestProps,
+  IRestProps
+} from '@rc-x/utils';
 
 import './style.scss';
 
@@ -17,7 +22,7 @@ export type IBadgeSize = 'default' | 'large' | 'small';
 
 export type IBadgeShape = 'square' | 'round';
 
-export interface IBadgeProps {
+export interface IBadgeProps extends IRestProps {
   /** 类名 */
   className?: string;
   /** 标题 */
@@ -54,6 +59,8 @@ const Badge: React.FunctionComponent<IBadgeProps> = props => {
     children
   } = props;
 
+  const restProps = getRestProps(props);
+
   const { x = 0, y = 0 } = offset;
 
   const badge = (
@@ -77,14 +84,16 @@ const Badge: React.FunctionComponent<IBadgeProps> = props => {
 
   if (children !== undefined) {
     return (
-      <div className={getPrefixCls('wrapper', baseCls)}>
+      <div {...restProps} className={getPrefixCls('wrapper', baseCls)}>
         <div className={getPrefixCls('inner', baseCls)}>{badge}</div>
         {children}
       </div>
     );
   }
 
-  return badge;
+  return React.cloneElement(badge, {
+    ...restProps
+  });
 };
 
 Badge.defaultProps = {

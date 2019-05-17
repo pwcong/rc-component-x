@@ -1,12 +1,17 @@
 import React from 'react';
 
-import { classNames, getPrefixCls } from '@rc-x/utils';
+import {
+  classNames,
+  getPrefixCls,
+  getRestProps,
+  IRestProps
+} from '@rc-x/utils';
 
 import { IScreenSize } from './types';
 
 import './style.scss';
 
-export interface IRowProps {
+export interface IRowProps extends IRestProps {
   /** 自定义类名 */
   className?: string;
   /** 自定义样式 */
@@ -41,6 +46,8 @@ const Row: React.FunctionComponent<IRowProps> = props => {
     reverse
   } = props;
 
+  const restProps = getRestProps(props);
+
   const distributionClss = {};
   Object.keys(distribution).forEach(k => {
     (distribution[k] as Array<IScreenSize>).forEach(size => {
@@ -56,6 +63,7 @@ const Row: React.FunctionComponent<IRowProps> = props => {
 
   return (
     <div
+      {...restProps}
       className={classNames(
         baseCls,
         className,

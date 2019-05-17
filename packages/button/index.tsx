@@ -1,7 +1,12 @@
 import React from 'react';
 
 import Icon from '@rc-x/icon';
-import { classNames, getPrefixCls } from '@rc-x/utils';
+import {
+  classNames,
+  getPrefixCls,
+  getRestProps,
+  IRestProps
+} from '@rc-x/utils';
 
 import './style.scss';
 
@@ -16,7 +21,7 @@ export type IButtonSize = 'large' | 'default' | 'small';
 export type IButtonShape = 'default' | 'round' | 'circle' | 'link';
 export type IButtonTarget = '_blank' | '_self';
 
-export interface IButtonProps {
+export interface IButtonProps extends IRestProps {
   /** 类名 */
   className?: string;
   /** 子内容 */
@@ -84,8 +89,11 @@ const Button: React.FunctionComponent<IButtonProps> = (props: IButtonProps) => {
     checked
   } = props;
 
+  const restProps = getRestProps(props);
+
   return (
     <button
+      {...restProps}
       className={classNames(
         baseCls,
         className,

@@ -1,6 +1,11 @@
 import React from 'react';
 
-import { classNames, getPrefixCls } from '@rc-x/utils';
+import {
+  classNames,
+  getPrefixCls,
+  getRestProps,
+  IRestProps
+} from '@rc-x/utils';
 
 import EmptySVG from './empty';
 
@@ -10,7 +15,7 @@ const baseCls = getPrefixCls('empty');
 
 export type IEmptySize = 'default' | 'large' | 'small';
 
-export interface IEmptyProps {
+export interface IEmptyProps extends IRestProps {
   /** 类名 */
   className?: string;
   /** 图片，类型为 string 时表示自定义图片地址 */
@@ -26,8 +31,11 @@ export interface IEmptyProps {
 const Empty = (props: IEmptyProps) => {
   const { className, image, description, style, size } = props;
 
+  const restProps = getRestProps(props);
+
   return (
     <div
+      {...restProps}
       className={classNames(baseCls, className, {
         [`${getPrefixCls(size, baseCls)}`]: size
       })}

@@ -1,7 +1,13 @@
 import React, { PureComponent } from 'react';
 
 import Icon from '@rc-x/icon';
-import { classNames, getPrefixCls, warning } from '@rc-x/utils';
+import {
+  classNames,
+  getPrefixCls,
+  warning,
+  getRestProps,
+  IRestProps
+} from '@rc-x/utils';
 
 import { IBaseProps } from './types';
 import { getTextareaComputedState } from './utils';
@@ -20,7 +26,7 @@ export type ITextareaRowLimit = {
   max?: number;
 };
 
-export interface ITextareaProps extends IBaseProps {
+export interface ITextareaProps extends IBaseProps, IRestProps {
   /** 计数器 */
   counter?: boolean | ITextareaCounter;
   /** 限制长度 */
@@ -138,6 +144,7 @@ class Textarea extends PureComponent<IForwardRefProps, IState> {
 
   renderTextarea = () => {
     const { id, name, className, disabled, limit } = this.props;
+
     const {
       value,
       rowHeight,
@@ -254,8 +261,10 @@ class Textarea extends PureComponent<IForwardRefProps, IState> {
   render() {
     const { allowClear, counter } = this.props;
 
+    const restProps = getRestProps(this.props);
+
     return allowClear || counter ? (
-      <div className={getPrefixCls('wrapper', baseCls)}>
+      <div {...restProps} className={getPrefixCls('wrapper', baseCls)}>
         <div className={getPrefixCls('inner', baseCls)}>
           {this.renderTextarea()}
           {this.renderCounter()}
@@ -263,7 +272,9 @@ class Textarea extends PureComponent<IForwardRefProps, IState> {
         </div>
       </div>
     ) : (
-      this.renderTextarea()
+      React.cloneElement(this.renderTextarea(), {
+        ...restProps
+      })
     );
   }
 }

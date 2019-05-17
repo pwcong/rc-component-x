@@ -1,7 +1,12 @@
 import React, { useState } from 'react';
 
 import Icon from '@rc-x/icon';
-import { classNames, getPrefixCls } from '@rc-x/utils';
+import {
+  classNames,
+  getPrefixCls,
+  getRestProps,
+  IRestProps
+} from '@rc-x/utils';
 
 import './style.scss';
 
@@ -10,7 +15,7 @@ const baseCls = getPrefixCls('tag');
 export type ITagType = 'default' | 'primary' | 'success' | 'warning' | 'errpr';
 export type ITagShape = 'default' | 'square' | 'round';
 
-export interface ITagProps {
+export interface ITagProps extends IRestProps {
   /** 类名 */
   className?: string;
   /** 类型 */
@@ -39,12 +44,15 @@ const Tag: React.FunctionComponent<ITagProps> = props => {
     children
   } = props;
 
+  const restProps = getRestProps(props);
+
   const [stateVisible, setVisible] = useState(true);
 
   const visible = customVisible !== undefined ? customVisible : stateVisible;
 
   return (
     <div
+      {...restProps}
       className={classNames(baseCls, className, {
         [`${getPrefixCls('hidden', baseCls)}`]: !visible,
         [`${getPrefixCls(type, baseCls)}`]: type,

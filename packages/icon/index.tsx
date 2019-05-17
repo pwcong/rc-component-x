@@ -2,11 +2,16 @@ import React from 'react';
 
 import icons from './icons';
 
-import { classNames, getPrefixCls } from '@rc-x/utils';
+import {
+  classNames,
+  getPrefixCls,
+  getRestProps,
+  IRestProps
+} from '@rc-x/utils';
 
 import './style.scss';
 
-export interface IIconProps {
+export interface IIconProps extends IRestProps {
   /** 类名 */
   className?: string;
   /** 类型 */
@@ -33,6 +38,8 @@ const Icon: React.FunctionComponent<IIconProps> = props => {
     onClick
   } = props;
 
+  const restProps = getRestProps(props);
+
   const style: React.CSSProperties = customStyle || {};
   if (rotate !== undefined) {
     style.transform = `rotate(${rotate}deg)`;
@@ -40,6 +47,7 @@ const Icon: React.FunctionComponent<IIconProps> = props => {
 
   return (
     <i
+      {...restProps}
       className={classNames(baseCls, className, {
         [`${baseCls}-spin`]: spin
       })}

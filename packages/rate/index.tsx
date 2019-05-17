@@ -1,13 +1,18 @@
 import React from 'react';
 
 import Icon, { IIconProps } from '@rc-x/icon';
-import { classNames, getPrefixCls } from '@rc-x/utils';
+import {
+  classNames,
+  getPrefixCls,
+  getRestProps,
+  IRestProps
+} from '@rc-x/utils';
 
 import './style.scss';
 
 const baseCls = getPrefixCls('rate');
 
-export interface IRateProps {
+export interface IRateProps extends IRestProps {
   /** 类名 */
   className?: string;
   /** 允许清除 */
@@ -81,6 +86,8 @@ export default class Rate extends React.PureComponent<IRateProps, IState> {
       style
     } = this.props;
 
+    const restProps = getRestProps(this.props);
+
     const { hoverValue, value: stateValue } = this.state;
 
     const value =
@@ -92,6 +99,7 @@ export default class Rate extends React.PureComponent<IRateProps, IState> {
 
     return (
       <div
+        {...restProps}
         className={classNames(baseCls, className, {
           [`${getPrefixCls('disabled', baseCls)}`]: disabled
         })}

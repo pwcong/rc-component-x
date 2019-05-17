@@ -1,13 +1,18 @@
 import React from 'react';
 
-import { classNames, getPrefixCls } from '@rc-x/utils';
+import {
+  classNames,
+  getPrefixCls,
+  getRestProps,
+  IRestProps
+} from '@rc-x/utils';
 import { IBaseProps } from './types';
 
 import './style.scss';
 
 const baseCls = getPrefixCls('radio');
 
-export interface IRadioProps extends IBaseProps {}
+export interface IRadioProps extends IBaseProps, IRestProps {}
 
 interface IState {
   checked: boolean;
@@ -49,10 +54,14 @@ export default class Radio extends React.PureComponent<IRadioProps, IState> {
       name,
       style
     } = this.props;
+
+    const restProps = getRestProps(this.props);
+
     const { checked } = this.state;
 
     return (
       <label
+        {...restProps}
         className={classNames(getPrefixCls('wrapper', baseCls), className)}
         style={style}
       >

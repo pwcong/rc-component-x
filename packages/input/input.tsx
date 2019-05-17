@@ -1,6 +1,11 @@
 import React, { PureComponent } from 'react';
 
-import { classNames, getPrefixCls } from '@rc-x/utils';
+import {
+  classNames,
+  getPrefixCls,
+  getRestProps,
+  IRestProps
+} from '@rc-x/utils';
 import Icon from '@rc-x/icon';
 
 import { IBaseProps } from './types';
@@ -11,7 +16,7 @@ const baseCls = getPrefixCls('input');
 
 export type IInputSize = 'default' | 'large' | 'small';
 
-export interface IInputProps extends IBaseProps {
+export interface IInputProps extends IBaseProps, IRestProps {
   /**
    * 大小
    * @default default
@@ -91,6 +96,7 @@ class Input extends PureComponent<IForwardRefProps, IState> {
       forwardedRef,
       onPressEnter
     } = this.props;
+
     const { value } = this.state;
 
     return (
@@ -129,12 +135,15 @@ class Input extends PureComponent<IForwardRefProps, IState> {
       size
     } = this.props;
 
+    const restProps = getRestProps(this.props);
+
     if (prefix || suffix || addonBefore || addonAfter || allowClear) {
       const wrapperCls = getPrefixCls('wrapper', baseCls);
       const innerCls = getPrefixCls('inner', baseCls);
 
       return (
         <div
+          {...restProps}
           className={classNames(wrapperCls, `${wrapperCls}-${size}`, {
             [`${getPrefixCls('has-addon', wrapperCls)}`]:
               addonBefore || addonAfter,
@@ -182,7 +191,9 @@ class Input extends PureComponent<IForwardRefProps, IState> {
       );
     }
 
-    return this.renderInput();
+    return React.cloneElement(this.renderInput(), {
+      ...restProps
+    });
   }
 }
 

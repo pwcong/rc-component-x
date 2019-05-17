@@ -1,7 +1,12 @@
 import React from 'react';
 
 import Button, { IButtonProps } from '@rc-x/button';
-import { classNames, getPrefixCls } from '@rc-x/utils';
+import {
+  classNames,
+  getPrefixCls,
+  IRestProps,
+  getRestProps
+} from '@rc-x/utils';
 
 import Radio from './radio';
 
@@ -11,7 +16,7 @@ import './style.scss';
 
 const baseCls = getPrefixCls('radio-button');
 
-export type IRadioButtonProps = IBaseProps & IButtonProps & {};
+export type IRadioButtonProps = IBaseProps & IButtonProps & IRestProps & {};
 interface IState {
   checked: boolean;
 }
@@ -50,21 +55,24 @@ export default class RadioButton extends React.PureComponent<
       children,
       disabled,
       style,
-      checked: customChecked,
-      ...rest
+      checked: customChecked
     } = this.props;
+
+    const restProps = getRestProps(this.props);
+    const otherProps = getRestProps(this.props, true);
 
     const { checked } = this.state;
 
     return (
       <Radio
-        {...rest}
+        {...restProps}
+        {...otherProps}
         className={classNames(baseCls)}
         disabled={disabled}
         checked={customChecked !== undefined ? customChecked : checked}
       >
         <Button
-          {...rest}
+          {...otherProps}
           className={className}
           style={style}
           disabled={disabled}

@@ -1,6 +1,11 @@
 import React from 'react';
 
-import { classNames, getPrefixCls } from '@rc-x/utils';
+import {
+  classNames,
+  getPrefixCls,
+  getRestProps,
+  IRestProps
+} from '@rc-x/utils';
 
 import './style.scss';
 
@@ -32,7 +37,7 @@ export interface IColGrid {
   offset?: IColGridOffset;
 }
 
-export interface IColProps {
+export interface IColProps extends IRestProps {
   /** 自定义类名 */
   className?: string;
   /** 自定义样式 */
@@ -50,6 +55,8 @@ const baseCls = getPrefixCls('col');
 
 const Row: React.FunctionComponent<IColProps> = props => {
   const { className, style, children, grid = {}, reordering = {} } = props;
+
+  const restProps = getRestProps(props);
 
   const { size = {}, offset = {} } = grid;
   const gridClss = {};
@@ -80,6 +87,7 @@ const Row: React.FunctionComponent<IColProps> = props => {
 
   return (
     <div
+      {...restProps}
       className={classNames(baseCls, className, gridClss, reorderingClss)}
       style={style}
     >

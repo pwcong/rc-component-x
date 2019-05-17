@@ -1,7 +1,12 @@
 import React from 'react';
 
 import Icon from '@rc-x/icon';
-import { classNames, getPrefixCls } from '@rc-x/utils';
+import {
+  classNames,
+  getPrefixCls,
+  getRestProps,
+  IRestProps
+} from '@rc-x/utils';
 
 import './style.scss';
 
@@ -10,7 +15,7 @@ const baseCls = getPrefixCls('avatar');
 export type IAvatarShape = 'default' | 'square' | 'circle';
 export type IAvatarSize = 'default' | 'large' | 'small';
 
-export interface IAvatarProps {
+export interface IAvatarProps extends IRestProps {
   /** 类名 */
   className?: string;
   /** 图标 */
@@ -30,8 +35,11 @@ export interface IAvatarProps {
 const Avatar = (props: IAvatarProps) => {
   const { className, icon, shape, size, src, alt, style } = props;
 
+  const restProps = getRestProps(props);
+
   return (
     <div
+      {...restProps}
       className={classNames(baseCls, className, {
         [`${getPrefixCls(size, baseCls)}`]: size,
         [`${getPrefixCls(shape, baseCls)}`]: shape

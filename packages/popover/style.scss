@@ -1,0 +1,5 @@
+@import '~@rc-x/style/common.scss';
+
+$popover-prefix-cls: #{$prefix-cls}-popover;
+.#{$popover-prefix-cls} {
+}

@@ -1,7 +1,12 @@
 import React from 'react';
 
 import Icon from '@rc-x/icon';
-import { classNames, getPrefixCls } from '@rc-x/utils';
+import {
+  classNames,
+  getPrefixCls,
+  getRestProps,
+  IRestProps
+} from '@rc-x/utils';
 
 import './style.scss';
 
@@ -9,7 +14,7 @@ const baseCls = getPrefixCls('switch');
 
 export type ISwitchSize = 'default' | 'large' | 'small';
 
-export interface ISwitchProps {
+export interface ISwitchProps extends IRestProps {
   /** 类名 */
   className?: string;
   /** 选中状态 */
@@ -79,10 +84,14 @@ export default class Switch extends React.PureComponent<ISwitchProps, IState> {
       checkedChildren,
       unCheckedChildren
     } = this.props;
+
+    const restProps = getRestProps(this.props);
+
     const { checked } = this.state;
 
     return (
       <label
+        {...restProps}
         className={classNames(baseCls, className, {
           [`${baseCls}-${size}`]: size,
           [`${baseCls}-loading`]: loading,

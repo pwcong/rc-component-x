@@ -1,6 +1,11 @@
 import React from 'react';
 
-import { classNames, getPrefixCls } from '@rc-x/utils';
+import {
+  classNames,
+  getPrefixCls,
+  getRestProps,
+  IRestProps
+} from '@rc-x/utils';
 import { IButtonSize, IButtonShape } from '@rc-x/button';
 
 import Radio from './radio';
@@ -20,7 +25,7 @@ export type IRadioGroupOption = {
 
 export type IRadioGroupOptions = Array<IRadioGroupOption>;
 
-export interface IRadioGroupProps {
+export interface IRadioGroupProps extends IRestProps {
   /** 自定义样式 */
   style?: React.CSSProperties;
   /** 自定义类名 */
@@ -156,8 +161,14 @@ export default class RadioGroup extends React.PureComponent<
   render() {
     const { className, style } = this.props;
 
+    const restProps = getRestProps(this.props);
+
     return (
-      <div className={classNames(baseCls, className)} style={style}>
+      <div
+        {...restProps}
+        className={classNames(baseCls, className)}
+        style={style}
+      >
         {this.renderOptions()}
       </div>
     );

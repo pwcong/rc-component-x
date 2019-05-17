@@ -1,6 +1,11 @@
 import React from 'react';
 
-import { classNames, getPrefixCls } from '@rc-x/utils';
+import {
+  classNames,
+  getPrefixCls,
+  getRestProps,
+  IRestProps
+} from '@rc-x/utils';
 
 import Checkbox, { ICheckboxProps } from './checkbox';
 
@@ -16,7 +21,7 @@ export type ICheckboxGroupOption = {
 
 export type ICheckboxGroupOptions = Array<ICheckboxGroupOption>;
 
-export interface ICheckboxGroupProps {
+export interface ICheckboxGroupProps extends IRestProps {
   /** 自定义类名 */
   className?: string;
   /** 默认选中值 */
@@ -123,8 +128,10 @@ export default class CheckboxGroup extends React.PureComponent<
   render() {
     const { className } = this.props;
 
+    const restProps = getRestProps(this.props);
+
     return (
-      <div className={classNames(baseCls, className)}>
+      <div {...restProps} className={classNames(baseCls, className)}>
         {this.renderOptions()}
       </div>
     );

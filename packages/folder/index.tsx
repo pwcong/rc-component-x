@@ -1,6 +1,11 @@
 import React from 'react';
 
-import { classNames, getPrefixCls } from '@rc-x/utils';
+import {
+  classNames,
+  getPrefixCls,
+  getRestProps,
+  IRestProps
+} from '@rc-x/utils';
 
 import { IBaseProps } from './types';
 import Panel from './panel';
@@ -11,7 +16,7 @@ import './style.scss';
 export * from './panel';
 export * from './motion-panel';
 
-export interface IFolderProps extends IBaseProps {
+export interface IFolderProps extends IBaseProps, IRestProps {
   /** 类名 */
   className?: string;
   /**
@@ -24,8 +29,13 @@ export interface IFolderProps extends IBaseProps {
 export default React.forwardRef<any, IFolderProps>((props, ref) => {
   const { className, useMotion } = props;
 
+  const restProps = getRestProps(props);
+
   return (
-    <div className={classNames(getPrefixCls('folder'), className)}>
+    <div
+      {...restProps}
+      className={classNames(getPrefixCls('folder'), className)}
+    >
       {useMotion === false ? (
         <Panel {...props} ref={ref} />
       ) : (

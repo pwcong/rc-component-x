@@ -1,13 +1,18 @@
 import React from 'react';
 
-import { classNames, getPrefixCls } from '@rc-x/utils';
+import {
+  classNames,
+  getPrefixCls,
+  getRestProps,
+  IRestProps
+} from '@rc-x/utils';
 import { IBaseProps } from './types';
 
 import './style.scss';
 
 const baseCls = getPrefixCls('checkbox');
 
-export interface ICheckboxProps extends IBaseProps {}
+export interface ICheckboxProps extends IBaseProps, IRestProps {}
 
 interface IState {
   checked: boolean;
@@ -59,8 +64,11 @@ export default class Checkbox extends React.PureComponent<
     } = this.props;
     const { checked } = this.state;
 
+    const restProps = getRestProps(this.props);
+
     return (
       <label
+        {...restProps}
         className={classNames(getPrefixCls('wrapper', baseCls), className)}
         style={style}
       >
