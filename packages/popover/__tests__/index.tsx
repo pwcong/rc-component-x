@@ -8,7 +8,10 @@ export default function() {
   return (
     <Test
       component={Popover}
-      componentProps={{}}
+      componentProps={{
+        content: <div>Popover</div>,
+        children: <span>Hello World!</span>
+      }}
       componentTestProps={{}}
       componentPackageJson={packageJson}
     />
