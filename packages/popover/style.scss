@@ -1,5 +1,15 @@
 @import '~@rc-x/style/common.scss';
 
 $popover-prefix-cls: #{$prefix-cls}-popover;
+$popover-wrapper-cls: #{$popover-prefix-cls}-wrapper;
+
 .#{$popover-prefix-cls} {
+  position: absolute;
+}
+
+.#{$popover-wrapper-cls} {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background-color: red;
 }

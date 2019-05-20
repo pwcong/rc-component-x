@@ -7,7 +7,7 @@ export interface IRestProps {
   onMouseOver?: (event: React.MouseEvent<HTMLElement, MouseEvent>) => void;
 }
 
-const getRestProps = (props: IRestProps, revert?: boolean) => {
+export const getRestProps = (props: IRestProps, revert?: boolean) => {
   const restNames = [
     'onMouseDown',
     'onMouseEnter',
@@ -23,5 +23,3 @@ const getRestProps = (props: IRestProps, revert?: boolean) => {
 
   return restProps;
 };
-
-export default getRestProps;
