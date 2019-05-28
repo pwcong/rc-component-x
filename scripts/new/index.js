@@ -60,6 +60,7 @@ inquirer
       author: 'Pwcong <pwcong@foxmail.com>',
       main: 'dist/bundle.min.js',
       module: 'dist/bundle.es.js',
+      types: 'dist/bundle.d.ts',
       keywords: [`rc-x-${name}`],
       license: 'MIT',
       dependencies: {},

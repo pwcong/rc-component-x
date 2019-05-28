@@ -7929,6 +7929,13 @@ rollup-plugin-commonjs@^9.3.4:
     resolve "^1.10.0"
     rollup-pluginutils "^2.6.0"
 
+rollup-plugin-dts@^0.15.1:
+  version "0.15.1"
+  resolved "https://registry.yarnpkg.com/rollup-plugin-dts/-/rollup-plugin-dts-0.15.1.tgz#d11fadb10428c3ebccc86b326dd94fd2737d8444"
+  integrity sha512-MFO8pMI9GI57sYOIeYUCzQmTZgATEma9616rAaEaTwZxPo9MVC7NkgOMyBrUyjULSoScdYo+3C0+sOq60rL5RQ==
+  optionalDependencies:
+    "@babel/code-frame" "^7.0.0"
+
 rollup-plugin-filesize@^6.0.1:
   version "6.0.1"
   resolved "https://registry.npm.taobao.org/rollup-plugin-filesize/download/rollup-plugin-filesize-6.0.1.tgz#71937b48a411374c76c4a7e6bbdb087780d8bd64"

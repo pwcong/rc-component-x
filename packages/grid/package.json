@@ -5,8 +5,16 @@
   "author": "Pwcong <pwcong@foxmail.com>",
   "main": "dist/bundle.min.js",
   "module": "dist/bundle.es.js",
-  "keywords": ["rc-x-grid"],
+  "types": "dist/bundle.d.ts",
+  "keywords": [
+    "rc-x-grid"
+  ],
   "license": "MIT",
-  "dependencies": { "@rc-x/style": "^0.0.1", "@rc-x/utils": "^0.0.1" },
-  "devDependencies": { "@rc-x/test": "^0.0.1" }
+  "dependencies": {
+    "@rc-x/style": "^0.0.1",
+    "@rc-x/utils": "^0.0.1"
+  },
+  "devDependencies": {
+    "@rc-x/test": "^0.0.1"
+  }
 }
