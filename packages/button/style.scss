@@ -80,11 +80,12 @@ $sizes: (
   }
 
   &-icon {
+    margin-right: 6px;
     display: inline !important;
   }
 
-  & > *:not(:last-child) {
-    margin-right: 6px;
+  &-circle &-icon {
+    margin-right: 0;
   }
 }
 
