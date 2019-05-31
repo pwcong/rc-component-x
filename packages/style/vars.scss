@@ -1,7 +1,7 @@
-/**************** Global ****************/
+// Global
 $prefix-cls: rc-x;
 
-/**************** Color ****************/
+// Color
 $white: #ffffff;
 $black: #000000;
 $primary-color: #0077ff;
@@ -10,19 +10,19 @@ $warning-color: #ffbb00;
 $success-color: #11cc00;
 $disabled-color: #dddddd;
 
-/**************** Z-Index ****************/
+// Z-Index
 $z-index: 0;
 $z-index-up: 1;
 $z-index-upper: 100;
 $z-index-upperer: 10000;
 $z-index-upperest: 99999;
 
-/**************** Background ****************/
+// Background
 $component-bg: #aaaaaa;
 $disabled-bg: #e5e5e5;
 $active-bg: rgba($primary-color, 0.2);
 
-/**************** Font ****************/
+// Font
 $font-size-xs: 10px;
 $font-size-sm: 12px;
 $font-size: 14px;
@@ -37,10 +37,10 @@ $text-color-light: #999999;
 $text-color-danger: $error-color;
 $text-color-disabled: $disabled-color;
 
-/**************** Animation ****************/
+// Animation
 $transition-time: 0.2s;
 
-/**************** Button ****************/
+// Button
 $button-height-sm: 24px;
 $button-height: 32px;
 $button-height-lg: 40px;
@@ -48,7 +48,7 @@ $button-padding-sm: 0 4px;
 $button-padding: 0 8px;
 $button-padding-lg: 0 12px;
 
-/**************** Border ****************/
+// Border
 $border-width-sm: 1px;
 $border-width: 3px;
 $border-width-lg: 4px;
@@ -58,7 +58,7 @@ $border-radius-sm: 2px;
 $border-radius: 3px;
 $border-radius-lg: 5px;
 
-/**************** Input ****************/
+// Input
 $input-height-sm: 24px;
 $input-height: 32px;
 $input-height-lg: 40px;
@@ -66,11 +66,11 @@ $input-padding-left: 6px;
 $input-padding-right: 6px;
 $input-addon-padding: 0 6px;
 
-/**************** Textarea ****************/
+// Textarea
 $textarea-padding-vertical: 6px;
 $textarea-padding-horizontal: 6px;
 
-/**************** Grid ****************/
+// Grid
 $grid-gutter-width: 1rem;
 $grid-outer-margin: 2rem;
 $grid-gutter-compensation: $grid-gutter-width * 0.5 * -1;
@@ -87,15 +87,15 @@ $grid-container-sm: $grid-sm-min + $grid-gutter-width;
 $grid-container-md: $grid-md-min + $grid-gutter-width;
 $grid-container-lg: $grid-lg-min + $grid-gutter-width;
 
-/**************** Radio ****************/
+// Radio
 $radio-width: 16px;
 $radio-height: $radio-width;
 
-/**************** Checkbox ****************/
+// Checkbox
 $checkbox-width: 16px;
 $checkbox-height: $radio-width;
 
-/**************** Switch ****************/
+// Switch
 $switch-width: 60px;
 $switch-height: 30px;
 $switch-width-lg: 72px;
@@ -105,39 +105,39 @@ $switch-height-sm: 24px;
 $switch-bg: $component-bg;
 $switch-bg-checked: $primary-color;
 
-/**************** Message ****************/
+// Message
 $message-padding: 8px 12px;
 $message-box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.1);
 $message-item-padding: 8px;
 
-/**************** Spin ****************/
+// Spin
 $spin-size: 30px;
 $spin-size-sm: 20px;
 $spin-size-lg: 40px;
 
-/**************** Empty ****************/
+// Empty
 $empty-size: 100px;
 $empty-size-sm: 60px;
 $empty-size-lg: 140px;
 $empty-padding: 16px;
 
-/**************** Avatar ****************/
+// Avatar
 $avatar-size: 30px;
 $avatar-size-sm: 20px;
 $avatar-size-lg: 40px;
 
-/**************** Badge ****************/
+// Badge
 $badge-size: 22px;
 $badge-size-lg: 26px;
 $badge-size-sm: 18px;
 $badge-padding: 0 5px;
 
-/**************** Rate ****************/
+// Rate
 $rate-star-font-size: $font-size-lg;
 $rate-star-color: $text-color-light;
 $rate-star-color-active: $warning-color;
 
-/**************** Tag ****************/
+// Tag
 $tag-bg: $disabled-color;
 $tag-height: 20px;
 $tag-padding: 0 6px;

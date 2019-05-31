@@ -7,7 +7,6 @@ const inquirer = require('inquirer');
 
 const { getPackages } = require('../utils');
 const start = require('../utils/start');
-const clean = require('../clean');
 
 const packages = getPackages();
 
@@ -40,8 +39,6 @@ inquirer
     if (!answers.package) {
       return;
     }
-
-    clean();
 
     const packagePath = answers.package;
     const distPath = path.join(packagePath, 'dist');

@@ -7,7 +7,6 @@ const { getEntryCode } = require('./utils');
 
 const { getPackages } = require('../utils');
 const start = require('../utils/start');
-const clean = require('../clean');
 
 const packages = getPackages();
 const distPath = path.join(__dirname, 'dist');
@@ -41,5 +40,4 @@ const webpackConfig = {
   ]
 };
 
-clean();
 start(config, webpackConfig);
