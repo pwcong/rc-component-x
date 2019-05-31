@@ -1,8 +1,8 @@
-import React from 'react'
-import Test from '@rc-x/test'
+import React from 'react';
+import Test from '@rc-x/test';
 
-import Popover from '../index'
-import packageJson from '../package.json'
+import Popover from '../index';
+import packageJson from '../package.json';
 
 export default function() {
   return (
@@ -75,5 +75,5 @@ export default function() {
       }}
       componentPackageJson={packageJson}
     />
-  )
+  );
 }
