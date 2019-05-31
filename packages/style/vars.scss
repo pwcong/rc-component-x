@@ -107,7 +107,7 @@ $switch-bg-checked: $primary-color;
 
 // Message
 $message-padding: 8px 12px;
-$message-box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.1);
+$message-box-shadow: 0 2px 6px 0 rgba($black, 0.1);
 $message-item-padding: 8px;
 
 // Spin
@@ -141,3 +141,10 @@ $rate-star-color-active: $warning-color;
 $tag-bg: $disabled-color;
 $tag-height: 20px;
 $tag-padding: 0 6px;
+
+// Popover
+$popover-border-radius: $border-radius-sm;
+$popover-box-shadow: 0 0 6px 0 rgba($black, 0.1);
+$popover-inner-padding: 12px;
+$popover-arrow-box-shadow: 2px 2px 6px 0 rgba($black, 0.1);
+$popover-arrow-size: 8px;

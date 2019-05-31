@@ -1,15 +1,155 @@
 @import '~@rc-x/style/common.scss';
 
 $popover-prefix-cls: #{$prefix-cls}-popover;
-$popover-wrapper-cls: #{$popover-prefix-cls}-wrapper;
+
+$placements: (
+  top: (
+    innerTransform: translate(-50%, -100%),
+    innerPadding: 0 0 $popover-inner-padding 0,
+    arrowTransform: translate(-50%, 50%) rotate(45deg),
+    arrowTop: unset,
+    arrowLeft: 50%,
+    arrowRight: unset,
+    arrowBottom: $popover-inner-padding
+  ),
+  topleft: (
+    innerTransform: translate(0, -100%),
+    innerPadding: 0 0 $popover-inner-padding 0,
+    arrowTransform: translate(0, 50%) rotate(45deg),
+    arrowTop: unset,
+    arrowLeft: $popover-border-radius * 2,
+    arrowRight: unset,
+    arrowBottom: $popover-inner-padding
+  ),
+  topright: (
+    innerTransform: translate(-100%, -100%),
+    innerPadding: 0 0 $popover-inner-padding 0,
+    arrowTransform: translate(0, 50%) rotate(45deg),
+    arrowTop: unset,
+    arrowLeft: unset,
+    arrowRight: $popover-border-radius * 2,
+    arrowBottom: $popover-inner-padding
+  ),
+  bottom: (
+    innerTransform: translate(-50%, 0),
+    innerPadding: $popover-inner-padding 0 0 0,
+    arrowTransform: translate(-50%, -50%) rotate(-135deg),
+    arrowTop: $popover-inner-padding,
+    arrowLeft: 50%,
+    arrowRight: unset,
+    arrowBottom: unset
+  ),
+  bottomleft: (
+    innerTransform: translate(0, 0),
+    innerPadding: $popover-inner-padding 0 0 0,
+    arrowTransform: translate(0, -50%) rotate(-135deg),
+    arrowTop: $popover-inner-padding,
+    arrowLeft: $popover-border-radius * 2,
+    arrowRight: unset,
+    arrowBottom: unset
+  ),
+  bottomright: (
+    innerTransform: translate(-100%, 0),
+    innerPadding: $popover-inner-padding 0 0 0,
+    arrowTransform: translate(0, -50%) rotate(-135deg),
+    arrowTop: $popover-inner-padding,
+    arrowLeft: unset,
+    arrowRight: $popover-border-radius * 2,
+    arrowBottom: unset
+  ),
+  left: (
+    innerTransform: translate(-100%, -50%),
+    innerPadding: 0 $popover-inner-padding 0 0,
+    arrowTransform: translate(50%, -50%) rotate(-45deg),
+    arrowTop: 50%,
+    arrowLeft: unset,
+    arrowRight: $popover-inner-padding,
+    arrowBottom: unset
+  ),
+  lefttop: (
+    innerTransform: translate(-100%, 0),
+    innerPadding: 0 $popover-inner-padding 0 0,
+    arrowTransform: translate(50%, 0) rotate(-45deg),
+    arrowTop: $popover-border-radius * 2,
+    arrowLeft: unset,
+    arrowRight: $popover-inner-padding,
+    arrowBottom: unset
+  ),
+  leftbottom: (
+    innerTransform: translate(-100%, -100%),
+    innerPadding: 0 $popover-inner-padding 0 0,
+    arrowTransform: translate(50%, 0) rotate(-45deg),
+    arrowTop: unset,
+    arrowLeft: unset,
+    arrowRight: $popover-inner-padding,
+    arrowBottom: $popover-border-radius * 2
+  ),
+  right: (
+    innerTransform: translate(0, -50%),
+    innerPadding: 0 0 0 $popover-inner-padding,
+    arrowTransform: translate(-50%, -50%) rotate(135deg),
+    arrowTop: 50%,
+    arrowLeft: $popover-inner-padding,
+    arrowRight: unset,
+    arrowBottom: unset
+  ),
+  righttop: (
+    innerTransform: translate(0, 0),
+    innerPadding: 0 0 0 $popover-inner-padding,
+    arrowTransform: translate(-50%, 0) rotate(135deg),
+    arrowTop: $popover-border-radius * 2,
+    arrowLeft: $popover-inner-padding,
+    arrowRight: unset,
+    arrowBottom: unset
+  ),
+  rightbottom: (
+    innerTransform: translate(0, -100%),
+    innerPadding: 0 0 0 $popover-inner-padding,
+    arrowTransform: translate(-50%, 0) rotate(135deg),
+    arrowTop: unset,
+    arrowLeft: $popover-inner-padding,
+    arrowRight: unset,
+    arrowBottom: $popover-border-radius * 2
+  )
+);
 
 .#{$popover-prefix-cls} {
-  position: absolute;
+  background-color: $white;
+  box-shadow: $popover-box-shadow;
+  border-radius: $popover-border-radius;
+
+  &-wrapper {
+    z-index: $z-index-upper;
+    transition: opacity $transition-time;
+    position: absolute;
+  }
+
+  &-inner {
+    position: absolute;
+
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      width: $popover-arrow-size;
+      height: $popover-arrow-size;
+      background-color: $white;
+      box-shadow: $popover-arrow-box-shadow;
+    }
+  }
 }
 
-.#{$popover-wrapper-cls} {
-  position: absolute;
-  width: 2px;
-  height: 2px;
-  background-color: red;
+@each $key, $value in $placements {
+  .#{$popover-prefix-cls}-inner-#{$key} {
+    transform: map-get($value, innerTransform);
+    padding: map-get($value, innerPadding);
+
+    &::before {
+      top: map-get($value, arrowTop);
+      left: map-get($value, arrowLeft);
+      right: map-get($value, arrowRight);
+      bottom: map-get($value, arrowBottom);
+      transform: map-get($value, arrowTransform);
+    }
+  }
 }
