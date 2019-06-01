@@ -18,7 +18,13 @@ interface IForwardRefProps extends IPasswordProps {
 }
 
 const Password: React.FunctionComponent<IForwardRefProps> = props => {
-  const { defaultVisibled = true, className, forwardedRef } = props;
+  const {
+    defaultVisibled = true,
+    className,
+    forwardedRef,
+    wrapperClassName,
+    innerClassName
+  } = props;
 
   const [visibled, setVisibled] = useState(defaultVisibled);
 
@@ -27,6 +33,14 @@ const Password: React.FunctionComponent<IForwardRefProps> = props => {
       {...props}
       ref={forwardedRef}
       className={classNames(baseCls, className)}
+      wrapperClassName={classNames(
+        getPrefixCls('wrapper', baseCls),
+        wrapperClassName
+      )}
+      innerClassName={classNames(
+        getPrefixCls('inner', baseCls),
+        innerClassName
+      )}
       htmlType={visibled ? 'text' : 'password'}
       suffix={
         <Icon

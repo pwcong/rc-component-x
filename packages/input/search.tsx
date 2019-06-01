@@ -24,6 +24,8 @@ const Search: React.FunctionComponent<IForwardRefProps> = props => {
     onPressEnter,
     defaultValue,
     forwardedRef,
+    wrapperClassName,
+    innerClassName,
     value: customValue
   } = props;
 
@@ -35,6 +37,14 @@ const Search: React.FunctionComponent<IForwardRefProps> = props => {
       value={customValue || value}
       ref={forwardedRef}
       className={classNames(baseCls, className)}
+      wrapperClassName={classNames(
+        getPrefixCls('wrapper', baseCls),
+        wrapperClassName
+      )}
+      innerClassName={classNames(
+        getPrefixCls('inner', baseCls),
+        innerClassName
+      )}
       onChange={value => {
         setValue(value);
         onChange && onChange(value);

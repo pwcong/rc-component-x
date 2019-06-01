@@ -26,6 +26,8 @@ export interface IInputProps extends IBaseProps, IRestProps {
   prefix?: string | React.ReactNode;
   /** 后缀图标 */
   suffix?: string | React.ReactNode;
+  /** 自定义内容插槽 */
+  slot?: React.ReactNode;
   /** 允许清除 */
   allowClear?: boolean;
   /** 回车键回调 */
@@ -55,8 +57,10 @@ class Input extends PureComponent<IForwardRefProps, IState> {
   constructor(props: IForwardRefProps) {
     super(props);
 
+    const { defaultValue } = this.props;
+
     this.state = {
-      value: props.defaultValue || ''
+      value: defaultValue !== undefined ? defaultValue : undefined
     };
   }
 
@@ -129,32 +133,40 @@ class Input extends PureComponent<IForwardRefProps, IState> {
     const {
       prefix,
       suffix,
+      slot,
       addonBefore,
       addonAfter,
       allowClear,
-      size
+      size,
+      wrapperClassName: customWrapperCls,
+      innerClassName: customInnerCls
     } = this.props;
 
     const restProps = getRestProps(this.props);
 
-    if (prefix || suffix || addonBefore || addonAfter || allowClear) {
+    if (prefix || suffix || addonBefore || addonAfter || allowClear || slot) {
       const wrapperCls = getPrefixCls('wrapper', baseCls);
       const innerCls = getPrefixCls('inner', baseCls);
 
       return (
         <div
           {...restProps}
-          className={classNames(wrapperCls, `${wrapperCls}-${size}`, {
-            [`${getPrefixCls('has-addon', wrapperCls)}`]:
-              addonBefore || addonAfter,
-            [`${getPrefixCls('has-addon-before', wrapperCls)}`]: addonBefore,
-            [`${getPrefixCls('has-addon-after', wrapperCls)}`]: addonAfter
-          })}
+          className={classNames(
+            customWrapperCls,
+            wrapperCls,
+            `${wrapperCls}-${size}`,
+            {
+              [`${getPrefixCls('has-addon', wrapperCls)}`]:
+                addonBefore || addonAfter,
+              [`${getPrefixCls('has-addon-before', wrapperCls)}`]: addonBefore,
+              [`${getPrefixCls('has-addon-after', wrapperCls)}`]: addonAfter
+            }
+          )}
         >
           {addonBefore && this.renderAddon(addonBefore, 'before')}
-          {prefix || suffix || allowClear ? (
+          {prefix || suffix || allowClear || slot ? (
             <div
-              className={classNames(innerCls, {
+              className={classNames(customInnerCls, innerCls, {
                 [`${getPrefixCls('has-prefix', innerCls)}`]: prefix,
                 [`${getPrefixCls('has-suffix', innerCls)}`]: suffix,
                 [`${getPrefixCls('has-clear', innerCls)}`]: allowClear
@@ -173,15 +185,22 @@ class Input extends PureComponent<IForwardRefProps, IState> {
                   ) : (
                     suffix
                   )}
-                  {allowClear && this.state.value && (
-                    <Icon
-                      onClick={this.handleClear}
-                      className={getPrefixCls('clear', baseCls)}
-                      type="x-circle"
-                    />
-                  )}
+                  {allowClear &&
+                    this.state.value !== undefined &&
+                    this.state.value !== '' && (
+                      <Icon
+                        onClick={this.handleClear}
+                        className={getPrefixCls('clear', baseCls)}
+                        type="x-circle"
+                      />
+                    )}
                 </div>
-              ) : null}
+              ) : (
+                undefined
+              )}
+              {slot && (
+                <div className={getPrefixCls('slot', baseCls)}>{slot}</div>
+              )}
             </div>
           ) : (
             this.renderInput()

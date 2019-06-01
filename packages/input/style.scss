@@ -4,6 +4,7 @@ $input-prefix-cls: #{$prefix-cls}-input;
 $input-wrapper-cls: #{$input-prefix-cls}-wrapper;
 $input-inner-cls: #{$input-prefix-cls}-inner;
 $input-addon-cls: #{$input-prefix-cls}-addon;
+$input-slot-cls: #{$input-prefix-cls}-slot;
 $input-password-cls: #{$input-prefix-cls}-password;
 $input-search-cls: #{$input-prefix-cls}-search;
 
@@ -101,7 +102,7 @@ $textarea-inner-cls: #{$textarea-prefix-cls}-inner;
       }
     }
     &-has-suffix,
-    &-has-cleer {
+    &-has-clear {
       .#{$input-prefix-cls} {
         padding-right: $input-padding-right * 2 + $font-size;
       }

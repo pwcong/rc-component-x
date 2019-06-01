@@ -1,5 +1,71 @@
 @import '~@rc-x/style/common.scss';
+@import '~@rc-x/input/style.scss';
 
 $input-number-prefix-cls: #{$prefix-cls}-input-number;
+$input-number-wrapper-cls: #{$input-number-prefix-cls}-wrapper;
+$input-number-inner-cls: #{$input-number-prefix-cls}-inner;
+$input-number-tools-cls: #{$input-number-prefix-cls}-tools;
+$input-number-arrow-cls: #{$input-number-prefix-cls}-arrow;
+
+$input-number-tools-width: 20px;
+
 .#{$input-number-prefix-cls} {
+  &-inner {
+    .#{$input-slot-cls} {
+      position: absolute;
+      right: 1px;
+      top: 1px;
+      width: $input-number-tools-width;
+      bottom: 1px;
+
+      .#{$input-number-tools-cls} {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        justify-content: center;
+        border-left: 1px solid $border-color;
+        box-sizing: border-box;
+        .#{$input-number-arrow-cls} {
+          cursor: pointer;
+          color: $text-color-secondary;
+          flex: 1;
+          width: 100%;
+          text-align: center;
+          display: flex;
+          flex-flow: row nowrap;
+          align-items: center;
+          justify-content: center;
+
+          &:hover {
+            color: $primary-color;
+          }
+        }
+      }
+    }
+
+    .#{$input-prefix-cls}-suffix {
+      right: $input-number-tools-width + 6px;
+    }
+  }
+}
+.#{$input-number-inner-cls}.#{$input-inner-cls} {
+  .#{$input-prefix-cls} {
+    padding-right: $input-number-tools-width + $input-padding-right;
+  }
+}
+.#{$input-number-inner-cls}.#{$input-inner-cls}-has-suffix,
+.#{$input-number-inner-cls}.#{$input-inner-cls}-has-clear {
+  .#{$input-prefix-cls} {
+    padding-right: $input-number-tools-width + $input-padding-right * 2 +
+      $font-size;
+  }
+}
+
+.#{$input-number-inner-cls}.#{$input-inner-cls}-has-suffix.#{$input-inner-cls}-has-clear {
+  .#{$input-prefix-cls} {
+    padding-right: $input-number-tools-width + $input-padding-right * 2 +
+      $font-size * 2;
+  }
 }
