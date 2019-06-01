@@ -4,7 +4,7 @@ $input-prefix-cls: #{$prefix-cls}-input;
 $input-wrapper-cls: #{$input-prefix-cls}-wrapper;
 $input-inner-cls: #{$input-prefix-cls}-inner;
 $input-addon-cls: #{$input-prefix-cls}-addon;
-$input-number-cls: #{$input-prefix-cls}-number;
+$input-password-cls: #{$input-prefix-cls}-password;
 $input-search-cls: #{$input-prefix-cls}-search;
 
 $textarea-prefix-cls: #{$prefix-cls}-textarea;
@@ -39,7 +39,7 @@ $textarea-inner-cls: #{$textarea-prefix-cls}-inner;
   }
   &-large {
     height: $input-height-lg;
-    font-size: $font-size-lg;
+    font-size: $font-size-md;
     border-radius: $border-radius-lg;
   }
 
@@ -52,7 +52,7 @@ $textarea-inner-cls: #{$textarea-prefix-cls}-inner;
 
   &-wrapper {
     display: flex;
-
+    font-size: $font-size;
     &-has-addon {
     }
 
@@ -70,6 +70,7 @@ $textarea-inner-cls: #{$textarea-prefix-cls}-inner;
     }
 
     &-large {
+      font-size: $font-size-md;
       .#{$input-addon-cls}-before {
         border-top-left-radius: $border-radius-lg;
         border-bottom-left-radius: $border-radius-lg;
@@ -80,6 +81,7 @@ $textarea-inner-cls: #{$textarea-prefix-cls}-inner;
       }
     }
     &-small {
+      font-size: $font-size-sm;
       .#{$input-addon-cls}-before {
         border-top-left-radius: $border-radius-sm;
         border-bottom-left-radius: $border-radius-sm;
@@ -162,7 +164,7 @@ $textarea-inner-cls: #{$textarea-prefix-cls}-inner;
   }
 }
 
-.#{$input-number-cls} {
+.#{$input-password-cls} {
   &-toggle {
     cursor: pointer;
     &:hover {

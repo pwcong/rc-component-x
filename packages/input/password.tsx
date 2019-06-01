@@ -6,7 +6,7 @@ import Input, { IInputProps } from './input';
 
 import './style.scss';
 
-const baseCls = getPrefixCls('input-number');
+const baseCls = getPrefixCls('input-password');
 
 export interface IPasswordProps extends IInputProps {
   /** 默认可见 */

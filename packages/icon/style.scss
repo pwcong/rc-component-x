@@ -7,10 +7,8 @@ $icon-prefix-cls: #{$prefix-cls}-icon;
   font-size: inherit;
   color: inherit;
   line-height: 0;
-  position: relative;
-  top: 1px;
 
   &-spin {
-    animation: anim-spin 1.5s linear infinite;
+    animation: anim-spin $icon-spin-duration linear infinite;
   }
 }

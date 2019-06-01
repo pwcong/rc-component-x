@@ -120,7 +120,7 @@ $placements: (
 
   &-wrapper {
     z-index: $z-index-upper;
-    transition: opacity $transition-time;
+    transition: opacity $transition-duration;
     position: absolute;
   }
 
