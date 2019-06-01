@@ -7,7 +7,7 @@ $input-number-inner-cls: #{$input-number-prefix-cls}-inner;
 $input-number-tools-cls: #{$input-number-prefix-cls}-tools;
 $input-number-arrow-cls: #{$input-number-prefix-cls}-arrow;
 
-$input-number-tools-width: 20px;
+$input-number-tools-width: 30px;
 
 .#{$input-number-prefix-cls} {
   &-inner {
@@ -37,9 +37,14 @@ $input-number-tools-width: 20px;
           flex-flow: row nowrap;
           align-items: center;
           justify-content: center;
+          box-sizing: border-box;
 
           &:hover {
             color: $primary-color;
+          }
+
+          &:not(:last-child) {
+            border-bottom: 1px solid $border-color;
           }
         }
       }

@@ -5,5 +5,6 @@ export * from './props';
 export * from './classnames';
 export * from './warning';
 export * from './dom';
+export * from './regexp';
 
 export { classNames, warning };
