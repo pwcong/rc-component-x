@@ -7,7 +7,6 @@ export * from './input';
 export * from './password';
 export * from './search';
 export * from './textarea';
-export * from './types';
 
 export { Password, Search, Textarea };
 export default Input;
