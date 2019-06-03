@@ -215,3 +215,12 @@ body {
     -webkit-transform: rotate(360deg);
             transform: rotate(360deg); } }
 
+.rc-x-icon {
+  display: inline-block;
+  font-size: inherit;
+  color: inherit;
+  line-height: 0; }
+  .rc-x-icon-spin {
+    -webkit-animation: anim-spin 1.5s linear infinite;
+            animation: anim-spin 1.5s linear infinite; }
+

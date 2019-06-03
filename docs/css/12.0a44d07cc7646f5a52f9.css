@@ -85,7 +85,7 @@ body {
     border-radius: 2px; }
   .rc-x-input-large {
     height: 40px;
-    font-size: 18px;
+    font-size: 16px;
     border-radius: 5px; }
   .rc-x-input-disabled {
     cursor: not-allowed;
@@ -93,31 +93,36 @@ body {
     color: #dddddd;
     border-color: #cccccc !important; }
   .rc-x-input-wrapper {
-    display: flex; }
+    display: flex;
+    font-size: 14px; }
     .rc-x-input-wrapper-has-addon-before .rc-x-input {
       border-top-left-radius: 0;
       border-bottom-left-radius: 0; }
     .rc-x-input-wrapper-has-addon-after .rc-x-input {
       border-top-right-radius: 0;
       border-bottom-right-radius: 0; }
-    .rc-x-input-wrapper-large .rc-x-input-addon-before {
-      border-top-left-radius: 5px;
-      border-bottom-left-radius: 5px; }
-    .rc-x-input-wrapper-large .rc-x-input-addon-after {
-      border-top-right-radius: 5px;
-      border-bottom-right-radius: 5px; }
-    .rc-x-input-wrapper-small .rc-x-input-addon-before {
-      border-top-left-radius: 2px;
-      border-bottom-left-radius: 2px; }
-    .rc-x-input-wrapper-small .rc-x-input-addon-after {
-      border-top-right-radius: 2px;
-      border-bottom-right-radius: 2px; }
+    .rc-x-input-wrapper-large {
+      font-size: 16px; }
+      .rc-x-input-wrapper-large .rc-x-input-addon-before {
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px; }
+      .rc-x-input-wrapper-large .rc-x-input-addon-after {
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px; }
+    .rc-x-input-wrapper-small {
+      font-size: 12px; }
+      .rc-x-input-wrapper-small .rc-x-input-addon-before {
+        border-top-left-radius: 2px;
+        border-bottom-left-radius: 2px; }
+      .rc-x-input-wrapper-small .rc-x-input-addon-after {
+        border-top-right-radius: 2px;
+        border-bottom-right-radius: 2px; }
   .rc-x-input-inner {
     flex: 1;
     position: relative; }
     .rc-x-input-inner-has-prefix .rc-x-input {
       padding-left: 26px; }
-    .rc-x-input-inner-has-suffix .rc-x-input, .rc-x-input-inner-has-cleer .rc-x-input {
+    .rc-x-input-inner-has-suffix .rc-x-input, .rc-x-input-inner-has-clear .rc-x-input {
       padding-right: 26px; }
     .rc-x-input-inner-has-suffix.rc-x-input-inner-has-clear .rc-x-input {
       padding-right: 40px; }
@@ -156,9 +161,9 @@ body {
       border-top-right-radius: 3px;
       border-bottom-right-radius: 3px; }
 
-.rc-x-input-number-toggle {
+.rc-x-input-password-toggle {
   cursor: pointer; }
-  .rc-x-input-number-toggle:hover {
+  .rc-x-input-password-toggle:hover {
     color: #0077ff; }
 
 .rc-x-input-search-enter {

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import Icon from '@rc-x/icon';
-import { classNames, getPrefixCls, commonRegExp } from '@rc-x/utils';
+import { classNames, getPrefixCls } from '@rc-x/utils';
 import Input, { IInputProps } from '@rc-x/input';
 
 import './style.scss';
