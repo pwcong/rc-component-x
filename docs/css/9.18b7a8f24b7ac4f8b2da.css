@@ -486,6 +486,10 @@ body {
     color: #ff1100 !important; }
 
 .rc-x-input-number-inner .rc-x-input-slot {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   position: absolute;
   right: 1px;
   top: 1px;
