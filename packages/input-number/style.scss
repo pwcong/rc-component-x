@@ -12,6 +12,7 @@ $input-number-tools-width: 30px;
 .#{$input-number-prefix-cls} {
   &-inner {
     .#{$input-slot-cls} {
+      user-select: none;
       position: absolute;
       right: 1px;
       top: 1px;

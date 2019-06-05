@@ -42,7 +42,7 @@ Hope this repository can help you. That's all.
 - [ ] Cascader
 - [ ] DatePicker
 - [ ] Form
-- [ ] InputNumber
+- [x] InputNumber
 - [x] Input
 - [ ] Mention
 - [x] Rate

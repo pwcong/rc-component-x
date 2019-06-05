@@ -12,7 +12,7 @@ export default function() {
       componentTestProps={{
         defaultValue: {
           type: 'inputNumber',
-          value: 0,
+          value: 5,
           label: '默认值'
         },
         disabled: {
@@ -53,6 +53,56 @@ export default function() {
           type: 'switch',
           value: true,
           label: '允许清除'
+        },
+        max: {
+          type: 'radio',
+          value: undefined,
+          label: '最大值',
+          options: [
+            {
+              label: 'undefined',
+              value: undefined
+            },
+            {
+              label: '10',
+              value: 10
+            }
+          ]
+        },
+        min: {
+          type: 'radio',
+          value: undefined,
+          label: '最小值',
+          options: [
+            {
+              label: 'undefined',
+              value: undefined
+            },
+            {
+              label: '0',
+              value: 0
+            }
+          ]
+        },
+        precision: {
+          type: 'radio',
+          value: undefined,
+          label: '精度',
+          options: [
+            {
+              label: 'undefined',
+              value: undefined
+            },
+            {
+              label: '2',
+              value: 2
+            }
+          ]
+        },
+        decimalSeparator: {
+          type: 'input',
+          value: '',
+          label: '小数点'
         }
       }}
       componentPackageJson={packageJson}

@@ -60,7 +60,7 @@ class Input extends PureComponent<IForwardRefProps, IState> {
     const { defaultValue } = this.props;
 
     this.state = {
-      value: defaultValue !== undefined ? defaultValue : undefined
+      value: defaultValue !== undefined ? defaultValue : ''
     };
   }
 
