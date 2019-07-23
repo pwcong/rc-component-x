@@ -39,9 +39,8 @@ $types: (
 .#{$messages-prefix-cls} {
   position: fixed;
   z-index: $z-index-upperest;
-  left: 0;
+  left: 50%;
   top: 0;
-  right: 0;
 }
 
 .#{$message-item-cls} {
