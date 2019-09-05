@@ -12,7 +12,10 @@
   "license": "MIT",
   "dependencies": {
     "@rc-x/style": "^0.0.1",
-    "@rc-x/utils": "^0.0.1"
+    "@rc-x/utils": "^0.0.1",
+    "react-motion": "^0.5.2",
+    "react-spring": "^8.0.27",
+    "react-transition-group": "^4.2.2"
   },
   "devDependencies": {
     "@rc-x/test": "^0.0.1"

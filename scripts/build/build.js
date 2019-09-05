@@ -5,7 +5,8 @@ const { dts } = require('rollup-plugin-dts');
 const resolve = require('rollup-plugin-node-resolve');
 const commonjs = require('rollup-plugin-commonjs');
 const postcss = require('rollup-plugin-postcss');
-const uglify = require('rollup-plugin-uglify').uglify;
+// const uglify = require('rollup-plugin-uglify').uglify;
+const { terser } = require('rollup-plugin-terser');
 const filesize = require('rollup-plugin-filesize');
 
 module.exports = async (inputOptions, outputOptions) => {
@@ -43,7 +44,8 @@ module.exports = async (inputOptions, outputOptions) => {
           ts({
             tsconfig: path.resolve(__dirname, '../../tsconfig.json')
           }),
-          uglify(),
+          // uglify(),
+          terser(),
           ...commonPlugins
         ]
       },
